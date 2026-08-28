@@ -112,6 +112,12 @@ builder.Services.AddScoped<ISeoOptimizationService, SeoOptimizationService>();
 
 // Add HttpClient factory (required for WebSpark.HttpClientUtility)
 builder.Services.AddHttpClient();
+builder.Services.AddHttpClient("ArtInstituteImages", client =>
+{
+    client.Timeout = TimeSpan.FromSeconds(30);
+    client.DefaultRequestHeaders.UserAgent.ParseAdd("ArtSpark/1.0");
+    client.DefaultRequestHeaders.Accept.ParseAdd("image/avif,image/webp,image/apng,image/svg+xml,image/*,*/*;q=0.8");
+});
 
 // Add ArtSpark Agent services
 builder.Services.AddArtSparkAgent(builder.Configuration, config =>

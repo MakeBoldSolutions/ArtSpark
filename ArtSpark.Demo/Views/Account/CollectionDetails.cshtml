@@ -504,7 +504,7 @@
                         
                         // Update image
                         if (artwork.image_id) {
-                            const imageUrl = `https://www.artic.edu/iiif/2/${artwork.image_id}/full/400,/0/default.jpg`;
+                            const imageUrl = `/api/media/images/iiif/${encodeURIComponent(artwork.image_id)}/full/400%2C/0/default.jpg`;
                             container.innerHTML = `
                                 <img src="${imageUrl}" 
                                      class="card-img-top" 

@@ -3,6 +3,7 @@ using System.Text.Json;
 using ArtSpark.Client.Interfaces;
 using ArtSpark.Demo.Data;
 using ArtSpark.Demo.Models;
+using ArtSpark.Demo.Utilities;
 
 namespace ArtSpark.Demo.Services;
 
@@ -311,7 +312,7 @@ public class PublicCollectionService : IPublicCollectionService
                 Dimensions = artwork?.Dimensions,
                 Description = artwork?.Description,
                 ImageUrl = !string.IsNullOrEmpty(artwork?.ImageId)
-                    ? $"https://www.artic.edu/iiif/2/{artwork.ImageId}/full/843,/0/default.jpg"
+                    ? ArtInstituteImageUrl.Build(artwork.ImageId, "843,")
                     : null,
                 ExternalUrl = artwork != null ? $"https://www.artic.edu/artworks/{artwork.Id}" : null,
 
@@ -499,10 +500,10 @@ public class PublicCollectionService : IPublicCollectionService
                 Description = artwork.Description,
                 ImageId = artwork.ImageId,
                 ImageUrl = !string.IsNullOrEmpty(artwork.ImageId)
-                  ? $"https://www.artic.edu/iiif/2/{artwork.ImageId}/full/843,/0/default.jpg"
+                  ? ArtInstituteImageUrl.Build(artwork.ImageId, "843,")
                   : null,
                 ThumbnailUrl = !string.IsNullOrEmpty(artwork.ImageId)
-                  ? $"https://www.artic.edu/iiif/2/{artwork.ImageId}/full/400,/0/default.jpg"
+                  ? ArtInstituteImageUrl.Build(artwork.ImageId, "400,")
                   : null,
                 StyleTitle = artwork.StyleTitle,
                 ClassificationTitle = artwork.ClassificationTitle,

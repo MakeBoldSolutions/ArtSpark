@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Text.RegularExpressions;
 using ArtSpark.Client.Interfaces;
 using ArtSpark.Client.Models.Collections;
 using ArtSpark.Client.Models.Common;
@@ -12,16 +13,29 @@ namespace ArtSpark.Demo.Controllers.Api;
 /// </summary>
 [ApiController]
 [Route("api/[controller]")]
+[Route("api/media")]
 public class MediaApiController : ControllerBase
 {
     private readonly IArtInstituteClient _artInstituteClient;
+    private readonly IHttpClientFactory _httpClientFactory;
     private readonly ILogger<MediaApiController> _logger;
+    private static readonly Regex ImageIdPattern = new("^[a-zA-Z0-9-]+$", RegexOptions.Compiled);
+    private static readonly Regex IiifSizePattern = new(@"^\d+,?(\d+)?$", RegexOptions.Compiled);
+    private static readonly HashSet<string> AllowedImageFormats = new(StringComparer.OrdinalIgnoreCase)
+    {
+        "jpg",
+        "jpeg",
+        "png",
+        "webp"
+    };
 
     public MediaApiController(
         IArtInstituteClient artInstituteClient,
+        IHttpClientFactory httpClientFactory,
         ILogger<MediaApiController> logger)
     {
         _artInstituteClient = artInstituteClient ?? throw new ArgumentNullException(nameof(artInstituteClient));
+        _httpClientFactory = httpClientFactory ?? throw new ArgumentNullException(nameof(httpClientFactory));
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
 
@@ -54,6 +68,60 @@ public class MediaApiController : ControllerBase
         {
             _logger.LogError(ex, "Error building IIIF URL for image {ImageId}", imageId);
             return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while building the IIIF URL");
+        }
+    }
+
+    /// <summary>
+    /// Proxy an Art Institute IIIF image through the app origin.
+    /// </summary>
+    [HttpGet("images/iiif/{imageId}/full/{size}/0/default.{format}")]
+    [HttpHead("images/iiif/{imageId}/full/{size}/0/default.{format}")]
+    [ResponseCache(Duration = 2592000, Location = ResponseCacheLocation.Any)]
+    [ProducesResponseType(typeof(FileContentResult), StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    [ProducesResponseType(StatusCodes.Status502BadGateway)]
+    public async Task<IActionResult> GetIiifImage(
+        string imageId,
+        string size,
+        string format = "jpg",
+        CancellationToken cancellationToken = default)
+    {
+        if (!IsValidIiifRequest(imageId, size, format))
+        {
+            return BadRequest("Invalid image request");
+        }
+
+        var imageUrl = _artInstituteClient.BuildIiifUrl(imageId, size, format);
+        var httpClient = _httpClientFactory.CreateClient("ArtInstituteImages");
+
+        try
+        {
+            using var response = await httpClient.GetAsync(imageUrl, cancellationToken).ConfigureAwait(false);
+            if (!response.IsSuccessStatusCode)
+            {
+                _logger.LogWarning("IIIF image request failed for {ImageId} with status {StatusCode}", imageId, response.StatusCode);
+                return StatusCode((int)response.StatusCode);
+            }
+
+            var contentType = response.Content.Headers.ContentType?.ToString() ?? GetContentType(format);
+            if (!contentType.StartsWith("image/", StringComparison.OrdinalIgnoreCase))
+            {
+                _logger.LogWarning("IIIF image request for {ImageId} returned unexpected content type {ContentType}", imageId, contentType);
+                return StatusCode(StatusCodes.Status502BadGateway);
+            }
+
+            var imageBytes = await response.Content.ReadAsByteArrayAsync(cancellationToken).ConfigureAwait(false);
+            Response.Headers.CacheControl = "public,max-age=2592000";
+            return File(imageBytes, contentType);
+        }
+        catch (OperationCanceledException) when (cancellationToken.IsCancellationRequested)
+        {
+            return new EmptyResult();
+        }
+        catch (Exception ex)
+        {
+            _logger.LogError(ex, "Error proxying IIIF image {ImageId}", imageId);
+            return StatusCode(StatusCodes.Status502BadGateway);
         }
     }
 
@@ -565,5 +633,19 @@ public class MediaApiController : ControllerBase
             _logger.LogError(ex, "Error searching texts with advanced query");
             return StatusCode(StatusCodes.Status500InternalServerError, "An error occurred while searching texts");
         }
+    }
+
+    private static bool IsValidIiifRequest(string imageId, string size, string format)
+    {
+        return ImageIdPattern.IsMatch(imageId)
+            && IiifSizePattern.IsMatch(size)
+            && AllowedImageFormats.Contains(format);
+    }
+
+    private static string GetContentType(string format)
+    {
+        return format.Equals("jpg", StringComparison.OrdinalIgnoreCase) || format.Equals("jpeg", StringComparison.OrdinalIgnoreCase)
+            ? "image/jpeg"
+            : $"image/{format.ToLowerInvariant()}";
     }
 }

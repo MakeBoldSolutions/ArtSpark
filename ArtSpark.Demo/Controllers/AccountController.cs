@@ -571,7 +571,7 @@ public class AccountController : Controller
             Dimensions = artwork?.Dimensions,
             Description = artwork?.Description,
             ImageUrl = !string.IsNullOrEmpty(artwork?.ImageId)
-                ? $"https://www.artic.edu/iiif/2/{artwork.ImageId}/full/843,/0/default.jpg"
+                ? ArtInstituteImageUrl.Build(artwork.ImageId, "843,")
                 : null,
             ExternalUrl = artwork != null ? $"https://www.artic.edu/artworks/{artwork.Id}" : null,
 
@@ -650,7 +650,7 @@ public class AccountController : Controller
             ArtworkTitle = artwork?.Title ?? "Unknown Title",
             ArtworkArtist = artwork?.ArtistDisplay ?? "Unknown Artist",
             ArtworkImageUrl = !string.IsNullOrEmpty(artwork?.ImageId)
-                ? $"https://www.artic.edu/iiif/2/{artwork.ImageId}/full/400,/0/default.jpg"
+                ? ArtInstituteImageUrl.Build(artwork.ImageId, "400,")
                 : null
         };
 
@@ -694,7 +694,7 @@ public class AccountController : Controller
             model.ArtworkTitle = artwork?.Title ?? "Unknown Title";
             model.ArtworkArtist = artwork?.ArtistDisplay ?? "Unknown Artist";
             model.ArtworkImageUrl = !string.IsNullOrEmpty(artwork?.ImageId)
-                ? $"https://www.artic.edu/iiif/2/{artwork.ImageId}/full/400,/0/default.jpg"
+                ? ArtInstituteImageUrl.Build(artwork.ImageId, "400,")
                 : null;
 
             return View(model);
@@ -739,7 +739,7 @@ public class AccountController : Controller
             model.ArtworkTitle = artwork?.Title ?? "Unknown Title";
             model.ArtworkArtist = artwork?.ArtistDisplay ?? "Unknown Artist";
             model.ArtworkImageUrl = !string.IsNullOrEmpty(artwork?.ImageId)
-                ? $"https://www.artic.edu/iiif/2/{artwork.ImageId}/full/400,/0/default.jpg"
+                ? ArtInstituteImageUrl.Build(artwork.ImageId, "400,")
                 : null;
 
             return View(model);
