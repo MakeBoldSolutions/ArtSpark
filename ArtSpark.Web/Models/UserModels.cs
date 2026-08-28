@@ -381,7 +381,6 @@ public class EditCollectionItemViewModel
     public string ArtworkTitle { get; set; } = string.Empty;
     public string ArtworkArtist { get; set; } = string.Empty;
     public string? ArtworkImageUrl { get; set; }
-    public string? ArtworkImageFallbackUrl { get; set; }
 }
 
 // View Models for SEO-friendly public collection experiences
@@ -420,7 +419,6 @@ public class EnrichedArtworkViewModel
     public string? ImageId { get; set; }
     public string? ImageUrl { get; set; }
     public string? ThumbnailUrl { get; set; }
-    public string? ThumbnailLqip { get; set; }
     public string? StyleTitle { get; set; }
     public string? ClassificationTitle { get; set; }
     public string? DepartmentTitle { get; set; }
@@ -489,7 +487,6 @@ public class CollectionItemDetailsViewModel
     public string? Dimensions { get; set; }
     public string? Description { get; set; }
     public string? ImageUrl { get; set; }
-    public string? ThumbnailLqip { get; set; }
     public string? ExternalUrl { get; set; }
 
     // Collection item specific info

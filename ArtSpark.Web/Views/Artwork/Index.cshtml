@@ -34,9 +34,8 @@
                     @if (!string.IsNullOrEmpty(artwork.ImageId))
                     {
                         <div class="position-relative overflow-hidden"> <img
-                                src="@(string.IsNullOrEmpty(artwork.Thumbnail?.Lqip) ? ArtInstituteImageUrl.Build(artwork.ImageId, "400,") : artwork.Thumbnail.Lqip)"
-                                data-full-src="@ArtInstituteImageUrl.Build(artwork.ImageId, "400,")"
-                                class="card-img-top object-fit-cover aspect-ratio-4-3 artwork-progressive-image" alt="@artwork.Title">
+                                src="@ArtInstituteImageUrl.Build(artwork.ImageId, "400,")"
+                                class="card-img-top object-fit-cover aspect-ratio-4-3" alt="@artwork.Title">
                         </div>
                     }
                     else

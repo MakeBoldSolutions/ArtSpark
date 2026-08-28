@@ -119,9 +119,8 @@
             {
                 <div class="card mb-4">
                     <div class="position-relative">
-                        <img src="@(string.IsNullOrEmpty(Model.ThumbnailLqip) ? Model.ImageUrl : Model.ThumbnailLqip)"
-                            data-full-src="@Model.ImageUrl"
-                            alt="@Model.Title" class="card-img-top img-fluid artwork-progressive-image"
+                        <img src="@Model.ImageUrl"
+                            alt="@Model.Title" class="card-img-top img-fluid"
                             style="max-height: 600px; object-fit: contain; background: #f8f9fa;">
 
                         @if (!string.IsNullOrEmpty(Model.ExternalUrl))

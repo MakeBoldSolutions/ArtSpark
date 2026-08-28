@@ -219,14 +219,6 @@ body {
   color: var(--bs-gray-600);
 }
 
-.artwork-progressive-image {
-  background-color: var(--bs-gray-200);
-}
-
-.artwork-image-fallback {
-  filter: saturate(0.9);
-}
-
 [data-bs-theme="dark"] .image-error {
   background-color: var(--bs-gray-800);
   color: var(--bs-gray-400);

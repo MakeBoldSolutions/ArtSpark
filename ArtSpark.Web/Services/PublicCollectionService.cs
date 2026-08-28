@@ -314,7 +314,6 @@ public class PublicCollectionService : IPublicCollectionService
                 ImageUrl = !string.IsNullOrEmpty(artwork?.ImageId)
                     ? ArtInstituteImageUrl.Build(artwork.ImageId, "843,")
                     : null,
-                ThumbnailLqip = artwork?.Thumbnail?.Lqip,
                 ExternalUrl = artwork != null ? $"https://www.artic.edu/artworks/{artwork.Id}" : null,
 
                 // Collection item specific info
@@ -506,7 +505,6 @@ public class PublicCollectionService : IPublicCollectionService
                 ThumbnailUrl = !string.IsNullOrEmpty(artwork.ImageId)
                   ? ArtInstituteImageUrl.Build(artwork.ImageId, "400,")
                   : null,
-                ThumbnailLqip = artwork.Thumbnail?.Lqip,
                 StyleTitle = artwork.StyleTitle,
                 ClassificationTitle = artwork.ClassificationTitle,
                 DepartmentTitle = artwork.DepartmentTitle,

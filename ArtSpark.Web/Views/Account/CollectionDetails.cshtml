@@ -504,17 +504,14 @@
                         
                         // Update image
                         if (artwork.image_id) {
-                            const imageUrl = `/api/media/images/iiif/${encodeURIComponent(artwork.image_id)}/full/400,/0/default.jpg`;
-                            const previewUrl = artwork.thumbnail && artwork.thumbnail.lqip ? artwork.thumbnail.lqip : imageUrl;
+                            const imageUrl = `https://www.artic.edu/iiif/2/${encodeURIComponent(artwork.image_id)}/full/400,/0/default.jpg`;
                             container.innerHTML = `
-                                <img src="${previewUrl}" 
-                                     data-full-src="${imageUrl}"
-                                     class="card-img-top artwork-progressive-image" 
+                                <img src="${imageUrl}" 
+                                     class="card-img-top" 
                                      alt="${artwork.title || 'Artwork'}"
                                      style="height: 200px; object-fit: cover;"
                                      loading="lazy">
                             `;
-                            window.ArtSparkImages && window.ArtSparkImages.upgrade(container);
                         } else {
                             // No image available
                             container.innerHTML = `

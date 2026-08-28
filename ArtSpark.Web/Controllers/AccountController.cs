@@ -573,7 +573,6 @@ public class AccountController : Controller
             ImageUrl = !string.IsNullOrEmpty(artwork?.ImageId)
                 ? ArtInstituteImageUrl.Build(artwork.ImageId, "843,")
                 : null,
-            ThumbnailLqip = artwork?.Thumbnail?.Lqip,
             ExternalUrl = artwork != null ? $"https://www.artic.edu/artworks/{artwork.Id}" : null,
 
             // Collection item specific info
@@ -652,8 +651,7 @@ public class AccountController : Controller
             ArtworkArtist = artwork?.ArtistDisplay ?? "Unknown Artist",
             ArtworkImageUrl = !string.IsNullOrEmpty(artwork?.ImageId)
                 ? ArtInstituteImageUrl.Build(artwork.ImageId, "400,")
-                : null,
-            ArtworkImageFallbackUrl = artwork?.Thumbnail?.Lqip
+                : null
         };
 
         return View(model);
@@ -698,7 +696,6 @@ public class AccountController : Controller
             model.ArtworkImageUrl = !string.IsNullOrEmpty(artwork?.ImageId)
                 ? ArtInstituteImageUrl.Build(artwork.ImageId, "400,")
                 : null;
-            model.ArtworkImageFallbackUrl = artwork?.Thumbnail?.Lqip;
 
             return View(model);
         }
@@ -744,7 +741,6 @@ public class AccountController : Controller
             model.ArtworkImageUrl = !string.IsNullOrEmpty(artwork?.ImageId)
                 ? ArtInstituteImageUrl.Build(artwork.ImageId, "400,")
                 : null;
-            model.ArtworkImageFallbackUrl = artwork?.Thumbnail?.Lqip;
 
             return View(model);
         }

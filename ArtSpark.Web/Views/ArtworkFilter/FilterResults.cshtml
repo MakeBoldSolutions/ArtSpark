@@ -84,9 +84,8 @@
                     <div class="card h-100 shadow-sm border-0 artwork-card">                        @if (!string.IsNullOrEmpty(artwork.ImageId))
                         {
                             <div class="position-relative overflow-hidden artwork-image">
-                                <img src="@(string.IsNullOrEmpty(artwork.Thumbnail?.Lqip) ? ArtInstituteImageUrl.Build(artwork.ImageId, "400,") : artwork.Thumbnail.Lqip)"
-                                     data-full-src="@ArtInstituteImageUrl.Build(artwork.ImageId, "400,")"
-                                     class="card-img-top object-fit-cover artwork-thumbnail artwork-progressive-image" 
+                                <img src="@ArtInstituteImageUrl.Build(artwork.ImageId, "400,")"
+                                     class="card-img-top object-fit-cover artwork-thumbnail" 
                                      alt="@artwork.Title"
                                      loading="lazy">
                                 <div class="position-absolute top-0 end-0 p-2">
