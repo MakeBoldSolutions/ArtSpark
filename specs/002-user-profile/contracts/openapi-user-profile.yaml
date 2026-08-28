@@ -1,10 +1,10 @@
 openapi: 3.0.3
 info:
-  title: WebSpark.ArtSpark Demo User Profile API
+  title: ArtSpark Demo User Profile API
   version: 0.1.0
   description: >-
     Contract additions for enhanced registration, profile photo management, role-based access,
-    and admin user management within WebSpark.ArtSpark.Demo.
+    and admin user management within ArtSpark.Demo.
 servers:
   - url: https://art.makeboldspark.com
 paths:

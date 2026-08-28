@@ -11,7 +11,7 @@
 
 ### Navigation Layout
 
-- [ ] **Brand/Logo Display**: Verify WebSpark.ArtSpark logo is visible and properly positioned
+- [ ] **Brand/Logo Display**: Verify ArtSpark logo is visible and properly positioned
 - [ ] **Search Form Visibility**: Search form should be visible in navbar on desktop
 - [ ] **Consolidated Dropdown**: Single "Menu" dropdown on the right side
 - [ ] **Dropdown Content**: Login/Register, Theme Selector, Light/Dark toggle
@@ -185,5 +185,5 @@
 
 ---
 
-*Testing checklist for mobile-first navigation implementation on WebSpark.ArtSpark.Demo*
+*Testing checklist for mobile-first navigation implementation on ArtSpark.Demo*
 *Last Updated: Current session*

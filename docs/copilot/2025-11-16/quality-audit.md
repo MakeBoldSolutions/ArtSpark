@@ -1,8 +1,8 @@
-# WebSpark.ArtSpark Quality Audit Report
+# ArtSpark Quality Audit Report
 
 **Generated**: 2025-11-16 18:58:26
 **Duration**: 8.28s
-**Repository**: C:\GitHub\MarkHazleton\WebSpark.ArtSpark
+**Repository**: C:\GitHub\MakeBoldSolutions\ArtSpark
 
 ## Summary
 

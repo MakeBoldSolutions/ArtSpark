@@ -7,7 +7,7 @@
       "type": "process",
       "args": [
         "build",
-        "${workspaceFolder}/WebSpark.ArtSpark.Demo/WebSpark.ArtSpark.Demo.csproj",
+        "${workspaceFolder}/ArtSpark.Demo/ArtSpark.Demo.csproj",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary"
       ],
@@ -23,7 +23,7 @@
       "type": "process",
       "args": [
         "build",
-        "${workspaceFolder}/WebSpark.ArtSpark.Console/WebSpark.ArtSpark.Console.csproj",
+        "${workspaceFolder}/ArtSpark.Console/ArtSpark.Console.csproj",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary"
       ],
@@ -36,7 +36,7 @@
       "type": "process",
       "args": [
         "build",
-        "${workspaceFolder}/WebSpark.ArtSpark.sln",
+        "${workspaceFolder}/ArtSpark.sln",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary"
       ],
@@ -49,7 +49,7 @@
       "type": "process",
       "args": [
         "clean",
-        "${workspaceFolder}/WebSpark.ArtSpark.Demo/WebSpark.ArtSpark.Demo.csproj",
+        "${workspaceFolder}/ArtSpark.Demo/ArtSpark.Demo.csproj",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary"
       ],
@@ -62,7 +62,7 @@
       "type": "process",
       "args": [
         "restore",
-        "${workspaceFolder}/WebSpark.ArtSpark.Demo/WebSpark.ArtSpark.Demo.csproj"
+        "${workspaceFolder}/ArtSpark.Demo/ArtSpark.Demo.csproj"
       ],
       "problemMatcher": "$msCompile",
       "group": "build"
@@ -71,7 +71,7 @@
       "label": "restore-solution",
       "command": "dotnet",
       "type": "process",
-      "args": ["restore", "${workspaceFolder}/WebSpark.ArtSpark.sln"],
+      "args": ["restore", "${workspaceFolder}/ArtSpark.sln"],
       "problemMatcher": "$msCompile",
       "group": "build"
     },
@@ -83,7 +83,7 @@
         "watch",
         "run",
         "--project",
-        "${workspaceFolder}/WebSpark.ArtSpark.Demo/WebSpark.ArtSpark.Demo.csproj"
+        "${workspaceFolder}/ArtSpark.Demo/ArtSpark.Demo.csproj"
       ],
       "isBackground": true,
       "problemMatcher": [
@@ -109,7 +109,7 @@
       "label": "run-tests",
       "command": "dotnet",
       "type": "process",
-      "args": ["test", "${workspaceFolder}/WebSpark.ArtSpark.Tests"],
+      "args": ["test", "${workspaceFolder}/ArtSpark.Tests"],
       "problemMatcher": "$msCompile",
       "group": "test"
     }

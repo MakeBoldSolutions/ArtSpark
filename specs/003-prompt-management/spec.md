@@ -145,10 +145,10 @@ Site operators need to understand which prompt versions are active in production
 ## Observability & Testing Plan *(mandatory)*
 
 - **Automated Tests**: 
-  - `WebSpark.ArtSpark.Tests/Agent/Services/PromptLoaderTests.cs`: covers markdown load, fallback behavior, token replacement, validation failures
-  - `WebSpark.ArtSpark.Tests/Agent/Personas/PersonaFactoryTests.cs`: verifies integration with prompt loader
-  - `WebSpark.ArtSpark.Tests/Agent/Services/PromptTemplateTokenTests.cs`: prevents injection attacks via whitelist validation
-  - `WebSpark.ArtSpark.Tests/Demo/PromptFallbackTests.cs`: ensures AI chat works with file-based and fallback prompts
+  - `ArtSpark.Tests/Agent/Services/PromptLoaderTests.cs`: covers markdown load, fallback behavior, token replacement, validation failures
+  - `ArtSpark.Tests/Agent/Personas/PersonaFactoryTests.cs`: verifies integration with prompt loader
+  - `ArtSpark.Tests/Agent/Services/PromptTemplateTokenTests.cs`: prevents injection attacks via whitelist validation
+  - `ArtSpark.Tests/Demo/PromptFallbackTests.cs`: ensures AI chat works with file-based and fallback prompts
 
 - **Logging & Metrics**:
   - Serilog structured events: `PromptLoaded`, `PromptLoadFailed`, `PromptFallbackUsed`, `PromptTokenValidationFailed`, `ConfigurationReloaded`
@@ -164,7 +164,7 @@ Site operators need to understand which prompt versions are active in production
 
 - **Docs to Update**: 
   - Create `docs/copilot/prompt-authoring-guide.md` with markdown structure guidelines, token reference, cultural sensitivity checklist
-  - Update `WebSpark.ArtSpark.Agent/README.md` with prompt management section and configuration examples
+  - Update `ArtSpark.Agent/README.md` with prompt management section and configuration examples
   - Update `docs/AI-Chat-Personas-Implementation.md` with new architecture diagram showing prompt loading flow
   - Update root `README.md` configuration section with new `ArtSparkAgent:Prompts` settings
 

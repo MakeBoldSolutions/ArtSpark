@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document outlines the comprehensive mobile-first navigation redesign implemented for WebSpark.ArtSpark.Demo. The goal was to consolidate the crowded right-side navigation elements into a single, accessible dropdown menu following Bootstrap 5 best practices.
+This document outlines the comprehensive mobile-first navigation redesign implemented for ArtSpark.Demo. The goal was to consolidate the crowded right-side navigation elements into a single, accessible dropdown menu following Bootstrap 5 best practices.
 
 **✅ IMPLEMENTATION COMPLETE** - All objectives achieved including nested dropdown fix.
 

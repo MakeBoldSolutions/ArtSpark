@@ -8,7 +8,7 @@
 
 ## 1. Restore Solution Dependencies
 ```powershell
-pwsh -Command "dotnet restore WebSpark.ArtSpark.sln"
+pwsh -Command "dotnet restore ArtSpark.sln"
 ```
 
 ## 2. Run the Quality Audit Script

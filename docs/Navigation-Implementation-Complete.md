@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document reports on the implementation and testing of the improved navigation system for the WebSpark.ArtSpark application.
+This document reports on the implementation and testing of the improved navigation system for the ArtSpark application.
 
 ## Implementation Summary
 

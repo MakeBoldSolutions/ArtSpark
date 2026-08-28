@@ -7,9 +7,9 @@
 
 **Purpose**: Establish a clean baseline so audit diagnostics reflect intentional changes.
 
-- [X] T001 Run baseline restore for `WebSpark.ArtSpark.sln` to ensure toolchain readiness.
-- [X] T002 Run baseline build for `WebSpark.ArtSpark.sln` and capture existing warnings for comparison.
-- [X] T003 Run baseline tests for `WebSpark.ArtSpark.sln` to confirm current solution health.
+- [X] T001 Run baseline restore for `ArtSpark.sln` to ensure toolchain readiness.
+- [X] T002 Run baseline build for `ArtSpark.sln` and capture existing warnings for comparison.
+- [X] T003 Run baseline tests for `ArtSpark.sln` to confirm current solution health.
 
 ---
 
@@ -33,7 +33,7 @@
 
 ### Implementation for User Story 1
 
-- [X] T007 [P] [US1] Implement `Invoke-BuildDiagnostics` in `scripts/audit/modules/BuildDiagnostics.ps1` to run `dotnet build`/`dotnet test` on `WebSpark.ArtSpark.sln` and emit `BuildHealthFinding` objects.
+- [X] T007 [P] [US1] Implement `Invoke-BuildDiagnostics` in `scripts/audit/modules/BuildDiagnostics.ps1` to run `dotnet build`/`dotnet test` on `ArtSpark.sln` and emit `BuildHealthFinding` objects.
 - [X] T008 [P] [US1] Implement `Get-NuGetCurrency` in `scripts/audit/modules/NuGetCurrency.ps1` to run `dotnet list` across solution `.csproj` files and capture outdated packages.
 - [X] T009 [P] [US1] Implement `Get-NpmCurrency` in `scripts/audit/modules/NpmCurrency.ps1` to detect `package.json` manifests and collect `npm outdated`/`npm audit` results.
 - [X] T010 [US1] Integrate diagnostics and dependency collectors in `scripts/audit/QualityAudit.psm1`, mapping results to `BuildHealthFinding` and `PackageCurrencyEntry` models.
@@ -69,7 +69,7 @@
 
 ### Implementation for User Story 3
 
-- [X] T017 [US3] Implement `Invoke-SafeguardAudit` in `scripts/audit/modules/Safeguards.ps1` to review `WebSpark.ArtSpark.Agent/Personas/` definitions and Demo moderation hooks for compliance evidence.
+- [X] T017 [US3] Implement `Invoke-SafeguardAudit` in `scripts/audit/modules/Safeguards.ps1` to review `ArtSpark.Agent/Personas/` definitions and Demo moderation hooks for compliance evidence.
 - [X] T018 [US3] Map safeguard results to `SafeguardControlCheck` objects within `scripts/audit/QualityAudit.psm1`, including outcomes and follow-up actions.
 - [X] T019 [US3] Update `scripts/audit/run-quality-audit.ps1` to append the "Safeguards" section and merge failing controls into backlog exports.
 - [X] T020 [US3] Expand `scripts/audit/tests/QualityAudit.Tests.ps1` with Pester checks that safeguard audits output control names, evidence references, and outcomes.
@@ -86,7 +86,7 @@
 - [X] T022 Update `README.md` with a "Quality Audit" subsection linking to `scripts/audit/run-quality-audit.ps1` usage.
 - [X] T023 Execute `scripts/audit/run-quality-audit.ps1` to generate the initial `docs/copilot/YYYY-MM-DD/quality-audit.md` and backlog artifacts for archives.
 - [X] T024 Review the generated `docs/copilot/YYYY-MM-DD/quality-audit.md` to confirm required sections (Diagnostics, Dependencies, Safeguards, Backlog) render correctly.
-- [X] T025 Run `dotnet test WebSpark.ArtSpark.sln` after audit integration to ensure solution health remains green.
+- [X] T025 Run `dotnet test ArtSpark.sln` after audit integration to ensure solution health remains green.
 
 ---
 

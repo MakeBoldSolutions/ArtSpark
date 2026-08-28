@@ -1,15 +1,15 @@
-# Copilot Instructions for WebSpark.ArtSpark
+# Copilot Instructions for ArtSpark
 
 ## Project Mission
-WebSpark.ArtSpark is a **.NET 10 (Preview)** multi-project solution centered on the public web experience at https://art.makeboldspark.com (`WebSpark.ArtSpark.Demo`). The solution provides a complete .NET ecosystem for the Art Institute of Chicago API with revolutionary AI chat capabilities featuring four distinct personas.
+ArtSpark is a **.NET 10 (Preview)** multi-project solution centered on the public web experience at https://art.makeboldspark.com (`ArtSpark.Demo`). The solution provides a complete .NET ecosystem for the Art Institute of Chicago API with revolutionary AI chat capabilities featuring four distinct personas.
 
 **Project Hierarchy**: Demo → Agent/Client; Agent → Client; Console → Client. All supporting libraries exist to serve the Demo—articulate Demo impact before touching library contracts.
 
 ## Core Delivery Principles
 1. **Live Demo First**: Prioritize features that improve the live public experience. Changes to Client/Agent/Console require corresponding Demo integration in the same changeset.
 2. **Contract-Stable Libraries**: Preserve public contracts in shared libraries. Breaking changes require coordinated updates + explicit Demo coverage + release notes.
-3. **Production Reliability**: Update automated tests for every change. Maintain Serilog logging, build metadata display, and EF Core migrations under `WebSpark.ArtSpark.Demo/Migrations/`.
-4. **Responsible AI**: Enforce persona guardrails (`WebSpark.ArtSpark.Agent/Personas/`), input validation, and cultural respect. Reference `docs/AI-Chat-Personas-Implementation.md`.
+3. **Production Reliability**: Update automated tests for every change. Maintain Serilog logging, build metadata display, and EF Core migrations under `ArtSpark.Demo/Migrations/`.
+4. **Responsible AI**: Enforce persona guardrails (`ArtSpark.Agent/Personas/`), input validation, and cultural respect. Reference `docs/AI-Chat-Personas-Implementation.md`.
 5. **Documentation Discipline**: Update `README.md` files and `docs/` guides when behavior/configuration changes. Reflect version bumps in footer build metadata.
 
 ## Architecture & Patterns
@@ -24,11 +24,11 @@ Demo (ASP.NET Core MVC + Identity)
 ```
 
 ### Key Integration Patterns
-- **DI Registration in Program.cs**: Use extension methods (`AddArtSparkAgent()`, `AddBootswatchThemeSwitcher()`) for clean service registration. See `WebSpark.ArtSpark.Demo/Program.cs` lines 75-105.
+- **DI Registration in Program.cs**: Use extension methods (`AddArtSparkAgent()`, `AddBootswatchThemeSwitcher()`) for clean service registration. See `ArtSpark.Demo/Program.cs` lines 75-105.
 - **Decorator Pattern**: HttpClient utilities use layered decorators (base → Polly resilience → telemetry → cache). See `RegisterHttpClientUtilities()` in `Program.cs`.
 - **ViewComponents**: UI modules like `FooterViewComponent` inject services (`IBuildInfoService`) and render via `Views/Shared/Components/{Name}/Default.cshtml`.
 - **AI Personas**: Factory pattern creates persona handlers (`IPersonaHandler`) from enum values. Each persona (`ArtworkPersona`, `ArtistPersona`, `CuratorPersona`, `HistorianPersona`) generates unique system prompts for OpenAI.
-- **EF Core Identity**: `ArtSparkDbContext : IdentityDbContext<ApplicationUser>` with SQLite. Migrations in `WebSpark.ArtSpark.Demo/Migrations/`.
+- **EF Core Identity**: `ArtSparkDbContext : IdentityDbContext<ApplicationUser>` with SQLite. Migrations in `ArtSpark.Demo/Migrations/`.
 
 ## Coding Standards
 - **Target .NET 10 (Preview)** / C# 13. Use async/await, minimal allocations, top-level statements, and primary constructors where appropriate.
@@ -41,25 +41,25 @@ Demo (ASP.NET Core MVC + Identity)
 ### Build & Run
 ```powershell
 # Restore dependencies
-dotnet restore WebSpark.ArtSpark.sln
+dotnet restore ArtSpark.sln
 
 # Build solution (or use VS Code tasks: build-solution, build-demo)
-dotnet build WebSpark.ArtSpark.sln
+dotnet build ArtSpark.sln
 
 # Run Demo locally
-dotnet run --project WebSpark.ArtSpark.Demo
+dotnet run --project ArtSpark.Demo
 
 # Watch mode for hot reload
-dotnet watch run --project WebSpark.ArtSpark.Demo
+dotnet watch run --project ArtSpark.Demo
 ```
 
 ### Testing
 ```powershell
 # Run all tests
-dotnet test WebSpark.ArtSpark.Tests
+dotnet test ArtSpark.Tests
 
 # Run specific test project or class
-dotnet test WebSpark.ArtSpark.Tests --filter "FullyQualifiedName~ArtistSearchTest"
+dotnet test ArtSpark.Tests --filter "FullyQualifiedName~ArtistSearchTest"
 ```
 
 ### Quality Audit
@@ -75,25 +75,25 @@ Output: `docs/copilot/YYYY-MM-DD/quality-audit.md` with prioritized backlog. See
 ### Database Migrations
 ```powershell
 # Add new migration
-dotnet ef migrations add MigrationName --project WebSpark.ArtSpark.Demo
+dotnet ef migrations add MigrationName --project ArtSpark.Demo
 
 # Update database
-dotnet ef database update --project WebSpark.ArtSpark.Demo
+dotnet ef database update --project ArtSpark.Demo
 
 # Generate SQL script
-dotnet ef migrations script --project WebSpark.ArtSpark.Demo
+dotnet ef migrations script --project ArtSpark.Demo
 ```
-Migrations live in `WebSpark.ArtSpark.Demo/Migrations/`. Use descriptive names and test both up/down paths.
+Migrations live in `ArtSpark.Demo/Migrations/`. Use descriptive names and test both up/down paths.
 
 ### Serilog Logs
 - Log path configured via `WebSpark:LogFilePath` in `appsettings.json` (default: `c:\temp\WebSpark\Logs\artspark-.txt`).
 - Daily rolling with 30-day retention. EF Core queries filtered to Warning+.
-- See `WebSpark.ArtSpark.Demo/Utilities/LoggingUtility.cs` and `SERILOG-IMPLEMENTATION.md`.
+- See `ArtSpark.Demo/Utilities/LoggingUtility.cs` and `SERILOG-IMPLEMENTATION.md`.
 
 ### AI Configuration
 ```bash
 # Set OpenAI API key (development)
-cd WebSpark.ArtSpark.Demo
+cd ArtSpark.Demo
 dotnet user-secrets set "ArtSparkAgent:OpenAI:ApiKey" "sk-..."
 ```
 Config structure in `appsettings.json`:
@@ -113,7 +113,7 @@ Config structure in `appsettings.json`:
 - Mock external APIs (Art Institute, OpenAI) in tests for determinism.
 
 ## AI Feature Guidance
-- Review persona prompts and response handling in `WebSpark.ArtSpark.Agent` before modifications.
+- Review persona prompts and response handling in `ArtSpark.Agent` before modifications.
 - Implement safety layers: prompt sanitization, OpenAI moderation fallback, and culturally aware messaging.
 - Avoid storing personal data; clarify retention or anonymization in specs and documentation.
 
@@ -147,4 +147,4 @@ Config structure in `appsettings.json`:
 - Highlight any AI persona updates, new guardrails, or documentation links.
 - Reference applicable specification/plan/tasks artifacts generated via SpecKit commands.
 
-Adhering to these instructions keeps Copilot suggestions aligned with the WebSpark.ArtSpark constitution and maintains the live experience users rely on.
+Adhering to these instructions keeps Copilot suggestions aligned with the ArtSpark constitution and maintains the live experience users rely on.

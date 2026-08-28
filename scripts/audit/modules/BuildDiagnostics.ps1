@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Build diagnostics collection for WebSpark.ArtSpark
+    Build diagnostics collection for ArtSpark
 .DESCRIPTION
     Runs dotnet build and dotnet test to collect compiler warnings, errors, and test failures
 #>
@@ -17,7 +17,7 @@ function Invoke-BuildDiagnostics {
         [Parameter(Mandatory)]
         [string]$RepoRoot,
         
-        [string]$SolutionPath = "WebSpark.ArtSpark.sln"
+        [string]$SolutionPath = "ArtSpark.sln"
     )
 
     $findings = @()
@@ -82,7 +82,7 @@ function Invoke-BuildDiagnostics {
 
         if ($testExitCode -ne 0) {
             $finding = [PSCustomObject]@{
-                SourceProject = 'WebSpark.ArtSpark.Tests'
+                SourceProject = 'ArtSpark.Tests'
                 FilePath = ''
                 LineNumber = 0
                 DiagnosticId = 'TEST_FAILURE'

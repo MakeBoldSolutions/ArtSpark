@@ -1,9 +1,9 @@
 using System;
 using System.Threading.Tasks;
-using WebSpark.ArtSpark.Client.Clients;
+using ArtSpark.Client.Clients;
 using WebSpark.HttpClientUtility.Services;
 
-namespace WebSpark.ArtSpark.Test
+namespace ArtSpark.Test
 {
     /// <summary>
     /// Test class to verify the artist search functionality is working correctly

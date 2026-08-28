@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    AI & Content Safeguard audits for WebSpark.ArtSpark
+    AI & Content Safeguard audits for ArtSpark
 .DESCRIPTION
     Validates AI persona definitions, moderation hooks, and cultural safeguards
 #>
@@ -23,7 +23,7 @@ function Invoke-SafeguardAudit {
     Write-Host "  Auditing AI persona definitions..." -ForegroundColor Gray
 
     # Check 1: Persona files exist
-    $personaDir = Join-Path $RepoRoot "WebSpark.ArtSpark.Agent\Personas"
+    $personaDir = Join-Path $RepoRoot "ArtSpark.Agent\Personas"
     $personaCheck = Test-Path $personaDir
     
     $checks += [PSCustomObject]@{
@@ -34,7 +34,7 @@ function Invoke-SafeguardAudit {
         FollowUpAction = if (-not $personaCheck) { 'Create Personas directory and add persona definitions' } else { '' }
         Owner = 'AI Team'
         DueDate = $null
-        RelatedComponents = @('WebSpark.ArtSpark.Agent')
+        RelatedComponents = @('ArtSpark.Agent')
     }
 
     # Check 2: Persona files contain required fields
@@ -63,7 +63,7 @@ function Invoke-SafeguardAudit {
                 FollowUpAction = if (-not $allPersonasValid) { 'Review persona definitions for completeness' } else { '' }
                 Owner = 'AI Team'
                 DueDate = $null
-                RelatedComponents = @('WebSpark.ArtSpark.Agent')
+                RelatedComponents = @('ArtSpark.Agent')
             }
         } else {
             $checks += [PSCustomObject]@{
@@ -74,7 +74,7 @@ function Invoke-SafeguardAudit {
                 FollowUpAction = 'Add persona definition files'
                 Owner = 'AI Team'
                 DueDate = $null
-                RelatedComponents = @('WebSpark.ArtSpark.Agent')
+                RelatedComponents = @('ArtSpark.Agent')
             }
         }
     }
@@ -82,7 +82,7 @@ function Invoke-SafeguardAudit {
     # Check 3: Moderation hooks in Agent services
     Write-Host "  Checking moderation hooks..." -ForegroundColor Gray
     
-    $agentServicesDir = Join-Path $RepoRoot "WebSpark.ArtSpark.Agent\Services"
+    $agentServicesDir = Join-Path $RepoRoot "ArtSpark.Agent\Services"
     if (Test-Path $agentServicesDir) {
         $serviceFiles = Get-ChildItem -Path $agentServicesDir -Filter "*.cs" -Recurse
         $moderationFound = $false
@@ -103,7 +103,7 @@ function Invoke-SafeguardAudit {
             FollowUpAction = if (-not $moderationFound) { 'Implement or document moderation strategy' } else { '' }
             Owner = 'AI Team'
             DueDate = $null
-            RelatedComponents = @('WebSpark.ArtSpark.Agent')
+            RelatedComponents = @('ArtSpark.Agent')
         }
     }
 
@@ -132,7 +132,7 @@ function Invoke-SafeguardAudit {
         FollowUpAction = if (-not $culturalDocFound) { 'Document cultural sensitivity guidelines' } else { '' }
         Owner = 'Documentation Team'
         DueDate = $null
-        RelatedComponents = @('docs/', 'WebSpark.ArtSpark.Agent')
+        RelatedComponents = @('docs/', 'ArtSpark.Agent')
     }
 
     Write-Host "  Found $($checks.Count) safeguard checks" -ForegroundColor Gray

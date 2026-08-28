@@ -118,7 +118,7 @@ WHERE ProfilePhotoThumbnail64 IS NOT NULL;
 5. Static file middleware serves from physical directory
 
 ## Files Modified in Fix
-- `WebSpark.ArtSpark.Demo\Services\ProfilePhotoService.cs`
+- `ArtSpark.Demo\Services\ProfilePhotoService.cs`
   - `SaveOptimizedImageAsync()` - Fixed file size check logic, return actual filename
   - `UploadPhotoAsync()` - Use base filename, handle actual saved filenames
   - `GenerateThumbnailAsync()` - Accept base filename, return actual saved filename

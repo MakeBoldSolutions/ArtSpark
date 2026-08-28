@@ -1,0 +1,410 @@
+@model ArtSpark.Demo.Services.UserDetailDto
+@{
+    ViewData["Title"] = $"User Details - {Model.DisplayName}";
+    var isLocked = Model.LockoutEnd.HasValue && Model.LockoutEnd.Value > DateTimeOffset.UtcNow;
+}
+
+<div class="container mt-4">
+    <div class="row mb-3">
+        <div class="col">
+            <a asp-action="Index" class="btn btn-secondary mb-2">&larr; Back to User List</a>
+            <h1>User Details</h1>
+        </div>
+    </div>
+
+    @if (TempData["SuccessMessage"] != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            @TempData["SuccessMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (TempData["ErrorMessage"] != null)
+    {
+        <div class="alert alert-danger alert-dismissible fade show" role="alert">
+            @TempData["ErrorMessage"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body text-center">
+                    @if (!string.IsNullOrEmpty(Model.ProfilePhotoUrl))
+                    {
+                        <img src="@Model.ProfilePhotoUrl" alt="@Model.DisplayName" class="rounded-circle mb-3" style="width: 150px; height: 150px; object-fit: cover;" />
+                    }
+                    else
+                    {
+                        <div class="rounded-circle bg-secondary d-inline-flex align-items-center justify-content-center mb-3" style="width: 150px; height: 150px; color: white; font-size: 3rem;">
+                            @Model.DisplayName.FirstOrDefault()
+                        </div>
+                    }
+                    <h4>@Model.DisplayName</h4>
+                    <p class="text-muted">@Model.Email</p>
+                    @if (!Model.EmailVerified)
+                    {
+                        <span class="badge bg-warning text-dark">Email Unverified</span>
+                    }
+                    @if (isLocked)
+                    {
+                        <span class="badge bg-danger d-block mt-2">Account Locked</span>
+                    }
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-header">
+                    <h5>Account Actions</h5>
+                </div>
+                <div class="card-body">
+                    <form asp-action="ToggleLockout" method="post" class="mb-2">
+                        <input type="hidden" name="userId" value="@Model.UserId" />
+                        <input type="hidden" name="lockout" value="@(!isLocked)" />
+                        <button type="submit" class="btn @(isLocked ? "btn-success" : "btn-danger") w-100">
+                            @(isLocked ? "Unlock Account" : "Lock Account")
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-8">
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5>User Information</h5>
+                </div>
+                <div class="card-body">
+                    <dl class="row">
+                        <dt class="col-sm-3">User ID:</dt>
+                        <dd class="col-sm-9"><code>@Model.UserId</code></dd>
+
+                        <dt class="col-sm-3">Email:</dt>
+                        <dd class="col-sm-9">@Model.Email</dd>
+
+                        <dt class="col-sm-3">Display Name:</dt>
+                        <dd class="col-sm-9">@Model.DisplayName</dd>
+
+                        <dt class="col-sm-3">Bio:</dt>
+                        <dd class="col-sm-9">@(Model.Bio ?? "No bio provided")</dd>
+
+                        <dt class="col-sm-3">Created:</dt>
+                        <dd class="col-sm-9">@Model.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss")</dd>
+
+                        <dt class="col-sm-3">Collections:</dt>
+                        <dd class="col-sm-9">@Model.CollectionsCount</dd>
+
+                        <dt class="col-sm-3">Reviews:</dt>
+                        <dd class="col-sm-9">@Model.ReviewsCount</dd>
+
+                        <dt class="col-sm-3">Favorites:</dt>
+                        <dd class="col-sm-9">@Model.FavoritesCount</dd>
+                    </dl>
+                </div>
+            </div>
+
+            <div class="card mb-3">
+                <div class="card-header">
+                    <h5>Role Management</h5>
+                </div>
+                <div class="card-body">
+                    <h6>Current Roles:</h6>
+                    <div class="mb-3">
+                        @if (Model.Roles.Any())
+                        {
+                            @foreach (var role in Model.Roles)
+                            {
+                                <span class="badge @(role == "Admin" ? "bg-danger" : "bg-primary") me-2">@role</span>
+                                <form asp-action="RemoveRole" method="post" class="d-inline">
+                                    <input type="hidden" name="userId" value="@Model.UserId" />
+                                    <input type="hidden" name="roleName" value="@role" />
+                                    <button type="submit" class="btn btn-sm btn-outline-danger">Remove</button>
+                                </form>
+                            }
+                        }
+                        else
+                        {
+                            <p class="text-muted">No roles assigned</p>
+                        }
+                    </div>
+
+                    <h6>Assign Role:</h6>
+                    <div class="btn-group" role="group">
+                        @if (!Model.Roles.Contains("User"))
+                        {
+                            <form asp-action="AssignRole" method="post" class="d-inline">
+                                <input type="hidden" name="userId" value="@Model.UserId" />
+                                <input type="hidden" name="roleName" value="User" />
+                                <button type="submit" class="btn btn-outline-primary">Assign User Role</button>
+                            </form>
+                        }
+                        @if (!Model.Roles.Contains("Admin"))
+                        {
+                            <form asp-action="AssignRole" method="post" class="d-inline">
+                                <input type="hidden" name="userId" value="@Model.UserId" />
+                                <input type="hidden" name="roleName" value="Admin" />
+                                <button type="submit" class="btn btn-outline-danger">Assign Admin Role</button>
+                            </form>
+                        }
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">
+                    <h5>Recent Audit Logs</h5>
+                </div>
+                <div class="card-body">
+                    @if (Model.RecentAuditLogs.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-sm">
+                                <thead>
+                                    <tr>
+                                        <th>Timestamp</th>
+                                        <th>Action</th>
+                                        <th>Admin</th>
+                                        <th>Details</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var log in Model.RecentAuditLogs)
+                                    {
+                                        <tr>
+                                            <td>@log.CreatedAtUtc.ToString("yyyy-MM-dd HH:mm:ss")</td>
+                                            <td><span class="badge bg-info">@log.ActionType</span></td>
+                                            <td>@(log.AdminUserId != null ? log.AdminUser?.Email : "System")</td>
+                                            <td><small>@log.Details</small></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-muted">No audit logs available</p>
+                    }
+                </div>
+            </div>
+
+            <div class="card mt-3">
+                <div class="card-header d-flex justify-content-between align-items-center">
+                    <h5 class="mb-0">User Collections</h5>
+                    <span class="badge bg-primary">@Model.Collections.Count</span>
+                </div>
+                <div class="card-body">
+                    @if (Model.Collections.Any())
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>Description</th>
+                                        <th>Artworks</th>
+                                        <th>Visibility</th>
+                                        <th>Views</th>
+                                        <th>Created</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var collection in Model.Collections)
+                                    {
+                                        <tr>
+                                            <td>
+                                                <strong>@collection.Name</strong>
+                                                @if (collection.IsFeatured)
+                                                {
+                                                    <span class="badge bg-warning text-dark ms-1">Featured</span>
+                                                }
+                                            </td>
+                                            <td>
+                                                @if (!string.IsNullOrEmpty(collection.Description))
+                                                {
+                                                    <small>@(collection.Description.Length > 50 ? collection.Description.Substring(0, 50) + "..." : collection.Description)</small>
+                                                }
+                                                else
+                                                {
+                                                    <small class="text-muted">No description</small>
+                                                }
+                                            </td>
+                                            <td>@collection.ArtworkCount</td>
+                                            <td>
+                                                @if (collection.IsPublic)
+                                                {
+                                                    <span class="badge bg-success">Public</span>
+                                                }
+                                                else
+                                                {
+                                                    <span class="badge bg-secondary">Private</span>
+                                                }
+                                            </td>
+                                            <td>@collection.ViewCount</td>
+                                            <td>@collection.CreatedAt.ToString("yyyy-MM-dd")</td>
+                                            <td>
+                                                <button type="button" class="btn btn-sm btn-outline-primary" 
+                                                        onclick="openMoveCollectionModal(@collection.Id, '@collection.Name', '@Model.UserId')">
+                                                    Move
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                    else
+                    {
+                        <p class="text-muted">No collections created yet</p>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Move Collection Modal -->
+<div class="modal fade" id="moveCollectionModal" tabindex="-1" aria-labelledby="moveCollectionModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="moveCollectionModalLabel">Move Collection</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="moveCollectionForm" asp-action="MoveCollection" method="post">
+                <div class="modal-body">
+                    <input type="hidden" id="moveCollectionId" name="collectionId" />
+                    <input type="hidden" id="moveFromUserId" name="fromUserId" />
+                    
+                    <div class="alert alert-warning">
+                        <strong>Warning:</strong> This will transfer ownership of the collection "<span id="collectionName"></span>" to another user.
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="targetUserEmail" class="form-label">Search Target User by Email</label>
+                        <input type="text" class="form-control" id="targetUserEmail" placeholder="Enter user email..." autocomplete="off" />
+                        <div id="userSearchResults" class="list-group mt-2" style="display: none;"></div>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="moveToUserId" class="form-label">Selected User ID</label>
+                        <input type="text" class="form-control" id="moveToUserId" name="toUserId" readonly placeholder="No user selected" />
+                        <div id="selectedUserInfo" class="mt-2" style="display: none;">
+                            <div class="card">
+                                <div class="card-body">
+                                    <strong id="selectedUserDisplay"></strong><br />
+                                    <small class="text-muted" id="selectedUserEmail"></small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary" id="confirmMoveBtn" disabled>Move Collection</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script>
+        let searchTimeout;
+        
+        function openMoveCollectionModal(collectionId, collectionName, fromUserId) {
+            document.getElementById('moveCollectionId').value = collectionId;
+            document.getElementById('moveFromUserId').value = fromUserId;
+            document.getElementById('collectionName').textContent = collectionName;
+            document.getElementById('targetUserEmail').value = '';
+            document.getElementById('moveToUserId').value = '';
+            document.getElementById('userSearchResults').style.display = 'none';
+            document.getElementById('selectedUserInfo').style.display = 'none';
+            document.getElementById('confirmMoveBtn').disabled = true;
+            
+            const modal = new bootstrap.Modal(document.getElementById('moveCollectionModal'));
+            modal.show();
+        }
+
+        document.getElementById('targetUserEmail').addEventListener('input', function(e) {
+            clearTimeout(searchTimeout);
+            const searchTerm = e.target.value.trim();
+            
+            if (searchTerm.length < 3) {
+                document.getElementById('userSearchResults').style.display = 'none';
+                return;
+            }
+            
+            searchTimeout = setTimeout(async () => {
+                try {
+                    const response = await fetch(`/AdminUsers/Index?search=${encodeURIComponent(searchTerm)}`);
+                    if (!response.ok) throw new Error('Search failed');
+                    
+                    const html = await response.text();
+                    const parser = new DOMParser();
+                    const doc = parser.parseFromString(html, 'text/html');
+                    const table = doc.querySelector('table tbody');
+                    
+                    if (table) {
+                        const results = [];
+                        const rows = table.querySelectorAll('tr');
+                        
+                        rows.forEach(row => {
+                            const cells = row.querySelectorAll('td');
+                            if (cells.length >= 3) {
+                                const email = cells[1].textContent.trim().split('\n')[0].trim();
+                                const displayName = cells[2].textContent.trim();
+                                const detailsLink = row.querySelector('a[href*="/AdminUsers/Details/"]');
+                                
+                                if (detailsLink) {
+                                    const userId = detailsLink.getAttribute('href').split('/').pop();
+                                    if (userId !== document.getElementById('moveFromUserId').value) {
+                                        results.push({ userId, email, displayName });
+                                    }
+                                }
+                            }
+                        });
+                        
+                        displaySearchResults(results);
+                    }
+                } catch (error) {
+                    console.error('Error searching users:', error);
+                }
+            }, 300);
+        });
+
+        function displaySearchResults(users) {
+            const resultsDiv = document.getElementById('userSearchResults');
+            
+            if (users.length === 0) {
+                resultsDiv.innerHTML = '<div class="list-group-item">No users found</div>';
+                resultsDiv.style.display = 'block';
+                return;
+            }
+            
+            resultsDiv.innerHTML = users.map(user => `
+                <a href="#" class="list-group-item list-group-item-action" 
+                   onclick="selectUser('${user.userId}', '${user.email.replace(/'/g, "\\'")}', '${user.displayName.replace(/'/g, "\\'")}'); return false;">
+                    <strong>${user.displayName}</strong><br />
+                    <small class="text-muted">${user.email}</small>
+                </a>
+            `).join('');
+            
+            resultsDiv.style.display = 'block';
+        }
+
+        function selectUser(userId, email, displayName) {
+            document.getElementById('moveToUserId').value = userId;
+            document.getElementById('selectedUserDisplay').textContent = displayName;
+            document.getElementById('selectedUserEmail').textContent = email;
+            document.getElementById('selectedUserInfo').style.display = 'block';
+            document.getElementById('userSearchResults').style.display = 'none';
+            document.getElementById('targetUserEmail').value = email;
+            document.getElementById('confirmMoveBtn').disabled = false;
+        }
+    </script>
+}

@@ -16,12 +16,12 @@ Templates requiring updates:
 Follow-up TODOs: None
 -->
 
-# WebSpark.ArtSpark Constitution
+# ArtSpark Constitution
 
 ## Core Principles
 
 ### Live Demo First
-All roadmap items MUST articulate how they improve or safeguard `WebSpark.ArtSpark.Demo`, the live
+All roadmap items MUST articulate how they improve or safeguard `ArtSpark.Demo`, the live
 site. Supporting projects MAY change only when the work demonstrably benefits the Demo's user
 experience, resiliency, or delivery pipeline. If implementation begins outside the Demo (for
 example inside the client or agent libraries) the plan MUST include the Demo integration path prior
@@ -29,7 +29,7 @@ to merge. This keeps the repository centered on the public experience delivered 
 https://art.makeboldspark.com.
 
 ### Contract-Stable Shared Libraries
-`WebSpark.ArtSpark.Client`, `WebSpark.ArtSpark.Agent`, and `WebSpark.ArtSpark.Console` exist to serve
+`ArtSpark.Client`, `ArtSpark.Agent`, and `ArtSpark.Console` exist to serve
 the Demo and MUST preserve backwards-compatible contracts unless a coordinated Demo change ships in
 the same release. Library breaking changes require semver-major tags, updated release notes, and
 consumer impact testing in the Demo before merge. Console utilities MUST remain optional developer
@@ -62,7 +62,7 @@ operators aligned across the multi-project solution.
 - The only sanctioned projects are the Demo web app, Client library, Agent library, and Console
   tooling. Creating additional projects requires governance approval with a documented Demo-first
   rationale and rollback plan.
-- Dependency direction is fixed: `WebSpark.ArtSpark.Demo` may depend on Agent and Client; the Agent
+- Dependency direction is fixed: `ArtSpark.Demo` may depend on Agent and Client; the Agent
   may depend on the Client; the Console may depend on the Client; reverse dependencies are
   prohibited unless the Constitution is amended.
 - Cross-project changes MUST ship in a single pull request unless staged integration tests prove

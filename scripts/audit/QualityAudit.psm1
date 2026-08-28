@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    WebSpark.ArtSpark Quality Audit Module
+    ArtSpark Quality Audit Module
 .DESCRIPTION
     Shared context helpers and data model normalization for quality audit workflows
 #>

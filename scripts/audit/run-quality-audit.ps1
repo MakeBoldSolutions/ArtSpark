@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Run WebSpark.ArtSpark quality audit workflow
+    Run ArtSpark quality audit workflow
 .DESCRIPTION
     Orchestrates build diagnostics, dependency currency checks, and safeguard audits.
     Generates Markdown reports in docs/copilot/YYYY-MM-DD/ with actionable findings.
@@ -45,7 +45,7 @@ Import-Module "$ScriptRoot\QualityAudit.psm1" -Force
 . "$ScriptRoot\modules\Safeguards.ps1"
 
 try {
-    Write-Host "=== WebSpark.ArtSpark Quality Audit ===" -ForegroundColor Cyan
+    Write-Host "=== ArtSpark Quality Audit ===" -ForegroundColor Cyan
     Write-Host "Repository: $RepoRoot" -ForegroundColor Gray
     Write-Host "Started: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')" -ForegroundColor Gray
     Write-Host ""
@@ -95,7 +95,7 @@ try {
 
     # Generate report with real data
     $reportContent = New-Object System.Text.StringBuilder
-    [void]$reportContent.AppendLine("# WebSpark.ArtSpark Quality Audit Report")
+    [void]$reportContent.AppendLine("# ArtSpark Quality Audit Report")
     [void]$reportContent.AppendLine("")
     [void]$reportContent.AppendLine("**Generated**: $(Get-Date -Format 'yyyy-MM-dd HH:mm:ss')")
     [void]$reportContent.AppendLine("**Duration**: $($auditContext.Duration.TotalSeconds.ToString('F2'))s")

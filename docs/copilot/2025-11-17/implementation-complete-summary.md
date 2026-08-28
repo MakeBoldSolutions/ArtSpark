@@ -179,7 +179,7 @@ var prompt = await persona.GenerateSystemPromptAsync(promptData);
 
 ### Prompt File Structure
 ```
-WebSpark.ArtSpark.Agent/Personas/
+ArtSpark.Agent/Personas/
 ├── artwork-persona.yaml
 ├── artist-persona.yaml
 ├── curator-persona.yaml
@@ -266,7 +266,7 @@ Safeguard Controls: 4 checks
 - **Plan**: `specs/003-prompt-management/plan.md`
 - **Quality Audit**: `docs/copilot/2025-11-17/quality-audit.md`
 - **Prompt Authoring Guide**: `docs/copilot/prompt-authoring-guide.md`
-- **Agent README**: `WebSpark.ArtSpark.Agent/README.md`
+- **Agent README**: `ArtSpark.Agent/README.md`
 
 ## Conclusion
 

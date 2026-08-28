@@ -41,7 +41,7 @@ Successfully implemented a production-ready prompt management system that extern
 - `PromptLoader`: File loading, validation, caching, hot reload infrastructure
 - `FileBackedPersonaHandler`: Decorator pattern wrapping base persona handlers
 - `PersonaFactory`: Updated to inject prompt loader and wrap handlers
-- 4 markdown prompt files in `WebSpark.ArtSpark.Demo/prompts/agents/`:
+- 4 markdown prompt files in `ArtSpark.Demo/prompts/agents/`:
   - `artspark.artwork.prompt.md`
   - `artspark.artist.prompt.md`
   - `artspark.curator.prompt.md`
@@ -112,7 +112,7 @@ Successfully implemented a production-ready prompt management system that extern
 
 ### File Structure
 ```
-WebSpark.ArtSpark.Agent/
+ArtSpark.Agent/
 ├── Configuration/
 │   ├── PromptOptions.cs              # Config model + metadata
 │   └── PersonaPromptConfiguration.cs  # Persona → file/whitelist map
@@ -128,7 +128,7 @@ WebSpark.ArtSpark.Agent/
 └── Models/
     └── PromptTemplate.cs              # Loaded prompt with metadata
 
-WebSpark.ArtSpark.Demo/
+ArtSpark.Demo/
 ├── prompts/agents/
 │   ├── artspark.artwork.prompt.md
 │   ├── artspark.artist.prompt.md
@@ -137,7 +137,7 @@ WebSpark.ArtSpark.Demo/
 ├── appsettings.json                   # Production defaults
 └── appsettings.Development.json       # Hot reload enabled
 
-WebSpark.ArtSpark.Tests/
+ArtSpark.Tests/
 └── Agent/
     ├── Configuration/
     │   └── PromptOptionsValidationTests.cs
@@ -308,7 +308,7 @@ Track configuration changes in development:
 
 ### High Priority (Blocking Production Release)
 - [ ] T037: Create `docs/copilot/prompt-authoring-guide.md` with YAML schema, token reference, validation rules
-- [ ] T039: Document prompt management in `WebSpark.ArtSpark.Agent/README.md`
+- [ ] T039: Document prompt management in `ArtSpark.Agent/README.md`
 - [ ] T040: Update root `README.md` with configuration instructions
 - [ ] T041: Refresh `docs/AI-Chat-Personas-Implementation.md` with architecture changes
 

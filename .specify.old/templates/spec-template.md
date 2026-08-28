@@ -4,7 +4,7 @@
 **Created**: [DATE]  
 **Status**: Draft  
 **Input**: User description: "$ARGUMENTS"  
-**Live Demo Impact**: [Summarize how this specification alters `WebSpark.ArtSpark.Demo`]  
+**Live Demo Impact**: [Summarize how this specification alters `ArtSpark.Demo`]  
 **Related Projects**: [List other projects touched (Client, Agent, Console) and expected contract impact]
 
 ## User Scenarios & Testing *(mandatory)*
@@ -67,7 +67,7 @@
 
 ## Demo Surface & Dependencies *(mandatory)*
 
-- **Affected Pages/Routes**: [List Razor views, controllers, API endpoints, or background jobs in `WebSpark.ArtSpark.Demo`]
+- **Affected Pages/Routes**: [List Razor views, controllers, API endpoints, or background jobs in `ArtSpark.Demo`]
 - **Feature Flags / Configuration**: [Document new settings, secrets, migrations, or deployments required]
 - **Shared Library Touchpoints**: [Describe required changes to Client/Agent/Console contracts and how the Demo consumes them]
 - **Rollback Plan**: [Explain how to revert safely without breaking the live site]

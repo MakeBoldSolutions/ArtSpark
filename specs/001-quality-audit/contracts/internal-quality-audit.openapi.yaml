@@ -5,7 +5,7 @@ info:
   description: >-
     Internal contract for triggering repository-wide quality audits and retrieving
     generated Markdown reports that summarize build diagnostics, dependency currency,
-    and safeguard checks for WebSpark.ArtSpark.Demo.
+    and safeguard checks for ArtSpark.Demo.
 servers:
   - url: https://art.makeboldspark.com/internal
     description: Demo deployment (authenticated maintainers only)

@@ -2,7 +2,7 @@
 
 ## 🌟 Overview
 
-**WebSpark.ArtSpark** introduces a groundbreaking AI chat system that transforms how people interact with artworks. Using advanced AI technology and multiple persona perspectives, visitors can now have actual conversations with artworks, experiencing art through dynamic, engaging dialogue.
+**ArtSpark** introduces a groundbreaking AI chat system that transforms how people interact with artworks. Using advanced AI technology and multiple persona perspectives, visitors can now have actual conversations with artworks, experiencing art through dynamic, engaging dialogue.
 
 ---
 
@@ -391,7 +391,7 @@ This implementation demonstrates the power of combining advanced AI technology w
 
 ## 📚 Resources
 
-- [WebSpark.ArtSpark.Agent Documentation](../WebSpark.ArtSpark.Agent/README.md)
+- [ArtSpark.Agent Documentation](../ArtSpark.Agent/README.md)
 - [OpenAI API Documentation](https://platform.openai.com/docs)
 - [Microsoft Semantic Kernel](https://learn.microsoft.com/en-us/semantic-kernel/)
 - [Art Institute of Chicago API](https://api.artic.edu/docs/)

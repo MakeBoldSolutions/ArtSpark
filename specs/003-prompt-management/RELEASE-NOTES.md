@@ -184,7 +184,7 @@ Developers can iterate on prompts with **live reloading** enabled:
 
 **Updated Documentation**:
 - `docs/AI-Chat-Personas-Implementation.md` - Architecture changes
-- `WebSpark.ArtSpark.Agent/README.md` - Prompt management usage
+- `ArtSpark.Agent/README.md` - Prompt management usage
 - Root `README.md` - Configuration instructions
 
 ---
@@ -215,7 +215,7 @@ Developers can iterate on prompts with **live reloading** enabled:
 
 ## 🚀 Deployment Checklist
 
-- [x] ✅ Run full test suite: `dotnet test WebSpark.ArtSpark.Tests`
+- [x] ✅ Run full test suite: `dotnet test ArtSpark.Tests`
 - [x] ✅ Verify prompt files deployed to `prompts/agents/`
 - [x] ✅ Confirm configuration in production appsettings
 - [x] ✅ Test fallback behavior in staging

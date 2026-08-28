@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    npm package currency detection for WebSpark.ArtSpark
+    npm package currency detection for ArtSpark
 .DESCRIPTION
     Detects package.json manifests and collects npm outdated/audit results
 #>

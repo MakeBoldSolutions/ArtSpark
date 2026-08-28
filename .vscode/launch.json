@@ -2,13 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch WebSpark.ArtSpark.Demo (HTTP)",
+      "name": "Launch ArtSpark.Demo (HTTP)",
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build-demo",
-      "program": "${workspaceFolder}/WebSpark.ArtSpark.Demo/bin/Debug/net9.0/WebSpark.ArtSpark.Demo.dll",
+      "program": "${workspaceFolder}/ArtSpark.Demo/bin/Debug/net10.0/ArtSpark.Demo.dll",
       "args": [],
-      "cwd": "${workspaceFolder}/WebSpark.ArtSpark.Demo",
+      "cwd": "${workspaceFolder}/ArtSpark.Demo",
       "stopAtEntry": false,
       "env": {
         "ASPNETCORE_ENVIRONMENT": "Development",
@@ -20,17 +20,17 @@
         "uriFormat": "%s"
       },
       "sourceFileMap": {
-        "/Views": "${workspaceFolder}/WebSpark.ArtSpark.Demo/Views"
+        "/Views": "${workspaceFolder}/ArtSpark.Demo/Views"
       }
     },
     {
-      "name": "Launch WebSpark.ArtSpark.Demo (HTTPS)",
+      "name": "Launch ArtSpark.Demo (HTTPS)",
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build-demo",
-      "program": "${workspaceFolder}/WebSpark.ArtSpark.Demo/bin/Debug/net9.0/WebSpark.ArtSpark.Demo.dll",
+      "program": "${workspaceFolder}/ArtSpark.Demo/bin/Debug/net10.0/ArtSpark.Demo.dll",
       "args": [],
-      "cwd": "${workspaceFolder}/WebSpark.ArtSpark.Demo",
+      "cwd": "${workspaceFolder}/ArtSpark.Demo",
       "stopAtEntry": false,
       "env": {
         "ASPNETCORE_ENVIRONMENT": "Development",
@@ -42,23 +42,23 @@
         "uriFormat": "%s"
       },
       "sourceFileMap": {
-        "/Views": "${workspaceFolder}/WebSpark.ArtSpark.Demo/Views"
+        "/Views": "${workspaceFolder}/ArtSpark.Demo/Views"
       }
     },
     {
-      "name": "Attach to WebSpark.ArtSpark.Demo",
+      "name": "Attach to ArtSpark.Demo",
       "type": "coreclr",
       "request": "attach",
       "processId": "${command:pickProcess}"
     },
     {
-      "name": "Launch WebSpark.ArtSpark.Console",
+      "name": "Launch ArtSpark.Console",
       "type": "coreclr",
       "request": "launch",
       "preLaunchTask": "build-console",
-      "program": "${workspaceFolder}/WebSpark.ArtSpark.Console/bin/Debug/net9.0/WebSpark.ArtSpark.Console.dll",
+      "program": "${workspaceFolder}/ArtSpark.Console/bin/Debug/net10.0/ArtSpark.Console.dll",
       "args": [],
-      "cwd": "${workspaceFolder}/WebSpark.ArtSpark.Console",
+      "cwd": "${workspaceFolder}/ArtSpark.Console",
       "console": "integratedTerminal",
       "stopAtEntry": false,
       "env": {

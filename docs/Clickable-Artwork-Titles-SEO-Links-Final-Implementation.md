@@ -114,7 +114,7 @@ The implementation uses the existing SEO-friendly URL pattern:
 
 ### Files Modified
 
-1. `WebSpark.ArtSpark.Demo\Views\Home\Index.cshtml`
+1. `ArtSpark.Demo\Views\Home\Index.cshtml`
    - Added clickable links to artwork titles
    - Updated View Details button to use SEO-friendly URLs
    - Added CSS for enhanced hover effects

@@ -153,11 +153,11 @@ All automated tests deferred to Phase 10:
 ### Build Status
 ```
 ✅ Build succeeded in 2.8s
-- WebSpark.ArtSpark.Client: succeeded
-- WebSpark.ArtSpark.Agent: succeeded
-- WebSpark.ArtSpark.Console: succeeded
-- WebSpark.ArtSpark.Demo: succeeded
-- WebSpark.ArtSpark.Tests: succeeded
+- ArtSpark.Client: succeeded
+- ArtSpark.Agent: succeeded
+- ArtSpark.Console: succeeded
+- ArtSpark.Demo: succeeded
+- ArtSpark.Tests: succeeded
 ```
 
 ### Application Startup

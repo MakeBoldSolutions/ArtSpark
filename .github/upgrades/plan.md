@@ -2,7 +2,7 @@
 
 ## Executive Summary
 
-This plan outlines the upgrade of the WebSpark.ArtSpark solution from .NET 9.0 to .NET 10.0 (Preview). The solution consists of 5 projects with various dependencies that need to be updated systematically.
+This plan outlines the upgrade of the ArtSpark solution from .NET 9.0 to .NET 10.0 (Preview). The solution consists of 5 projects with various dependencies that need to be updated systematically.
 
 **Upgrade Scope:**
 - **Target Framework:** .NET 10.0 (Preview)
@@ -24,11 +24,11 @@ This plan outlines the upgrade of the WebSpark.ArtSpark solution from .NET 9.0 t
 
 | Project | Current TFM | Target TFM | Packages to Update | Risk |
 |---------|-------------|------------|-------------------|------|
-| WebSpark.ArtSpark.Client | net9.0 | net10.0 | 0 | Low |
-| WebSpark.ArtSpark.Agent | net9.0 | net10.0 | 0 | Low |
-| WebSpark.ArtSpark.Console | net9.0 | net10.0 | 2 | Low |
-| WebSpark.ArtSpark.Demo | net9.0 | net10.0 | 4 | Medium |
-| WebSpark.ArtSpark.Tests | net9.0 | net10.0 | 5 | Low |
+| ArtSpark.Client | net9.0 | net10.0 | 0 | Low |
+| ArtSpark.Agent | net9.0 | net10.0 | 0 | Low |
+| ArtSpark.Console | net9.0 | net10.0 | 2 | Low |
+| ArtSpark.Demo | net9.0 | net10.0 | 4 | Medium |
+| ArtSpark.Tests | net9.0 | net10.0 | 5 | Low |
 
 ## 2. Upgrade Strategy
 
@@ -37,32 +37,32 @@ This plan outlines the upgrade of the WebSpark.ArtSpark solution from .NET 9.0 t
 Based on project dependencies, we'll upgrade in this order:
 
 1. **Tier 1 (No dependencies):**
-   - WebSpark.ArtSpark.Client
-   - WebSpark.ArtSpark.Agent
+   - ArtSpark.Client
+   - ArtSpark.Agent
 
 2. **Tier 2 (Depends on Tier 1):**
-   - WebSpark.ArtSpark.Console
-   - WebSpark.ArtSpark.Demo
+   - ArtSpark.Console
+   - ArtSpark.Demo
 
 3. **Tier 3 (Depends on Tier 2):**
-   - WebSpark.ArtSpark.Tests
+   - ArtSpark.Tests
 
 ### 2.2 NuGet Package Updates
 
-#### Demo Project (WebSpark.ArtSpark.Demo)
+#### Demo Project (ArtSpark.Demo)
 - Microsoft.EntityFrameworkCore.Sqlite: 9.0.6 → 10.0.0
 - Microsoft.EntityFrameworkCore.Tools: 9.0.6 → 10.0.0
 - Microsoft.EntityFrameworkCore.InMemory: 9.0.6 → 10.0.0
 - Microsoft.AspNetCore.Identity.EntityFrameworkCore: 9.0.6 → 10.0.0
 
-#### Tests Project (WebSpark.ArtSpark.Tests)
+#### Tests Project (ArtSpark.Tests)
 - Microsoft.AspNetCore.Mvc.Testing: 9.0.6 → 10.0.0
 - Microsoft.Extensions.Hosting: 9.0.6 → 10.0.0
 - Microsoft.Extensions.DependencyInjection: 9.0.6 → 10.0.0
 - Microsoft.Extensions.Logging: 9.0.6 → 10.0.0
 - Microsoft.Extensions.Configuration: 9.0.6 → 10.0.0
 
-#### Console Project (WebSpark.ArtSpark.Console)
+#### Console Project (ArtSpark.Console)
 - Microsoft.Extensions.Configuration.Json: 9.0.6 → 10.0.0
 - Microsoft.Extensions.Logging.Console: 9.0.6 → 10.0.0
 
@@ -70,12 +70,12 @@ Based on project dependencies, we'll upgrade in this order:
 
 ### 3.1 Phase 1: Update Tier 1 Projects
 
-#### Step 1.1: Update WebSpark.ArtSpark.Client
+#### Step 1.1: Update ArtSpark.Client
 1. Update TargetFramework from `net9.0` to `net10.0`
 2. Verify project loads without errors
 3. No package updates required (all packages already compatible)
 
-#### Step 1.2: Update WebSpark.ArtSpark.Agent
+#### Step 1.2: Update ArtSpark.Agent
 1. Update TargetFramework from `net9.0` to `net10.0`
 2. Verify project loads without errors
 3. No package updates required (packages already at version 10.0.0)
@@ -86,14 +86,14 @@ Based on project dependencies, we'll upgrade in this order:
 
 ### 3.2 Phase 2: Update Tier 2 Projects
 
-#### Step 2.1: Update WebSpark.ArtSpark.Console
+#### Step 2.1: Update ArtSpark.Console
 1. Update TargetFramework from `net9.0` to `net10.0`
 2. Update NuGet packages:
    - Microsoft.Extensions.Configuration.Json: 9.0.6 → 10.0.0
    - Microsoft.Extensions.Logging.Console: 9.0.6 → 10.0.0
 3. Build project and verify no errors
 
-#### Step 2.2: Update WebSpark.ArtSpark.Demo
+#### Step 2.2: Update ArtSpark.Demo
 1. Update TargetFramework from `net9.0` to `net10.0`
 2. Update NuGet packages:
    - Microsoft.EntityFrameworkCore.Sqlite: 9.0.6 → 10.0.0
@@ -109,7 +109,7 @@ Based on project dependencies, we'll upgrade in this order:
 
 ### 3.3 Phase 3: Update Tier 3 Projects
 
-#### Step 3.1: Update WebSpark.ArtSpark.Tests
+#### Step 3.1: Update ArtSpark.Tests
 1. Update TargetFramework from `net9.0` to `net10.0`
 2. Update NuGet packages:
    - Microsoft.AspNetCore.Mvc.Testing: 9.0.6 → 10.0.0
@@ -132,24 +132,24 @@ Based on project dependencies, we'll upgrade in this order:
 4. Verify 0 errors, document any warnings
 
 ### 4.2 Unit Testing
-1. Discover all tests in WebSpark.ArtSpark.Tests
+1. Discover all tests in ArtSpark.Tests
 2. Run all unit tests
 3. Verify all tests pass
 4. Document any failing tests for investigation
 
 ### 4.3 Integration Testing
-1. Start WebSpark.ArtSpark.Demo web application
+1. Start ArtSpark.Demo web application
 2. Verify application starts without errors
 3. Test basic functionality:
    - Home page loads
    - API endpoints respond
    - Database operations work
    - Search functionality works
-4. Test WebSpark.ArtSpark.Console application
+4. Test ArtSpark.Console application
 5. Verify console app runs without errors
 
 ### 4.4 Semantic Kernel Agent Testing
-1. Verify Semantic Kernel agents in WebSpark.ArtSpark.Agent still function
+1. Verify Semantic Kernel agents in ArtSpark.Agent still function
 2. Test artwork chat functionality
 3. Verify AI integrations work as expected
 

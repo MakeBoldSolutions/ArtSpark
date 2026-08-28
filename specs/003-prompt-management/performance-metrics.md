@@ -76,7 +76,7 @@ PromptLoaded - Information
 ### Manual Performance Check
 ```powershell
 # Time a full test suite run focused on prompt loading
-Measure-Command { dotnet test WebSpark.ArtSpark.Tests --filter "PromptLoader" }
+Measure-Command { dotnet test ArtSpark.Tests --filter "PromptLoader" }
 ```
 
 ### Log Query Examples
@@ -98,7 +98,7 @@ cat logs/artspark-*.json | ConvertFrom-Json | Where-Object { $_.EventId -eq "Pro
 
 ### Unit Test Execution Times
 
-Test suite results from `WebSpark.ArtSpark.Tests`:
+Test suite results from `ArtSpark.Tests`:
 
 - **PromptLoaderTests**: ~200-300ms total (10 tests, file I/O)
 - **PromptLoaderHotReloadTests**: ~150-250ms total (3 tests, file watcher)
@@ -121,7 +121,7 @@ Performance acceptable for integration test suite.
 
 Before deploying prompt management to production:
 
-- [x] ✅ Run full test suite: `dotnet test WebSpark.ArtSpark.Tests`
+- [x] ✅ Run full test suite: `dotnet test ArtSpark.Tests`
 - [x] ✅ Verify all prompt files < 50KB each
 - [x] ✅ Confirm Serilog logging captures load duration
 - [x] ✅ Test fallback behavior with missing/invalid files

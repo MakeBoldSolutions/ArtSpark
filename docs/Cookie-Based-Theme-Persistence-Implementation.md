@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes the implementation of cookie-based theme persistence for the WebSpark.ArtSpark.Demo application, which sets Materia Light as the default theme and ensures theme and color mode selections persist across browser sessions using cookies.
+This document describes the implementation of cookie-based theme persistence for the ArtSpark.Demo application, which sets Materia Light as the default theme and ensures theme and color mode selections persist across browser sessions using cookies.
 
 ## Implementation Summary
 
@@ -18,7 +18,7 @@ This document describes the implementation of cookie-based theme persistence for
 
 #### 1. Server-Side Configuration
 
-**File**: `WebSpark.ArtSpark.Demo\Views\Shared\_Layout.cshtml`
+**File**: `ArtSpark.Demo\Views\Shared\_Layout.cshtml`
 
 - Updated theme resolution to default to "materia" when no theme is set
 - Added pre-initialization script to set default theme in localStorage

@@ -2,7 +2,7 @@
 
 ## Overview
 
-This document describes the implementation of an enhanced footer that displays build version and build date information, along with a link to MarkHazleton.com. The implementation follows ASP.NET Core best practices using ViewComponents for clean separation of concerns.
+This document describes the implementation of an enhanced footer that displays build version and build date information, along with a link to MakeBoldSpark. The implementation follows ASP.NET Core best practices using ViewComponents for clean separation of concerns.
 
 ## Implementation Summary
 
@@ -10,7 +10,7 @@ The footer enhancement includes:
 
 - **Build Version Display**: Shows the current assembly version
 - **Build Date Display**: Shows when the application was last built
-- **MarkHazleton.com Link**: External link to the main website
+- **MakeBoldSpark Link**: External link to the main website
 - **Footer Navigation**: Moved Documentation link from top navigation to footer alongside Privacy Policy
 - **Responsive Design**: Mobile-friendly layout using Bootstrap
 - **Clean Architecture**: Implemented using ASP.NET Core ViewComponents
@@ -82,16 +82,16 @@ The Razor view template renders the footer with responsive Bootstrap layout.
 
 **Layout Structure**:
 
-- **3-Column Desktop Layout**: Copyright/Build Info | MarkHazleton.com Link | Privacy Policy
+- **3-Column Desktop Layout**: Copyright/Build Info | MakeBoldSpark Link | Privacy Policy
 - **Stacked Mobile Layout**: Elements stack vertically on smaller screens
 - **Bootstrap Icons**: Visual enhancements with bi-c-circle, bi-globe, bi-shield-check
-- **External Link Handling**: MarkHazleton.com opens in new tab
+- **External Link Handling**: MakeBoldSpark opens in new tab
 
 ## Configuration Files Updated
 
 ### 1. Project File Enhancement
 
-**File**: `WebSpark.ArtSpark.Demo.csproj`
+**File**: `ArtSpark.Demo.csproj`
 
 ```xml
 <PropertyGroup>
@@ -173,17 +173,17 @@ Example output: `v1.0.0.0 - Built 06/01/2025`
 ### Desktop Layout (≥768px)
 
 ```
-| © 2025 - WebSpark.ArtSpark | MarkHazleton.com | Privacy Policy |
+| © 2025 - ArtSpark | MakeBoldSpark | Privacy Policy |
 | v1.0.0.0 - Built 06/01/2025 |                  |                 |
 ```
 
 ### Mobile Layout (<768px)
 
 ```
-© 2025 - WebSpark.ArtSpark
+© 2025 - ArtSpark
 v1.0.0.0 - Built 06/01/2025
 
-MarkHazleton.com
+MakeBoldSpark
 
 Privacy Policy
 ```
@@ -206,7 +206,7 @@ Privacy Policy
 - [ ] Footer displays on all pages
 - [ ] Build version shows correct assembly version
 - [ ] Build date shows realistic timestamp
-- [ ] MarkHazleton.com link opens in new tab
+- [ ] MakeBoldSpark link opens in new tab
 - [ ] Privacy Policy link navigates correctly
 - [ ] Layout is responsive on mobile devices
 - [ ] Icons display correctly (Bootstrap Icons required)
@@ -289,7 +289,7 @@ The footer build information implementation provides users with transparency abo
 
 ## Overview
 
-This document details the implementation of footer build information display and navigation structure for the WebSpark.ArtSpark.Demo application.
+This document details the implementation of footer build information display and navigation structure for the ArtSpark.Demo application.
 
 ## Features Implemented
 
@@ -297,7 +297,7 @@ This document details the implementation of footer build information display and
 
 - **Version Display**: Shows application version from assembly metadata
 - **Build Date**: Displays the last build date using file modification time
-- **External Link**: Links to MarkHazleton.com with Bootstrap icon
+- **External Link**: Links to MakeBoldSpark with Bootstrap icon
 - **Responsive Design**: Adapts layout for mobile and desktop viewports
 
 ### 2. Footer Navigation

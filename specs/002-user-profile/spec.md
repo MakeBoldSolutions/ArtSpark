@@ -233,7 +233,7 @@ This feature does not involve AI personas or content generation. Standard conten
   - Integration tests for admin user management operations
   - Authorization tests verifying Admin-only route protection
   - File validation tests for various formats, sizes, and edge cases
-  - Target projects: WebSpark.ArtSpark.Tests (add new test classes: ProfilePhotoServiceTests, RoleManagementTests, UserManagementIntegrationTests)
+  - Target projects: ArtSpark.Tests (add new test classes: ProfilePhotoServiceTests, RoleManagementTests, UserManagementIntegrationTests)
 
 - **Logging & Metrics**:
   - Serilog structured logging for all authentication events (login, registration, password change) with user ID and timestamp
@@ -257,7 +257,7 @@ This feature does not involve AI personas or content generation. Standard conten
 
 - **Docs to Update**:
   - `README.md` (root) - Add section on user roles and profile features
-  - `WebSpark.ArtSpark.Demo/README.md` - Document profile photo upload configuration, role management, and file storage setup
+  - `ArtSpark.Demo/README.md` - Document profile photo upload configuration, role management, and file storage setup
   - Create new `docs/User-Profile-Management.md` - Comprehensive guide for profile features, admin user management, and file upload configuration
   - Create new `docs/Role-Based-Access-Control.md` - Document role structure, permission assignments, and admin capabilities
   - Update `docs/Live-Testing-Checklist.md` - Add profile and role management test scenarios

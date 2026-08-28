@@ -1,6 +1,6 @@
 # SEO Optimization Service Documentation
 
-The SEO Optimization Service provides AI-powered SEO optimization for art collections and individual artworks within the WebSpark.ArtSpark application.
+The SEO Optimization Service provides AI-powered SEO optimization for art collections and individual artworks within the ArtSpark application.
 
 ## Overview
 

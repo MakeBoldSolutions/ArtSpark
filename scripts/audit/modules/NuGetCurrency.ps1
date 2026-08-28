@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    NuGet package currency detection for WebSpark.ArtSpark
+    NuGet package currency detection for ArtSpark
 .DESCRIPTION
     Runs dotnet list package --outdated to identify stale NuGet dependencies
 #>
@@ -17,7 +17,7 @@ function Get-NuGetCurrency {
         [Parameter(Mandatory)]
         [string]$RepoRoot,
         
-        [string]$SolutionPath = "WebSpark.ArtSpark.sln"
+        [string]$SolutionPath = "ArtSpark.sln"
     )
 
     $entries = @()

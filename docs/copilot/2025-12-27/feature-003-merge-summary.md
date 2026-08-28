@@ -46,18 +46,18 @@ All tasks completed. Feature branch 003-prompt-management merged into main.
 ### Key Deliverables
 
 #### 1. Core Components
-- `WebSpark.ArtSpark.Agent/Configuration/PromptOptions.cs` - Configuration model
-- `WebSpark.ArtSpark.Agent/Configuration/PersonaPromptConfiguration.cs` - Token whitelist
-- `WebSpark.ArtSpark.Agent/Services/PromptLoader.cs` - File-based prompt loading
-- `WebSpark.ArtSpark.Agent/Services/PromptMetadataParser.cs` - YAML front matter parsing
-- `WebSpark.ArtSpark.Agent/Personas/FileBackedPersonaHandler.cs` - Decorator pattern
-- `WebSpark.ArtSpark.Agent/Models/PromptTemplate.cs` - Prompt data model
+- `ArtSpark.Agent/Configuration/PromptOptions.cs` - Configuration model
+- `ArtSpark.Agent/Configuration/PersonaPromptConfiguration.cs` - Token whitelist
+- `ArtSpark.Agent/Services/PromptLoader.cs` - File-based prompt loading
+- `ArtSpark.Agent/Services/PromptMetadataParser.cs` - YAML front matter parsing
+- `ArtSpark.Agent/Personas/FileBackedPersonaHandler.cs` - Decorator pattern
+- `ArtSpark.Agent/Models/PromptTemplate.cs` - Prompt data model
 
 #### 2. Prompt Files
-- `WebSpark.ArtSpark.Demo/prompts/agents/artspark.artist.prompt.md`
-- `WebSpark.ArtSpark.Demo/prompts/agents/artspark.artwork.prompt.md`
-- `WebSpark.ArtSpark.Demo/prompts/agents/artspark.curator.prompt.md`
-- `WebSpark.ArtSpark.Demo/prompts/agents/artspark.historian.prompt.md`
+- `ArtSpark.Demo/prompts/agents/artspark.artist.prompt.md`
+- `ArtSpark.Demo/prompts/agents/artspark.artwork.prompt.md`
+- `ArtSpark.Demo/prompts/agents/artspark.curator.prompt.md`
+- `ArtSpark.Demo/prompts/agents/artspark.historian.prompt.md`
 
 #### 3. Test Coverage
 - 9 new test suites with 63 prompt-specific tests
@@ -217,7 +217,7 @@ Build succeeded in 6.0s
 ### Documentation Updates
 - `docs/copilot/prompt-authoring-guide.md` - New content author guide
 - `docs/AI-Chat-Personas-Implementation.md` - Updated architecture
-- `WebSpark.ArtSpark.Agent/README.md` - Updated usage docs
+- `ArtSpark.Agent/README.md` - Updated usage docs
 - `README.md` - Updated configuration instructions
 
 ---

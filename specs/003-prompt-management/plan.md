@@ -11,11 +11,11 @@ Load each persona’s system prompt from markdown files located under `prompts/a
 ## Technical Context
 
 **Language/Version**: C# / .NET 10.0 (Preview)  
-**Primary Dependencies**: ASP.NET Core, Microsoft Semantic Kernel, Serilog, Polly, WebSpark.ArtSpark.Agent, WebSpark.ArtSpark.Client  
+**Primary Dependencies**: ASP.NET Core, Microsoft Semantic Kernel, Serilog, Polly, ArtSpark.Agent, ArtSpark.Client  
 **Storage**: SQLite via EF Core migrations (no schema changes; prompt files stored on web server file system)  
-**Testing**: `dotnet test WebSpark.ArtSpark.Tests`; targeted Agent unit tests (`PromptLoaderTests`, `PersonaFactoryTests`, `PromptTemplateTokenTests`, `PromptOptionsValidationTests`, `PromptLoaderHotReloadTests`, `PromptAuditLoggingTests`) and Demo integration tests for prompt fallback  
+**Testing**: `dotnet test ArtSpark.Tests`; targeted Agent unit tests (`PromptLoaderTests`, `PersonaFactoryTests`, `PromptTemplateTokenTests`, `PromptOptionsValidationTests`, `PromptLoaderHotReloadTests`, `PromptAuditLoggingTests`) and Demo integration tests for prompt fallback  
 **Target Platform**: ASP.NET Core web app deployed to https://art.makeboldspark.com  
-**Project Type**: Multi-project .NET solution centered on `WebSpark.ArtSpark.Demo`  
+**Project Type**: Multi-project .NET solution centered on `ArtSpark.Demo`  
 **Performance Goals**: Prompt load duration < 50 ms per persona during initialization; no increase to chat request latency beyond existing budgets  
 **Constraints**: Production prompt files editable on Demo web server (`prompts/agents/`); strict token validation triggers fallback; hot reload disabled in production by default; metadata overrides must map to OpenAI configuration surface  
 **Scale/Scope**: Impacts all four AI personas (Artwork, Artist, Curator, Historian) across Demo and Console; prompt files expected to remain < 50 KB each
@@ -28,7 +28,7 @@ Load each persona’s system prompt from markdown files located under `prompts/a
 - [x] **Shared Library Contracts**: Agent library gains `IPromptLoader` and decorator without breaking existing `IPersonaHandler` signatures; Demo integration ships simultaneously to satisfy contract stability.
 - [x] **Reliability & Observability**: Add Agent unit tests for file loading, fallback, token validation, hot reload, and audit logging; add Demo integration tests; Serilog emits `PromptLoaded`, `PromptLoadFailed`, `PromptFallbackUsed`, `PromptTokenValidationFailed`, and `ConfigurationReloaded` with hash/path metadata.
 - [x] **Responsible AI Safeguards**: Persona prompts enforce required sections (CULTURAL SENSITIVITY, CONVERSATION GUIDELINES); strict whitelist validation prevents injection; fallback retains reviewed hardcoded prompts; documentation instructs culturally respectful updates.
-- [x] **Documentation & Release Notes**: Update `docs/copilot/prompt-authoring-guide.md`, `WebSpark.ArtSpark.Agent/README.md`, `docs/AI-Chat-Personas-Implementation.md`, and root `README.md`; release notes highlight externalized prompts, metadata overrides, and logging; ensure deployment logs capture prompt hash metadata.
+- [x] **Documentation & Release Notes**: Update `docs/copilot/prompt-authoring-guide.md`, `ArtSpark.Agent/README.md`, `docs/AI-Chat-Personas-Implementation.md`, and root `README.md`; release notes highlight externalized prompts, metadata overrides, and logging; ensure deployment logs capture prompt hash metadata.
 
 ## Project Structure
 
@@ -47,7 +47,7 @@ specs/003-prompt-management/
 ### Source Code (repository root)
 
 ```text
-WebSpark.ArtSpark.Demo/      # ASP.NET Core MVC web app (primary delivery target)
+ArtSpark.Demo/      # ASP.NET Core MVC web app (primary delivery target)
 ├── Controllers/
 ├── Services/
 ├── Views/
@@ -55,13 +55,13 @@ WebSpark.ArtSpark.Demo/      # ASP.NET Core MVC web app (primary delivery target
 ├── prompts/                # New persona prompt markdown files (added by this feature)
 └── Tests/
 
-WebSpark.ArtSpark.Agent/     # AI persona services consumed by the Demo
-WebSpark.ArtSpark.Client/    # Art Institute API client consumed by Demo/Agent/Console
-WebSpark.ArtSpark.Console/   # Developer tooling bound to Client contracts
+ArtSpark.Agent/     # AI persona services consumed by the Demo
+ArtSpark.Client/    # Art Institute API client consumed by Demo/Agent/Console
+ArtSpark.Console/   # Developer tooling bound to Client contracts
 docs/                        # Operational and implementation guides
 ```
 
-**Structure Decision**: Reuse the existing multi-project layout; store editable persona prompts under `WebSpark.ArtSpark.Demo/prompts/agents/`, while `WebSpark.ArtSpark.Agent` exposes the file-backed loader consumed through `AddArtSparkAgent()` so Demo remains the integration hub.
+**Structure Decision**: Reuse the existing multi-project layout; store editable persona prompts under `ArtSpark.Demo/prompts/agents/`, while `ArtSpark.Agent` exposes the file-backed loader consumed through `AddArtSparkAgent()` so Demo remains the integration hub.
 
 ## Complexity Tracking
 

@@ -110,7 +110,7 @@ The following endpoints **still require authentication** (kept `[Authorize]` att
 
 1. **Start the application**
    ```bash
-   cd WebSpark.ArtSpark.Demo
+   cd ArtSpark.Demo
    dotnet run
    ```
 
@@ -136,7 +136,7 @@ The following endpoints **still require authentication** (kept `[Authorize]` att
 ## Related Documentation
 
 - [AI Chat Personas Implementation](../docs/AI-Chat-Personas-Implementation.md)
-- [WebSpark.ArtSpark.Agent README](../WebSpark.ArtSpark.Agent/README.md)
+- [ArtSpark.Agent README](../ArtSpark.Agent/README.md)
 
 ## Impact
 

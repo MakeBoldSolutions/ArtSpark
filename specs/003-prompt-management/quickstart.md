@@ -1,24 +1,24 @@
 # Quickstart – AI Persona Prompt Management System
 
 ## Prerequisites
-- ✅ Configure `ArtSparkAgent:Prompts` section in `WebSpark.ArtSpark.Demo/appsettings.Development.json` with `DataPath: "./prompts/agents"`.
+- ✅ Configure `ArtSparkAgent:Prompts` section in `ArtSpark.Demo/appsettings.Development.json` with `DataPath: "./prompts/agents"`.
 - ✅ Ensure prompt markdown files exist: `prompts/agents/artspark.{persona}.prompt.md` with required sections and allowed tokens.
 - ✅ Set OpenAI API key via `dotnet user-secrets` if not already configured.
 
 ## Local Setup
 1. ✅ Create the prompt directory:
    ```powershell
-   mkdir -p WebSpark.ArtSpark.Demo/prompts/agents
+   mkdir -p ArtSpark.Demo/prompts/agents
    ```
-2. ✅ Initial prompt templates are seeded in `WebSpark.ArtSpark.Demo/prompts/agents/` directory.
+2. ✅ Initial prompt templates are seeded in `ArtSpark.Demo/prompts/agents/` directory.
 3. ✅ Confirm `ArtSparkAgent:Prompts:DefaultMetadata` in `appsettings.Development.json` includes values such as `ModelId`, `Temperature`, and optional knobs (`TopP`, `MaxOutputTokens`).
 4. ✅ Run migrations if necessary:
    ```powershell
-   dotnet ef database update --project WebSpark.ArtSpark.Demo
+   dotnet ef database update --project ArtSpark.Demo
    ```
 5. ✅ Launch the Demo with hot reload enabled for prompts:
    ```powershell
-   dotnet watch run --project WebSpark.ArtSpark.Demo
+   dotnet watch run --project ArtSpark.Demo
    ```
 
 ## Editing Prompts
@@ -43,7 +43,7 @@
 4. ✅ Introduce an invalid token (e.g., `{artwork.SecretField}`) to verify the system logs `PromptTokenValidationFailed` and falls back to the default prompt.
 5. ✅ Run automated tests:
    ```powershell
-   dotnet test WebSpark.ArtSpark.Tests --filter "Prompt"
+   dotnet test ArtSpark.Tests --filter "Prompt"
    ```
 
 ## Hot Reload Workflow (Development Only)

@@ -1,6 +1,6 @@
 <#
 .SYNOPSIS
-    Pester tests for WebSpark.ArtSpark Quality Audit
+    Pester tests for ArtSpark Quality Audit
 .DESCRIPTION
     Test harness for audit script functionality and report generation
 #>
@@ -32,13 +32,13 @@ Describe "Quality Audit Module" {
     Context "New-BuildHealthFinding" {
         It "Creates finding with mandatory properties" {
             $finding = New-BuildHealthFinding `
-                -SourceProject "WebSpark.ArtSpark.Demo" `
+                -SourceProject "ArtSpark.Demo" `
                 -DiagnosticId "CS8618" `
                 -Severity "Warning" `
                 -Message "Non-nullable property must contain a non-null value"
 
             $finding | Should Not BeNullOrEmpty
-            $finding.SourceProject | Should Be "WebSpark.ArtSpark.Demo"
+            $finding.SourceProject | Should Be "ArtSpark.Demo"
             $finding.DiagnosticId | Should Be "CS8618"
             $finding.Severity | Should Be "Warning"
             $finding.Status | Should Be "Open"
@@ -48,7 +48,7 @@ Describe "Quality Audit Module" {
     Context "New-PackageCurrencyEntry" {
         It "Creates entry with NuGet package" {
             $entry = New-PackageCurrencyEntry `
-                -SourceProject "WebSpark.ArtSpark.Demo" `
+                -SourceProject "ArtSpark.Demo" `
                 -PackageName "Microsoft.AspNetCore.Mvc" `
                 -PackageManager "NuGet" `
                 -CurrentVersion "9.0.0" `

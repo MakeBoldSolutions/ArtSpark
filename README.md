@@ -1,4 +1,4 @@
-# WebSpark.ArtSpark
+# ArtSpark
 
 **A comprehensive .NET solution for the Art Institute of Chicago's public API, featuring a complete client library, revolutionary AI chat system with multiple personas, and demo applications showcasing modern .NET development practices.**
 
@@ -9,9 +9,9 @@
 
 ## About
 
-WebSpark.ArtSpark demonstrates a complete .NET ecosystem for the Art Institute of Chicago's public API, featuring a full client library, AI chat with multiple personas (Artwork, Artist, Curator, Historian), and a live demo application showcasing modern .NET development practices including Semantic Kernel, OpenAI Vision, and ASP.NET Core Identity.
+ArtSpark demonstrates a complete .NET ecosystem for the Art Institute of Chicago's public API, featuring a full client library, AI chat with multiple personas (Artwork, Artist, Curator, Historian), and a live demo application showcasing modern .NET development practices including Semantic Kernel, OpenAI Vision, and ASP.NET Core Identity.
 
-> Built by [Mark Hazleton](https://markhazleton.com) — Technical Solutions Architect
+> Built by [Make Bold Solutions](https://makeboldspark.com)
 > Part of the [MakeBoldSpark](https://makeboldspark.com) portfolio of technical demonstrations.
 
 ## Table of Contents
@@ -34,10 +34,10 @@ This solution provides a complete .NET ecosystem for interacting with the Art In
 
 ### 🏗️ Solution Architecture
 
-- **WebSpark.ArtSpark.Client** - Complete API client library with all 33 endpoints
-- **WebSpark.ArtSpark.Agent** - Revolutionary AI chat system with multiple personas  
-- **WebSpark.ArtSpark.Demo** - Interactive web application showcasing all features
-- **WebSpark.ArtSpark.Console** - Command-line application for developers
+- **ArtSpark.Client** - Complete API client library with all 33 endpoints
+- **ArtSpark.Agent** - Revolutionary AI chat system with multiple personas  
+- **ArtSpark.Demo** - Interactive web application showcasing all features
+- **ArtSpark.Console** - Command-line application for developers
 
 ## Features
 
@@ -80,15 +80,15 @@ This solution provides a complete .NET ecosystem for interacting with the Art In
 
 ### Try the Live Demo
 
-🌐 **[Experience WebSpark.ArtSpark live at Art.makeboldspark.com](https://Art.makeboldspark.com)**
+🌐 **[Experience ArtSpark live at Art.makeboldspark.com](https://Art.makeboldspark.com)**
 
 ### Local Installation
 
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/MarkHazleton/WebSpark.ArtSpark.git
-cd WebSpark.ArtSpark
+git clone https://github.com/MakeBoldSolutions/ArtSpark.git
+cd ArtSpark
 ```
 
 1. Build the solution:
@@ -100,13 +100,13 @@ dotnet build
 1. Run the demo web application:
 
 ```bash
-dotnet run --project WebSpark.ArtSpark.Demo
+dotnet run --project ArtSpark.Demo
 ```
 
 Or run the console application:
 
 ```bash
-dotnet run --project WebSpark.ArtSpark.Console
+dotnet run --project ArtSpark.Console
 ```
 
 ### 🎭 AI Chat Setup (Optional)
@@ -116,7 +116,7 @@ To enable AI chat features, add your OpenAI API key to the demo application:
 1. Set up user secrets:
 
 ```bash
-cd WebSpark.ArtSpark.Demo
+cd ArtSpark.Demo
 dotnet user-secrets set "ArtSparkAgent:OpenAI:ApiKey" "your-openai-api-key-here"
 ```
 
@@ -161,8 +161,8 @@ dotnet user-secrets set "ArtSparkAgent:OpenAI:ApiKey" "your-openai-api-key-here"
 ### Basic Usage
 
 ```csharp
-using WebSpark.ArtSpark.Client.Clients;
-using WebSpark.ArtSpark.Client.Models.Common;
+using ArtSpark.Client.Clients;
+using ArtSpark.Client.Models.Common;
 
 // Create HTTP client and API client
 var httpClient = new HttpClient();
@@ -244,7 +244,7 @@ The client provides complete coverage of the Art Institute of Chicago API:
 ### Search for Artworks
 
 ```csharp
-using WebSpark.ArtSpark.Client.Models.Common;
+using ArtSpark.Client.Models.Common;
 
 // Full-text search
 var searchQuery = new SearchQuery 
@@ -406,9 +406,9 @@ Learn from a historical expert:
 ### Quick Start with AI Chat
 
 ```csharp
-using WebSpark.ArtSpark.Agent.Interfaces;
-using WebSpark.ArtSpark.Agent.Models;
-using WebSpark.ArtSpark.Agent.Personas;
+using ArtSpark.Agent.Interfaces;
+using ArtSpark.Agent.Models;
+using ArtSpark.Agent.Personas;
 
 // Inject the chat agent in your controller
 public class ArtworkController : ControllerBase
@@ -514,8 +514,8 @@ Experience the interactive chat feature in our [live demo application](https://A
 ## Project Structure
 
 ```text
-WebSpark.ArtSpark/
-├── WebSpark.ArtSpark.Client/            # 📚 Main client library
+ArtSpark/
+├── ArtSpark.Client/            # 📚 Main client library
 │   ├── Clients/
 │   │   └── ArtInstituteClient.cs        # Complete API client implementation
 │   ├── Interfaces/
@@ -529,7 +529,7 @@ WebSpark.ArtSpark/
 │   │   ├── Website/                     # Website resource models
 │   │   └── Common/                      # Shared models and utilities
 │   └── README.md                        # Client library documentation
-├── WebSpark.ArtSpark.Agent/             # 🎭 AI Chat System
+├── ArtSpark.Agent/             # 🎭 AI Chat System
 │   ├── Configuration/                   # Configuration classes
 │   ├── Extensions/                      # Service registration & examples
 │   ├── Interfaces/                      # Core interfaces
@@ -537,7 +537,7 @@ WebSpark.ArtSpark/
 │   ├── Personas/                        # AI persona implementations
 │   ├── Services/                        # Core chat services
 │   └── README.md                        # Agent library documentation
-├── WebSpark.ArtSpark.Demo/              # 🚀 Interactive web application
+├── ArtSpark.Demo/              # 🚀 Interactive web application
 │   ├── Controllers/                     # MVC controllers
 │   ├── Data/                           # Entity Framework context
 │   ├── Migrations/                     # Database migrations
@@ -547,7 +547,7 @@ WebSpark.ArtSpark/
 │   ├── Views/                          # Razor views
 │   ├── wwwroot/                        # Static web assets
 │   └── README.md                        # Demo application guide
-├── WebSpark.ArtSpark.Console/           # 💻 Command-line application
+├── ArtSpark.Console/           # 💻 Command-line application
 │   ├── Program.cs                       # Console app entry point
 │   └── appsettings.json                # Configuration
 ├── docs/                                # 📖 Comprehensive documentation
@@ -560,17 +560,17 @@ WebSpark.ArtSpark/
 ### Project Dependencies
 
 ```text
-WebSpark.ArtSpark.Demo
-├── WebSpark.ArtSpark.Agent (AI chat features)
-└── WebSpark.ArtSpark.Client (API access)
+ArtSpark.Demo
+├── ArtSpark.Agent (AI chat features)
+└── ArtSpark.Client (API access)
 
-WebSpark.ArtSpark.Agent
+ArtSpark.Agent
 ├── Microsoft.SemanticKernel (AI orchestration)
 ├── Microsoft.SemanticKernel.Connectors.OpenAI (OpenAI integration)
-└── WebSpark.ArtSpark.Client (artwork data)
+└── ArtSpark.Client (artwork data)
 
-WebSpark.ArtSpark.Console
-└── WebSpark.ArtSpark.Client (API access)
+ArtSpark.Console
+└── ArtSpark.Client (API access)
 ```
 
 ## Models
@@ -660,7 +660,7 @@ For applications using the AI chat features:
 
 ### Live Application
 
-The WebSpark.ArtSpark application is currently running live at:
+The ArtSpark application is currently running live at:
 
 **🌐 [https://Art.makeboldspark.com](https://Art.makeboldspark.com)**
 
@@ -671,7 +671,7 @@ The demo application supports multiple deployment scenarios:
 #### Local Development
 
 ```bash
-dotnet run --project WebSpark.ArtSpark.Demo
+dotnet run --project ArtSpark.Demo
 ```
 
 #### Docker Deployment
@@ -681,7 +681,7 @@ FROM mcr.microsoft.com/dotnet/aspnet:10.0
 COPY . /app
 WORKDIR /app
 EXPOSE 80
-ENTRYPOINT ["dotnet", "WebSpark.ArtSpark.Demo.dll"]
+ENTRYPOINT ["dotnet", "ArtSpark.Demo.dll"]
 ```
 
 #### Azure Deployment
@@ -763,7 +763,7 @@ See [`specs/001-quality-audit/quickstart.md`](specs/001-quality-audit/quickstart
 If you encounter any issues or have questions:
 
 1. Check the [API documentation](https://api.artic.edu/docs/)
-2. Search existing [GitHub issues](https://github.com/MarkHazleton/WebSpark.ArtSpark/issues)
+2. Search existing [GitHub issues](https://github.com/MakeBoldSolutions/ArtSpark/issues)
 3. Create a new issue if needed
 
 ## License

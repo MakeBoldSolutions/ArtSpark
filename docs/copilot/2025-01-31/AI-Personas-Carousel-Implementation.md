@@ -65,7 +65,7 @@ Added CSS for:
 ## Technical Implementation
 
 ### File Modified
-- `WebSpark.ArtSpark.Demo\Views\Home\Index.cshtml`
+- `ArtSpark.Demo\Views\Home\Index.cshtml`
 
 ### Bootstrap Components Used
 - `carousel` - Main carousel container
@@ -103,10 +103,10 @@ Users can:
 
 ## Content Source
 Descriptions extracted from:
-- `WebSpark.ArtSpark.Agent\Personas\ArtworkPersona.cs`
-- `WebSpark.ArtSpark.Agent\Personas\ArtistPersona.cs`
-- `WebSpark.ArtSpark.Agent\Personas\CuratorPersona.cs`
-- `WebSpark.ArtSpark.Agent\Personas\HistorianPersona.cs`
+- `ArtSpark.Agent\Personas\ArtworkPersona.cs`
+- `ArtSpark.Agent\Personas\ArtistPersona.cs`
+- `ArtSpark.Agent\Personas\CuratorPersona.cs`
+- `ArtSpark.Agent\Personas\HistorianPersona.cs`
 
 Each description synthesizes the system prompts and personality guidelines from the actual persona implementations.
 

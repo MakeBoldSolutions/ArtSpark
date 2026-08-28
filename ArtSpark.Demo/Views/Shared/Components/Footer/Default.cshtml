@@ -1,0 +1,95 @@
+@model ArtSpark.Demo.ViewComponents.FooterViewModel
+
+<footer class="app-footer bg-dark text-light border-top mt-auto py-4">
+    <div class="container-fluid px-3 px-lg-4">
+        <div class="row align-items-center gy-2">
+            <div class="col-md-4 col-12">
+                <p class="mb-0 text-white-50">
+                    <i class="bi bi-c-circle me-1"></i>2025 - ArtSpark
+                </p>
+                <small class="text-white-50">
+                    @Model.FormattedBuildInfo
+                </small>
+                @if (Model.PromptMetadata != null && Model.PromptMetadata.TotalPrompts > 0)
+                {
+                    <div class="mt-2">
+                        <small class="text-white-50">
+                            <i class="bi bi-chat-dots me-1"></i>
+                            AI Prompts: @Model.PromptMetadata.TotalPrompts loaded
+                            @if (Model.PromptMetadata.HasFallbacks)
+                            {
+                                <span class="text-warning" title="Some prompts using fallback">
+                                    <i class="bi bi-exclamation-triangle"></i>
+                                    (@Model.PromptMetadata.FallbackCount fallback)
+                                </span>
+                            }
+                            else
+                            {
+                                <span class="text-success">
+                                    <i class="bi bi-check-circle"></i>
+                                </span>
+                            }
+                        </small>
+                        <details class="mt-1">
+                            <summary class="text-white-50" style="cursor: pointer; font-size: 0.875rem;">
+                                <i class="bi bi-info-circle me-1"></i>Prompt Details
+                            </summary>
+                            <div class="mt-2 ms-3" style="font-size: 0.75rem;">
+                                @foreach (var persona in Model.PromptMetadata.Personas.Values)
+                                {
+                                    <div class="mb-1 text-white-50">
+                                        <strong>@persona.PersonaName:</strong>
+                                        @if (persona.IsFallback)
+                                        {
+                                            <span class="text-warning">
+                                                <i class="bi bi-arrow-counterclockwise"></i> Fallback
+                                            </span>
+                                        }
+                                        else
+                                        {
+                                            <span class="text-success">
+                                                <i class="bi bi-file-earmark-text"></i> File-based
+                                            </span>
+                                            @if (!string.IsNullOrEmpty(persona.ContentHash))
+                                            {
+                                                <span class="font-monospace">(@persona.ContentHash.Substring(0, 8)...)</span>
+                                            }
+                                        }
+                                        @if (!string.IsNullOrEmpty(persona.ModelId))
+                                        {
+                                            <br />
+                                            <span class="ms-2">Model: @persona.ModelId</span>
+                                            @if (persona.Temperature.HasValue)
+                                            {
+                                                <span>, Temp: @persona.Temperature.Value.ToString("F2")</span>
+                                            }
+                                        }
+                                    </div>
+                                }
+                            </div>
+                        </details>
+                    </div>
+                }
+            </div>
+            <div class="col-md-4 col-12 text-center text-md-center text-sm-start">
+                <p class="mb-1 text-white-50">
+                    <a href="https://Art.makeboldspark.com" class="text-decoration-none link-light">ArtSpark</a> &mdash;
+                    built by <a href="https://makeboldspark.com" target="_blank" class="text-decoration-none link-light">Make Bold Solutions</a> &middot;
+                    part of <a href="https://makeboldspark.com" target="_blank" class="text-decoration-none link-light">MakeBoldSpark</a>
+                </p>
+            </div>
+            <div class="col-md-4 col-12 text-md-end text-sm-start">
+                <nav class="d-flex flex-column flex-sm-row gap-2 gap-sm-3 justify-content-md-end">
+                    <a asp-area="" asp-controller="Home" asp-action="Privacy"
+                        class="text-decoration-none link-light">
+                        <i class="bi bi-shield-check me-1"></i>Privacy Policy
+                    </a>
+                    <a asp-area="" asp-controller="Docs" asp-action="Index"
+                        class="text-decoration-none link-light">
+                        <i class="bi bi-book me-1"></i>Documentation
+                    </a>
+                </nav>
+            </div>
+        </div>
+    </div>
+</footer>

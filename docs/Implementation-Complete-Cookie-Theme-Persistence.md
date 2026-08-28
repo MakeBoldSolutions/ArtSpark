@@ -2,7 +2,7 @@
 
 ## 🎯 Mission Accomplished
 
-The WebSpark.ArtSpark.Demo application has been successfully enhanced with cookie-based theme persistence and Materia Light as the default starting theme.
+The ArtSpark.Demo application has been successfully enhanced with cookie-based theme persistence and Materia Light as the default starting theme.
 
 ## ✅ Completed Features
 

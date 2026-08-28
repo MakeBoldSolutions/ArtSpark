@@ -1,6 +1,6 @@
 {
-    "dotnet.defaultSolution": "${workspaceFolder}/WebSpark.ArtSpark.sln",
-    "omnisharp.defaultLaunchSolution": "${workspaceFolder}/WebSpark.ArtSpark.sln",
+    "dotnet.defaultSolution": "${workspaceFolder}/ArtSpark.sln",
+    "omnisharp.defaultLaunchSolution": "${workspaceFolder}/ArtSpark.sln",
     "files.exclude": {
         "**/bin": true,
         "**/obj": true,

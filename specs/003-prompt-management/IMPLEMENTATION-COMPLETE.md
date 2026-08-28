@@ -101,20 +101,20 @@
 ## 📁 Files Created/Modified
 
 ### New Files (23)
-- `WebSpark.ArtSpark.Tests/Console/PromptVariantTests.cs`
-- `WebSpark.ArtSpark.Tests/Agent/Services/PromptAuditLoggingTests.cs`
-- `WebSpark.ArtSpark.Tests/Demo/PromptFallbackTests.cs`
+- `ArtSpark.Tests/Console/PromptVariantTests.cs`
+- `ArtSpark.Tests/Agent/Services/PromptAuditLoggingTests.cs`
+- `ArtSpark.Tests/Demo/PromptFallbackTests.cs`
 - `specs/003-prompt-management/performance-metrics.md`
 - `specs/003-prompt-management/RELEASE-NOTES.md`
 - *Plus 18 previously created files from earlier phases*
 
 ### Modified Files (11)
-- `WebSpark.ArtSpark.Demo/Services/BuildInfoService.cs`
-- `WebSpark.ArtSpark.Demo/ViewComponents/FooterViewComponent.cs`
-- `WebSpark.ArtSpark.Demo/Views/Shared/Components/Footer/Default.cshtml`
-- `WebSpark.ArtSpark.Console/Program.cs`
-- `WebSpark.ArtSpark.Console/appsettings.json`
-- `WebSpark.ArtSpark.Console/appsettings.Development.json`
+- `ArtSpark.Demo/Services/BuildInfoService.cs`
+- `ArtSpark.Demo/ViewComponents/FooterViewComponent.cs`
+- `ArtSpark.Demo/Views/Shared/Components/Footer/Default.cshtml`
+- `ArtSpark.Console/Program.cs`
+- `ArtSpark.Console/appsettings.json`
+- `ArtSpark.Console/appsettings.Development.json`
 - `docs/AI-Chat-Personas-Implementation.md`
 - `specs/003-prompt-management/quickstart.md`
 - `specs/003-prompt-management/tasks.md`
