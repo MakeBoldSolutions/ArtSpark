@@ -25,7 +25,7 @@ This command checks whether the consumer project's installed DevSpark matches th
 latest available version and guides you through a safe upgrade. It:
 
 1. Reads `.devspark/VERSION` to find the installed version (fallback: legacy `.documentation/DEVSPARK_VERSION`)
-2. Detects the latest version from `CHANGELOG.md` or `pyproject.toml`
+2. Detects the latest version from the GitHub Releases API, with `CHANGELOG.md` as a fallback
 3. Classifies files under `.documentation/` as framework-owned vs. user-owned
 4. Identifies stale or missing framework files
 5. Runs `devspark upgrade` (or `devspark init --here --force`) to apply updates
@@ -89,12 +89,18 @@ agent: <agent-key>
 
 ### 2. Detect Latest Available Version
 
-Read `CHANGELOG.md` at the repo root (or `.documentation/CHANGELOG.md`):
+Fetch `https://api.github.com/repos/markhazleton/devspark/releases/latest`:
 
-- Find the most recent `## [X.Y.Z]` heading
+- Read `tag_name`
+- Strip the leading `v`
 - That is `LATEST_VERSION`
 
-Fallback: read `pyproject.toml` `version = "..."` if CHANGELOG is absent.
+Fallback if the Releases API is unreachable: read `CHANGELOG.md` at the repo root (or `.documentation/CHANGELOG.md`):
+
+- Find the most recent `## [vX.Y.Z]` or `## [X.Y.Z]` heading
+- That is `LATEST_VERSION`
+
+Final fallback: read `pyproject.toml` `version = "..."` if CHANGELOG is absent.
 
 ### 3. Compare Versions
 
@@ -143,8 +149,11 @@ These are written to `.devspark/` and should match the latest version:
 
 - `.devspark/defaults/commands/devspark.*.md` — stock prompt templates
 - `.devspark/templates/` — stock helper templates
-- `.devspark/scripts/bash/*.sh`
-- `.devspark/scripts/powershell/*.ps1`
+- `.devspark/templates/schemas/okf-knowledge-document.schema.json` — OKF knowledge document schema
+- `.devspark/templates/command-preamble-contract.md` — shared command guidance including Genuine Fix Discipline
+- `.devspark/templates/prompts/atomic/verify.md` — `/devspark.verify` atomic discovery shim
+- `.devspark/templates/skills/` — portable Agent Skill packages (SKILL.md + scripts + references) consumed by commands such as `/devspark.specify`
+- `.devspark/scripts/bash/*.sh` and `.devspark/scripts/powershell/*.ps1` — both sets always present
 - `.devspark/VERSION`
 - Agent shim files:
   - `.github/agents/*.agent.md`
@@ -214,8 +223,17 @@ Missing framework files should be reported as:
 
 ```
 MISSING: .devspark/scripts/powershell/setup-plan.ps1
+MISSING: .devspark/scripts/bash/validate-knowledge-coverage.sh
+MISSING: .devspark/scripts/powershell/validate-knowledge-coverage.ps1
 MISSING: .github/agents/devspark.specify.agent.md
+MISSING: .devspark/templates/skills/write-spec/SKILL.md
+MISSING: .devspark/templates/schemas/okf-knowledge-document.schema.json
+MISSING: .devspark/templates/command-preamble-contract.md
+MISSING: .devspark/defaults/commands/devspark.verify.md
+MISSING: .devspark/templates/prompts/atomic/verify.md
 ```
+
+For every command prompt that delegates to a skill (currently `/devspark.specify` → `write-spec`), verify the skill's `SKILL.md`, `scripts/`, and `references/` are present under `.devspark/templates/skills/`. A missing skill must be reported at the same severity as a missing script — commands that delegate to a missing skill silently degrade to fallback behaviour.
 
 ### 7. Perform the Upgrade
 
@@ -226,7 +244,28 @@ MISSING: .github/agents/devspark.specify.agent.md
 #### 7a. Update stock defaults
 
 Write the latest DevSpark prompt templates to `.devspark/defaults/commands/`
-and stock scripts to `.devspark/scripts/`.
+and **both** script sets to `.devspark/scripts/bash/` and `.devspark/scripts/powershell/`.
+Always sync both sets regardless of the current OS — a repo is shared across macOS,
+Linux, and Windows, so both sets must be present at all times.
+
+Also write the latest stock helper templates from upstream `templates/`, including
+`templates/schemas/okf-knowledge-document.schema.json`,
+`templates/command-preamble-contract.md`, and
+`templates/prompts/atomic/verify.md`, to `.devspark/templates/`.
+
+Also write the latest **Agent Skill packages** from upstream `templates/skills/` to
+`.devspark/templates/skills/`. This directory is framework-owned and safe to overwrite
+completely. At minimum the following must land:
+
+- `.devspark/templates/skills/README.md`
+- `.devspark/templates/skills/ADAPTER-contract.md`
+- `.devspark/templates/skills/SKILL-validation-contract.md`
+- `.devspark/templates/skills/references/devspark-skills-guide.md`
+- `.devspark/templates/skills/write-spec/SKILL.md`
+- `.devspark/templates/skills/write-spec/references/spec-template.md`
+- `.devspark/templates/skills/write-spec/scripts/gather-context.ps1`
+- `.devspark/templates/skills/write-spec/scripts/gather-context.sh`
+
 These directories are framework-owned and safe to overwrite completely.
 
 **Important**: Do NOT write to `.documentation/commands/` or `.documentation/scripts/`.
@@ -295,7 +334,9 @@ Post-Upgrade Verification
   VERSION stamp      : 1.2.4  (was 1.1.0)
   defaults/commands/ : updated (27 prompts)
   commands/          : unchanged (team customizations preserved)
-  stock scripts/     : updated (15 scripts)
+  stock scripts/bash : updated (15 scripts)
+  stock scripts/ps   : updated (16 scripts)
+  stock skills/      : updated (write-spec + contracts)
   team scripts/      : unchanged (overrides preserved)
   constitution.md    : untouched (never modified by upgrades)
 ```
@@ -312,7 +353,7 @@ DevSpark Upgrade Summary
   Date             : <TODAY>
 
 Stock prompts updated in .devspark/defaults/commands/.
-Stock scripts updated in .devspark/scripts/.
+Stock scripts updated in .devspark/scripts/bash/ and .devspark/scripts/powershell/ (both sets).
 Team customizations in .documentation/commands/ and .documentation/scripts/ are untouched.
 
 To merge specific improvements into your team prompts:

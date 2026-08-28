@@ -1,4 +1,4 @@
-version: 2.2.1
-installed: 2026-05-11
-method: claude-code-quickstart
-migrated-from: legacy-specify
+version: 2.8.0
+installed: 2026-08-28
+method: codex-quickstart
+migrated-from: legacy-layout
