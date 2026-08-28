@@ -314,6 +314,7 @@ public class PublicCollectionService : IPublicCollectionService
                 ImageUrl = !string.IsNullOrEmpty(artwork?.ImageId)
                     ? ArtInstituteImageUrl.Build(artwork.ImageId, "843,")
                     : null,
+                ThumbnailLqip = artwork?.Thumbnail?.Lqip,
                 ExternalUrl = artwork != null ? $"https://www.artic.edu/artworks/{artwork.Id}" : null,
 
                 // Collection item specific info
@@ -329,7 +330,7 @@ public class PublicCollectionService : IPublicCollectionService
                 MetaDescription = collectionArtwork.MetaDescription,
                 Keywords = $"{artwork?.ArtistDisplay}, {artwork?.Title}, {collection.Name}",
                 SocialImageUrl = !string.IsNullOrEmpty(artwork?.ImageId)
-                    ? $"https://www.artic.edu/iiif/2/{artwork.ImageId}/full/1200,630/0/default.jpg"
+                    ? ArtInstituteImageUrl.BuildOfficial(artwork.ImageId, "1200,630")
                     : null,
 
                 // Collection info
@@ -505,6 +506,7 @@ public class PublicCollectionService : IPublicCollectionService
                 ThumbnailUrl = !string.IsNullOrEmpty(artwork.ImageId)
                   ? ArtInstituteImageUrl.Build(artwork.ImageId, "400,")
                   : null,
+                ThumbnailLqip = artwork.Thumbnail?.Lqip,
                 StyleTitle = artwork.StyleTitle,
                 ClassificationTitle = artwork.ClassificationTitle,
                 DepartmentTitle = artwork.DepartmentTitle,

@@ -84,11 +84,11 @@
                     <div class="card h-100 shadow-sm border-0 artwork-card">                        @if (!string.IsNullOrEmpty(artwork.ImageId))
                         {
                             <div class="position-relative overflow-hidden artwork-image">
-                                <img src="@ArtInstituteImageUrl.Build(artwork.ImageId, "400,")" 
-                                     class="card-img-top object-fit-cover artwork-thumbnail" 
+                                <img src="@(string.IsNullOrEmpty(artwork.Thumbnail?.Lqip) ? ArtInstituteImageUrl.Build(artwork.ImageId, "400,") : artwork.Thumbnail.Lqip)"
+                                     data-full-src="@ArtInstituteImageUrl.Build(artwork.ImageId, "400,")"
+                                     class="card-img-top object-fit-cover artwork-thumbnail artwork-progressive-image" 
                                      alt="@artwork.Title"
-                                     loading="lazy"
-                                     onerror="this.parentElement.innerHTML='<div class=\'d-flex align-items-center justify-content-center text-body-tertiary image-error\'><div class=\'text-center\'><i class=\'bi bi-image display-6 mb-2\'></i><p class=\'mb-0 small\'>Image not available</p></div></div>'">
+                                     loading="lazy">
                                 <div class="position-absolute top-0 end-0 p-2">
                                     @if (artwork.IsPublicDomain == true)
                                     {

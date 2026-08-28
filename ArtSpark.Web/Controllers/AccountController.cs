@@ -573,6 +573,7 @@ public class AccountController : Controller
             ImageUrl = !string.IsNullOrEmpty(artwork?.ImageId)
                 ? ArtInstituteImageUrl.Build(artwork.ImageId, "843,")
                 : null,
+            ThumbnailLqip = artwork?.Thumbnail?.Lqip,
             ExternalUrl = artwork != null ? $"https://www.artic.edu/artworks/{artwork.Id}" : null,
 
             // Collection item specific info
@@ -586,7 +587,7 @@ public class AccountController : Controller
             MetaDescription = collectionArtwork.MetaDescription,
             Keywords = $"{artwork?.ArtistDisplay}, {artwork?.Title}, {collection.Name}",
             SocialImageUrl = !string.IsNullOrEmpty(artwork?.ImageId)
-                ? $"https://www.artic.edu/iiif/2/{artwork.ImageId}/full/1200,630/0/default.jpg"
+                ? ArtInstituteImageUrl.BuildOfficial(artwork.ImageId, "1200,630")
                 : null,            // Collection info
             CollectionId = collection.Id,
             CollectionSlug = collection.Slug,
@@ -651,7 +652,8 @@ public class AccountController : Controller
             ArtworkArtist = artwork?.ArtistDisplay ?? "Unknown Artist",
             ArtworkImageUrl = !string.IsNullOrEmpty(artwork?.ImageId)
                 ? ArtInstituteImageUrl.Build(artwork.ImageId, "400,")
-                : null
+                : null,
+            ArtworkImageFallbackUrl = artwork?.Thumbnail?.Lqip
         };
 
         return View(model);
@@ -696,6 +698,7 @@ public class AccountController : Controller
             model.ArtworkImageUrl = !string.IsNullOrEmpty(artwork?.ImageId)
                 ? ArtInstituteImageUrl.Build(artwork.ImageId, "400,")
                 : null;
+            model.ArtworkImageFallbackUrl = artwork?.Thumbnail?.Lqip;
 
             return View(model);
         }
@@ -741,6 +744,7 @@ public class AccountController : Controller
             model.ArtworkImageUrl = !string.IsNullOrEmpty(artwork?.ImageId)
                 ? ArtInstituteImageUrl.Build(artwork.ImageId, "400,")
                 : null;
+            model.ArtworkImageFallbackUrl = artwork?.Thumbnail?.Lqip;
 
             return View(model);
         }

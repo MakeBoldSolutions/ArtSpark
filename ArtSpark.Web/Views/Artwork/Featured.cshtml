@@ -36,8 +36,9 @@
                     @if (!string.IsNullOrEmpty(artwork.ImageId))
                     {
                         <div class="position-relative overflow-hidden"> <img
-                                src="@ArtInstituteImageUrl.Build(artwork.ImageId, "600,")"
-                                class="card-img-top object-fit-cover aspect-ratio-4-3" alt="@artwork.Title">
+                                src="@(string.IsNullOrEmpty(artwork.Thumbnail?.Lqip) ? ArtInstituteImageUrl.Build(artwork.ImageId, "600,") : artwork.Thumbnail.Lqip)"
+                                data-full-src="@ArtInstituteImageUrl.Build(artwork.ImageId, "600,")"
+                                class="card-img-top object-fit-cover aspect-ratio-4-3 artwork-progressive-image" alt="@artwork.Title">
                             <div class="position-absolute top-0 end-0 m-3">
                                 <span class="badge bg-warning text-dark">
                                     <i class="bi bi-star-fill me-1"></i>Featured

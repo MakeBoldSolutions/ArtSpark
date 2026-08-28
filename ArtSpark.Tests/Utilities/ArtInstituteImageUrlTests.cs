@@ -5,9 +5,19 @@ namespace ArtSpark.Tests.Utilities;
 public class ArtInstituteImageUrlTests
 {
     [Fact]
-    public void Build_ReturnsOfficialIiifUrl()
+    public void Build_ReturnsAppLocalIiifProxyUrl()
     {
         var url = ArtInstituteImageUrl.Build("607d4ff1-578f-79ee-9980-ed133c743e64", "400,");
+
+        Assert.Equal(
+            "/api/media/images/iiif/607d4ff1-578f-79ee-9980-ed133c743e64/full/400,/0/default.jpg",
+            url);
+    }
+
+    [Fact]
+    public void BuildOfficial_ReturnsOfficialIiifUrl()
+    {
+        var url = ArtInstituteImageUrl.BuildOfficial("607d4ff1-578f-79ee-9980-ed133c743e64", "400,");
 
         Assert.Equal(
             "https://www.artic.edu/iiif/2/607d4ff1-578f-79ee-9980-ed133c743e64/full/400,/0/default.jpg",

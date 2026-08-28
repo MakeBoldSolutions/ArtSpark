@@ -11,19 +11,20 @@
         <link rel="icon" type="image/png" sizes="32x32" href="~/favicon-32x32.png">
         <link rel="icon" type="image/png" sizes="16x16" href="~/favicon-16x16.png">
         <link rel="apple-touch-icon" sizes="180x180" href="~/apple-touch-icon.png">
-        <link rel="manifest" href="~/site.webmanifest">
+        <link rel="manifest" href="~/site.webmanifest" asp-append-version="true">
 
         @await RenderSectionAsync("Meta", required: false)
         @await RenderSectionAsync("MetaTags", required: false)
 
         <script type="importmap"></script> @{
-        // Set default theme to Yeti and color mode to light for all users
-        var themeName = "yeti";
+        // Use Bootstrap as the base and layer Make Bold brand tokens locally.
+        var themeName = "bootstrap";
     var themeUrl = BootswatchThemeHelper.GetThemeUrl(StyleCache, themeName);
         }
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.css">
     <link id="bootswatch-theme-stylesheet" rel="stylesheet" href="@themeUrl" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/makebold-bootstrap.css" asp-append-version="true" />
     <script src="/_content/WebSpark.Bootswatch/js/bootswatch-theme-switcher.js"></script>
     <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
     <meta http-equiv="Pragma" content="no-cache">
@@ -32,8 +33,8 @@
     <script>
         // Set fixed theme and color mode - no user customization
         (function () {
-            // Set fixed theme to yeti and color mode to light
-            localStorage.setItem('bootswatch-theme', 'yeti');
+            // Set fixed theme to Bootstrap base with Make Bold local overrides
+            localStorage.setItem('bootswatch-theme', 'bootstrap');
 
             // Remove any existing theme cookies to prevent override
             document.cookie = 'webspark-theme=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;';
@@ -57,9 +58,8 @@
         <nav class="navbar navbar-expand-lg bg-primary navbar-dark border-bottom shadow-sm mb-3">
             <div class="container-fluid"> <a class="navbar-brand fw-bold text-white d-flex align-items-center gap-2"
                     asp-area="" asp-controller="Home" asp-action="Index">
-                    <img src="~/img/ArtSpark.png" alt="ArtSpark Logo" style="height:2.5rem;width:auto;"
-                        class="me-2" />
-                    ArtSpark
+                    <img src="~/img/artspark-mark.svg" alt="" class="brand-mark me-1" aria-hidden="true" />
+                    <span class="brand-word">ArtSpark</span>
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
                     aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -295,7 +295,7 @@
             document.addEventListener('DOMContentLoaded', function () {
                 // Ensure fixed theme settings
                 document.documentElement.setAttribute('data-bs-theme', 'light');
-                localStorage.setItem('bootswatch-theme', 'yeti');
+                localStorage.setItem('bootswatch-theme', 'bootstrap');
 
                 // Initialize mobile enhancements
                 closeDropdownOnOutsideClick();
@@ -304,7 +304,7 @@
                 // Debug info in development
                 if (window.location.hostname === 'localhost') {
                     console.log('WebSpark Theme System Initialized');
-                    console.log('Fixed Theme: yeti');
+                    console.log('Fixed Theme: Make Bold Bootstrap');
                     console.log('Fixed Color Mode: light');
                 }
             });

@@ -194,7 +194,9 @@
                 </div>
                 @if (!string.IsNullOrEmpty(Model.ArtworkImageUrl))
                 {
-                    <img src="@Model.ArtworkImageUrl" alt="@Model.ArtworkTitle" class="card-img-top"
+                    <img src="@(string.IsNullOrEmpty(Model.ArtworkImageFallbackUrl) ? Model.ArtworkImageUrl : Model.ArtworkImageFallbackUrl)"
+                        data-full-src="@Model.ArtworkImageUrl"
+                        alt="@Model.ArtworkTitle" class="card-img-top artwork-progressive-image"
                         style="max-height: 300px; object-fit: contain; background: #f8f9fa;">
                 }
                 <div class="card-body">

@@ -496,7 +496,7 @@
                 
                 try {
                     // Fetch artwork data from Art Institute API
-                    const response = await fetch(`https://api.artic.edu/api/v1/artworks/${artworkId}?fields=id,title,image_id,artist_display`);
+                    const response = await fetch(`https://api.artic.edu/api/v1/artworks/${artworkId}?fields=id,title,image_id,artist_display,thumbnail`);
                     const data = await response.json();
                     
                     if (data && data.data) {
@@ -504,14 +504,17 @@
                         
                         // Update image
                         if (artwork.image_id) {
-                            const imageUrl = `https://www.artic.edu/iiif/2/${encodeURIComponent(artwork.image_id)}/full/400,/0/default.jpg`;
+                            const imageUrl = `/api/media/images/iiif/${encodeURIComponent(artwork.image_id)}/full/400,/0/default.jpg`;
+                            const previewUrl = artwork.thumbnail && artwork.thumbnail.lqip ? artwork.thumbnail.lqip : imageUrl;
                             container.innerHTML = `
-                                <img src="${imageUrl}" 
-                                     class="card-img-top" 
+                                <img src="${previewUrl}" 
+                                     data-full-src="${imageUrl}"
+                                     class="card-img-top artwork-progressive-image" 
                                      alt="${artwork.title || 'Artwork'}"
                                      style="height: 200px; object-fit: cover;"
                                      loading="lazy">
                             `;
+                            window.ArtSparkImages && window.ArtSparkImages.upgrade(container);
                         } else {
                             // No image available
                             container.innerHTML = `

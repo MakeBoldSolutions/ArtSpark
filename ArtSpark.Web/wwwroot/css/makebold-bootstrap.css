@@ -1,0 +1,245 @@
+/* Make Bold Bootstrap Theme
+   Bootstrap-compatible token and component overrides for ArtSpark. */
+
+:root,
+[data-bs-theme="light"] {
+  --makebold-black: #040605;
+  --makebold-red: #982407;
+  --makebold-red-bright: #bd3410;
+  --makebold-orange: #c6620c;
+  --makebold-paper: #f8f6f2;
+  --makebold-cream: #edeae5;
+  --makebold-ink: #1e1e1e;
+  --makebold-muted: #5f5c58;
+  --makebold-line: #ddd9d4;
+
+  --bs-blue: var(--makebold-red);
+  --bs-primary: var(--makebold-red);
+  --bs-primary-rgb: 152, 36, 7;
+  --bs-secondary: var(--makebold-muted);
+  --bs-secondary-rgb: 95, 92, 88;
+  --bs-success: #2f6f4e;
+  --bs-success-rgb: 47, 111, 78;
+  --bs-info: #346f8f;
+  --bs-info-rgb: 52, 111, 143;
+  --bs-warning: var(--makebold-orange);
+  --bs-warning-rgb: 198, 98, 12;
+  --bs-danger: #9e2510;
+  --bs-danger-rgb: 158, 37, 16;
+  --bs-light: var(--makebold-paper);
+  --bs-light-rgb: 248, 246, 242;
+  --bs-dark: var(--makebold-black);
+  --bs-dark-rgb: 4, 6, 5;
+  --bs-body-bg: var(--makebold-paper);
+  --bs-body-bg-rgb: 248, 246, 242;
+  --bs-body-color: var(--makebold-ink);
+  --bs-body-color-rgb: 30, 30, 30;
+  --bs-secondary-color: var(--makebold-muted);
+  --bs-border-color: var(--makebold-line);
+  --bs-link-color: var(--makebold-red);
+  --bs-link-color-rgb: 152, 36, 7;
+  --bs-link-hover-color: var(--makebold-red-bright);
+  --bs-link-hover-color-rgb: 189, 52, 16;
+  --bs-primary-bg-subtle: rgba(152, 36, 7, 0.1);
+  --bs-primary-border-subtle: rgba(152, 36, 7, 0.24);
+  --bs-primary-text-emphasis: #681905;
+  --bs-border-radius: 0.375rem;
+  --bs-border-radius-lg: 0.5rem;
+  --bs-border-radius-sm: 0.25rem;
+}
+
+body {
+  background: var(--makebold-paper);
+  color: var(--makebold-ink);
+  font-family: "Inter Tight", Inter, "Segoe UI", system-ui, sans-serif;
+  line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.navbar-brand,
+.btn,
+.dropdown-header,
+.badge {
+  letter-spacing: 0;
+}
+
+a {
+  color: var(--makebold-red);
+}
+
+a:hover,
+a:focus-visible {
+  color: var(--makebold-red-bright);
+}
+
+.navbar.bg-primary {
+  background-color: var(--makebold-black) !important;
+  border-bottom: 3px solid var(--makebold-red) !important;
+}
+
+.navbar-brand {
+  font-weight: 900 !important;
+}
+
+.navbar .nav-link {
+  color: rgba(255, 255, 255, 0.78);
+  font-weight: 700;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link:focus-visible,
+.navbar .nav-link.active {
+  color: #fff;
+}
+
+.navbar .dropdown-menu {
+  border: 1px solid var(--makebold-line);
+  border-top: 3px solid var(--makebold-red);
+  border-radius: 0.375rem;
+  box-shadow: 0 1rem 2rem rgba(4, 6, 5, 0.14);
+}
+
+.dropdown-item:active,
+.dropdown-item.active {
+  background-color: var(--makebold-red);
+}
+
+.bg-primary {
+  background-color: var(--makebold-red) !important;
+}
+
+.text-primary {
+  color: var(--makebold-red) !important;
+}
+
+.border-primary {
+  border-color: var(--makebold-red) !important;
+}
+
+.bg-primary-subtle {
+  background-color: rgba(152, 36, 7, 0.1) !important;
+}
+
+.text-primary-emphasis,
+.text-primary {
+  color: var(--makebold-red) !important;
+}
+
+.btn {
+  border-radius: 0.25rem;
+  font-weight: 750;
+  transition: background-color 0.18s ease, border-color 0.18s ease, box-shadow 0.18s ease, transform 0.18s ease;
+}
+
+.btn:hover {
+  transform: translateY(-1px);
+}
+
+.btn-primary {
+  --bs-btn-color: #fff;
+  --bs-btn-bg: var(--makebold-red);
+  --bs-btn-border-color: var(--makebold-red);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--makebold-red-bright);
+  --bs-btn-hover-border-color: var(--makebold-red-bright);
+  --bs-btn-focus-shadow-rgb: 152, 36, 7;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #7d1d05;
+  --bs-btn-active-border-color: #7d1d05;
+}
+
+.btn-outline-primary {
+  --bs-btn-color: var(--makebold-red);
+  --bs-btn-border-color: rgba(152, 36, 7, 0.42);
+  --bs-btn-hover-color: #fff;
+  --bs-btn-hover-bg: var(--makebold-red);
+  --bs-btn-hover-border-color: var(--makebold-red);
+  --bs-btn-focus-shadow-rgb: 152, 36, 7;
+  --bs-btn-active-color: #fff;
+  --bs-btn-active-bg: #7d1d05;
+  --bs-btn-active-border-color: #7d1d05;
+}
+
+.card {
+  border-color: rgba(4, 6, 5, 0.12);
+  border-radius: 0.5rem;
+  box-shadow: 0 0.5rem 1.5rem rgba(4, 6, 5, 0.06);
+}
+
+.card-header.bg-primary {
+  background-color: var(--makebold-black) !important;
+  border-bottom: 3px solid var(--makebold-red);
+}
+
+.hero-section {
+  background:
+    linear-gradient(90deg, rgba(152, 36, 7, 0.06) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(152, 36, 7, 0.04) 1px, transparent 1px);
+  background-color: var(--makebold-paper);
+  background-size: 72px 72px;
+  border-bottom: 1px solid rgba(4, 6, 5, 0.08);
+}
+
+.hero-section.bg-primary {
+  background-color: var(--makebold-black) !important;
+  background-image: none;
+  border-bottom: 3px solid var(--makebold-red);
+}
+
+.input-group-text.bg-primary {
+  background-color: var(--makebold-red) !important;
+}
+
+.form-control:focus,
+.form-select:focus,
+.form-check-input:focus,
+.btn:focus,
+.btn:active:focus,
+.btn-link.nav-link:focus {
+  border-color: rgba(152, 36, 7, 0.42);
+  box-shadow: 0 0 0 0.1rem #fff, 0 0 0 0.25rem rgba(152, 36, 7, 0.28);
+}
+
+.form-check-input:checked {
+  background-color: var(--makebold-red);
+  border-color: var(--makebold-red);
+}
+
+.page-link {
+  color: var(--makebold-red);
+}
+
+.page-link:hover {
+  color: var(--makebold-red-bright);
+}
+
+.page-item.active .page-link {
+  background-color: var(--makebold-red);
+  border-color: var(--makebold-red);
+}
+
+.badge.bg-primary,
+.text-bg-primary {
+  background-color: var(--makebold-red) !important;
+}
+
+.alert-primary {
+  --bs-alert-color: #681905;
+  --bs-alert-bg: rgba(152, 36, 7, 0.1);
+  --bs-alert-border-color: rgba(152, 36, 7, 0.24);
+}
+
+.list-group-item.active {
+  background-color: var(--makebold-red);
+  border-color: var(--makebold-red);
+}
+
+.app-footer {
+  background-color: var(--makebold-black) !important;
+  border-top: 3px solid var(--makebold-red) !important;
+}

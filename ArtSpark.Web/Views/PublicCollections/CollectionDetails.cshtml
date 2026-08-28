@@ -325,7 +325,9 @@
                                 <div class="card h-100 artwork-card">
                                     @if (!string.IsNullOrEmpty(artwork.ImageUrl))
                                     {
-                                        <img src="@artwork.ImageUrl" class="card-img-top" alt="@artwork.Title"
+                                        <img src="@(string.IsNullOrEmpty(artwork.ThumbnailLqip) ? artwork.ImageUrl : artwork.ThumbnailLqip)"
+                                            data-full-src="@artwork.ImageUrl"
+                                            class="card-img-top artwork-progressive-image" alt="@artwork.Title"
                                             style="height: 250px; object-fit: cover;">
                                     }
                                     else

@@ -7,6 +7,7 @@ using ArtSpark.Agent.Personas;
 using ArtSpark.Client.Interfaces;
 using ArtSpark.Client.Models.Common;
 using ArtSpark.Web.Services;
+using ArtSpark.Web.Utilities;
 
 namespace ArtSpark.Web.Controllers;
 
@@ -389,10 +390,8 @@ public class ArtworkController : Controller
                 Description = artwork.PublicationHistory ?? "No description available",
                 CulturalContext = artwork.StyleTitle ?? "Unknown style",
                 Classification = artwork.ClassificationTitle ?? "Unknown classification",
-                ImageUrl = !string.IsNullOrEmpty(artwork.ImageId) ?
-                    $"https://www.artic.edu/iiif/2/{artwork.ImageId}/full/843,/0/default.jpg" : string.Empty,
-                ThumbnailUrl = !string.IsNullOrEmpty(artwork.ImageId) ?
-                    $"https://www.artic.edu/iiif/2/{artwork.ImageId}/full/200,/0/default.jpg" : string.Empty
+                ImageUrl = ArtInstituteImageUrl.BuildOfficial(artwork.ImageId, "843,"),
+                ThumbnailUrl = ArtInstituteImageUrl.BuildOfficial(artwork.ImageId, "200,")
             };
 
             // Get the persona

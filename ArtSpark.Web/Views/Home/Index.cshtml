@@ -62,10 +62,9 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-lg-10">
-                <h1 class="display-5 fw-bold text-primary mb-2 d-flex align-items-center justify-content-center gap-2">
-                    <img src="~/img/ArtSpark.png" alt="ArtSpark Logo" style="height:2.5rem;width:auto;"
-                        class="me-2" />
-                    ArtSpark
+                <h1 class="hero-brand display-5 fw-bold text-primary mb-2 d-flex align-items-center justify-content-center gap-2">
+                    <img src="~/img/artspark-mark.svg" alt="" class="brand-mark me-1" aria-hidden="true" />
+                    <span class="brand-word">ArtSpark</span>
                 </h1>
                 <p class="text-body-secondary mb-3">
                     Where Open Art Meets .NET Excellence
@@ -122,8 +121,9 @@
                                     <a href="/collection/@Model.Collection.Slug/item/@artwork.Slug"
                                         class="text-decoration-none text-dark"
                                         title="@(artwork.CollectionCustomTitle ?? artwork.Title)">
-                                        <img src="@ArtInstituteImageUrl.Build(artwork.ImageId, "400,")"
-                                            class="card-img-top object-fit-cover" style="height: 250px;"
+                                        <img src="@(string.IsNullOrEmpty(artwork.ThumbnailLqip) ? ArtInstituteImageUrl.Build(artwork.ImageId, "400,") : artwork.ThumbnailLqip)"
+                                            data-full-src="@ArtInstituteImageUrl.Build(artwork.ImageId, "400,")"
+                                            class="card-img-top object-fit-cover artwork-progressive-image" style="height: 250px;"
                                             alt="@(artwork.CollectionCustomTitle ?? artwork.Title) - @(string.IsNullOrEmpty(artwork.Artist) ? "Artist unknown" : $"by {artwork.Artist}")">
                                     </a>
                                 </div>

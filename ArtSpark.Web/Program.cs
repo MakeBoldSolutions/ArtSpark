@@ -112,6 +112,15 @@ builder.Services.AddScoped<ISeoOptimizationService, SeoOptimizationService>();
 
 // Add HttpClient factory (required for WebSpark.HttpClientUtility)
 builder.Services.AddHttpClient();
+builder.Services.AddHttpClient("ArtInstituteImages", client =>
+{
+    client.DefaultRequestHeaders.UserAgent.ParseAdd("ArtSpark/1.0 (+https://art.makeboldspark.com)");
+    client.DefaultRequestHeaders.Add("AIC-User-Agent", "ArtSpark/1.0 (https://art.makeboldspark.com; noreply@art.makeboldspark.com)");
+    client.DefaultRequestHeaders.Accept.ParseAdd("image/jpeg");
+    client.DefaultRequestHeaders.Accept.ParseAdd("image/png");
+    client.DefaultRequestHeaders.Accept.ParseAdd("image/webp");
+    client.DefaultRequestHeaders.Accept.ParseAdd("image/*;q=0.8");
+});
 
 // Add ArtSpark Agent services
 builder.Services.AddArtSparkAgent(builder.Configuration, config =>

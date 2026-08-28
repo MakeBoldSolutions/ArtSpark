@@ -10,8 +10,9 @@
                 <div class="position-relative">
                     @if (!string.IsNullOrEmpty(Model.ImageId))
                     {
-                        <img src="@ArtInstituteImageUrl.Build(Model.ImageId, "843,")"
-                            class="img-fluid rounded shadow-lg w-100 mb-3" alt="@Model.Title" />
+                        <img src="@(string.IsNullOrEmpty(Model.Thumbnail?.Lqip) ? ArtInstituteImageUrl.Build(Model.ImageId, "843,") : Model.Thumbnail.Lqip)"
+                            data-full-src="@ArtInstituteImageUrl.Build(Model.ImageId, "843,")"
+                            class="img-fluid rounded shadow-lg w-100 mb-3 artwork-progressive-image" alt="@Model.Title" />
                     }
                     else
                     {

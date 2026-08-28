@@ -82,8 +82,9 @@
                                         <div class="col-6 col-md-4">
                                             <div class="position-relative artwork-thumbnail">
                                                 @if (!string.IsNullOrEmpty(artwork.ImageId))
-                                                {                                                    <img src="@ArtInstituteImageUrl.Build(artwork.ImageId, "300,")" 
-                                                         class="w-100 object-fit-cover style-comparison-image" 
+                                                {                                                    <img src="@(string.IsNullOrEmpty(artwork.Thumbnail?.Lqip) ? ArtInstituteImageUrl.Build(artwork.ImageId, "300,") : artwork.Thumbnail.Lqip)"
+                                                         data-full-src="@ArtInstituteImageUrl.Build(artwork.ImageId, "300,")"
+                                                         class="w-100 object-fit-cover style-comparison-image artwork-progressive-image" 
                                                          alt="@artwork.Title"
                                                          loading="lazy">
                                                 }

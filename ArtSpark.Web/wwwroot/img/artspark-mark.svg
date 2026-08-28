@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" role="img" aria-labelledby="title desc">
+  <title id="title">ArtSpark mark</title>
+  <desc id="desc">An abstract ArtSpark mark using Make Bold red and black angled forms with a gold spark.</desc>
+  <rect width="1024" height="1024" rx="128" fill="#fff"/>
+  <path d="M80 768 450 258l144 510Z" fill="#982407"/>
+  <path d="M268 768 812 112l134 656Z" fill="#020606"/>
+  <path d="m500 768 120-182 60 182Z" fill="#fff"/>
+  <path d="m750 190 29 84 84 29-84 29-29 84-29-84-84-29 84-29Z" fill="#f2b705"/>
+  <path d="m750 242 12 37 37 12-37 12-12 37-12-37-37-12 37-12Z" fill="#fff" opacity=".9"/>
+</svg>
