@@ -1,9 +1,9 @@
-using ArtSpark.Demo.Data;
-using ArtSpark.Demo.Models;
+using ArtSpark.Web.Data;
+using ArtSpark.Web.Models;
 using Microsoft.EntityFrameworkCore;
 using System.Text.Json;
 
-namespace ArtSpark.Demo.Services;
+namespace ArtSpark.Web.Services;
 
 public interface IAuditLogService
 {

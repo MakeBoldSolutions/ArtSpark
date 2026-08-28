@@ -3,7 +3,7 @@ using ArtSpark.Client.Interfaces;
 using ArtSpark.Client.Models.Common;
 using ArtSpark.Client.Models.Shop;
 
-namespace ArtSpark.Demo.Controllers.Api;
+namespace ArtSpark.Web.Controllers.Api;
 
 /// <summary>
 /// API controller for shop-related operations (products)

@@ -2,7 +2,7 @@
 
 ## Prerequisites
 - .NET 10 (Preview) SDK installed.
-- ImageSharp (or chosen imaging package) added to `ArtSpark.Demo` project.
+- ImageSharp (or chosen imaging package) added to `ArtSpark.Web` project.
 - SMTP credentials configured via user secrets (`dotnet user-secrets set`) for email verification.
 - Local storage directory for profile photos accessible to the Demo (`wwwroot/uploads/profiles` by default) with read/write permissions.
 
@@ -10,12 +10,12 @@
 1. **Restore & Build**
    ```powershell
    dotnet restore ArtSpark.sln
-   dotnet build ArtSpark.Demo/ArtSpark.Demo.csproj
+   dotnet build ArtSpark.Web/ArtSpark.Web.csproj
    ```
 2. **Apply EF Core Migration** (after implementation)
    ```powershell
-   dotnet ef migrations add AddProfilePhotoAndAuditLog --project ArtSpark.Demo
-   dotnet ef database update --project ArtSpark.Demo
+   dotnet ef migrations add AddProfilePhotoAndAuditLog --project ArtSpark.Web
+   dotnet ef database update --project ArtSpark.Web
    ```
 3. **Configure AppSettings**
    - `FileUpload:MaxProfilePhotoSize = 5242880`
@@ -30,7 +30,7 @@
    - Ensure startup initializer creates `User` and `Admin` roles and assigns an initial Admin user from configuration or user secrets.
 5. **Run Demo**
    ```powershell
-   dotnet run --project ArtSpark.Demo
+   dotnet run --project ArtSpark.Web
    ```
 
 ## Validation Checklist

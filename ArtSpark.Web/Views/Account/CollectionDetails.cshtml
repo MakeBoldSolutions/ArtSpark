@@ -1,5 +1,5 @@
-@model ArtSpark.Demo.Models.CollectionDetailsViewModel
-@using ArtSpark.Demo.Utilities
+@model ArtSpark.Web.Models.CollectionDetailsViewModel
+@using ArtSpark.Web.Utilities
 @{
     ViewData["Title"] = Model.Collection.MetaTitle ?? Model.Collection.Name;
     ViewData["Description"] = Model.Collection.MetaDescription ?? Model.Collection.Description;
@@ -504,7 +504,7 @@
                         
                         // Update image
                         if (artwork.image_id) {
-                            const imageUrl = `/api/media/images/iiif/${encodeURIComponent(artwork.image_id)}/full/400%2C/0/default.jpg`;
+                            const imageUrl = `https://www.artic.edu/iiif/2/${encodeURIComponent(artwork.image_id)}/full/400,/0/default.jpg`;
                             container.innerHTML = `
                                 <img src="${imageUrl}" 
                                      class="card-img-top" 

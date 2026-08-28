@@ -3,7 +3,7 @@ using System;
 
 #nullable disable
 
-namespace ArtSpark.Demo.Migrations
+namespace ArtSpark.Web.Migrations
 {
     /// <inheritdoc />
     public partial class InitialCreate : Migration

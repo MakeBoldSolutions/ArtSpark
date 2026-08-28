@@ -4,8 +4,8 @@
 **Created**: 2025-11-16  
 **Status**: Draft  
 **Input**: User description: "Create a full quality audit with check for latest packages (nuget and npm) and reduce build errors, warnings, and messages. Review for best practices"  
-**Live Demo Impact**: Establishes a repeatable audit that keeps the Demo build clean, ensures dependencies remain current, and reduces visitor-facing instability caused by stale packages or noisy diagnostics.  
-**Related Projects**: ArtSpark.Demo (primary remediation target); ArtSpark.Client, ArtSpark.Agent, ArtSpark.Console (contract review only, updates land with Demo validation).
+**Live Site Impact**: Establishes a repeatable audit that keeps the Demo build clean, ensures dependencies remain current, and reduces visitor-facing instability caused by stale packages or noisy diagnostics.  
+**Related Projects**: ArtSpark.Web (primary remediation target); ArtSpark.Client, ArtSpark.Agent, ArtSpark.Console (contract review only, updates land with Demo validation).
 
 ## Clarifications
 
@@ -66,7 +66,7 @@ A compliance reviewer confirms that AI personas, moderation policies, and cultur
 
 ## Demo Surface & Dependencies *(mandatory)*
 
-- **Affected Pages/Routes**: Global Demo build artifacts, shared layout components, and any Razor view or controller emitting warnings; audit focuses on `ArtSpark.Demo` build/test outputs and runtime health checks.
+- **Affected Pages/Routes**: Global Demo build artifacts, shared layout components, and any Razor view or controller emitting warnings; audit focuses on `ArtSpark.Web` build/test outputs and runtime health checks.
 - **Feature Flags / Configuration**: Document a repeatable command/script sequence in `docs/` for running audit steps; no new runtime flags. Record required environment variables for package feeds or API keys.
 - **Shared Library Touchpoints**: Audit covers Client, Agent, and Console dependencies for contract drift; any contract changes must ship with synchronized Demo validation and updated release notes.
 - **Rollback Plan**: Revert remediation commits individually via git, restore previous package lock versions, and execute the audit recipe to confirm the clean baseline before reopening the Demo.

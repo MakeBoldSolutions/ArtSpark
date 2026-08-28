@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using ArtSpark.Demo.Options;
+using ArtSpark.Web.Options;
 
-namespace ArtSpark.Demo.Controllers;
+namespace ArtSpark.Web.Controllers;
 
 /// <summary>
 /// Diagnostic controller for testing file upload configuration

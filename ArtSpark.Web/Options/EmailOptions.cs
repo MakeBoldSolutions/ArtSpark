@@ -1,4 +1,4 @@
-namespace ArtSpark.Demo.Options;
+namespace ArtSpark.Web.Options;
 
 public class EmailOptions
 {

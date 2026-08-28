@@ -2,13 +2,13 @@
   "version": "0.2.0",
   "configurations": [
     {
-      "name": "Launch ArtSpark.Demo (HTTP)",
+      "name": "Launch ArtSpark.Web (HTTP)",
       "type": "coreclr",
       "request": "launch",
-      "preLaunchTask": "build-demo",
-      "program": "${workspaceFolder}/ArtSpark.Demo/bin/Debug/net10.0/ArtSpark.Demo.dll",
+      "preLaunchTask": "build-web",
+      "program": "${workspaceFolder}/ArtSpark.Web/bin/Debug/net10.0/ArtSpark.Web.dll",
       "args": [],
-      "cwd": "${workspaceFolder}/ArtSpark.Demo",
+      "cwd": "${workspaceFolder}/ArtSpark.Web",
       "stopAtEntry": false,
       "env": {
         "ASPNETCORE_ENVIRONMENT": "Development",
@@ -20,17 +20,17 @@
         "uriFormat": "%s"
       },
       "sourceFileMap": {
-        "/Views": "${workspaceFolder}/ArtSpark.Demo/Views"
+        "/Views": "${workspaceFolder}/ArtSpark.Web/Views"
       }
     },
     {
-      "name": "Launch ArtSpark.Demo (HTTPS)",
+      "name": "Launch ArtSpark.Web (HTTPS)",
       "type": "coreclr",
       "request": "launch",
-      "preLaunchTask": "build-demo",
-      "program": "${workspaceFolder}/ArtSpark.Demo/bin/Debug/net10.0/ArtSpark.Demo.dll",
+      "preLaunchTask": "build-web",
+      "program": "${workspaceFolder}/ArtSpark.Web/bin/Debug/net10.0/ArtSpark.Web.dll",
       "args": [],
-      "cwd": "${workspaceFolder}/ArtSpark.Demo",
+      "cwd": "${workspaceFolder}/ArtSpark.Web",
       "stopAtEntry": false,
       "env": {
         "ASPNETCORE_ENVIRONMENT": "Development",
@@ -42,11 +42,11 @@
         "uriFormat": "%s"
       },
       "sourceFileMap": {
-        "/Views": "${workspaceFolder}/ArtSpark.Demo/Views"
+        "/Views": "${workspaceFolder}/ArtSpark.Web/Views"
       }
     },
     {
-      "name": "Attach to ArtSpark.Demo",
+      "name": "Attach to ArtSpark.Web",
       "type": "coreclr",
       "request": "attach",
       "processId": "${command:pickProcess}"

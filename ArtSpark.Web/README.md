@@ -11,7 +11,7 @@ ArtSpark is a modern, open-source ASP.NET Core application that beautifully merg
 
 ---
 
-## 🚀 Live Demo
+## 🚀 Live Site
 
 Experience ArtSpark live at: **[https://art.makeboldspark.com](https://art.makeboldspark.com)**
 
@@ -154,7 +154,7 @@ builder.Services.AddHttpClientWithPolicies("ArtApiClient", client =>
 ```bash
 git clone https://github.com/MakeBoldSolutions/ArtSpark.git
 cd ArtSpark
-dotnet run --project ArtSpark.Demo
+dotnet run --project ArtSpark.Web
 ```
 
 Then visit `http://localhost:5139` or `https://localhost:7282` in your browser.

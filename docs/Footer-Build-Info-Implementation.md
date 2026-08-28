@@ -91,7 +91,7 @@ The Razor view template renders the footer with responsive Bootstrap layout.
 
 ### 1. Project File Enhancement
 
-**File**: `ArtSpark.Demo.csproj`
+**File**: `ArtSpark.Web.csproj`
 
 ```xml
 <PropertyGroup>
@@ -289,7 +289,7 @@ The footer build information implementation provides users with transparency abo
 
 ## Overview
 
-This document details the implementation of footer build information display and navigation structure for the ArtSpark.Demo application.
+This document details the implementation of footer build information display and navigation structure for the ArtSpark.Web application.
 
 ## Features Implemented
 

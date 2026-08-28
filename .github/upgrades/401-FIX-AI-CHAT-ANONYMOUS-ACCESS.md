@@ -110,7 +110,7 @@ The following endpoints **still require authentication** (kept `[Authorize]` att
 
 1. **Start the application**
    ```bash
-   cd ArtSpark.Demo
+   cd ArtSpark.Web
    dotnet run
    ```
 

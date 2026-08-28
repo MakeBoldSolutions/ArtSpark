@@ -35,7 +35,7 @@ Status: Complete
 - **Commits**: dc04606: "TASK-003: Upgrade Tier 2 projects and update packages"
 - **Files Modified**: 
   - ArtSpark.Console/ArtSpark.Console.csproj
-  - ArtSpark.Demo/ArtSpark.Demo.csproj
+  - ArtSpark.Web/ArtSpark.Web.csproj
   - ArtSpark.Console/Program.cs
 - **Code Changes**: 
   - Updated TargetFramework from net9.0 to net10.0 in both projects
@@ -111,7 +111,7 @@ Status: Complete
 
 - **Verified**: All changes pushed successfully to remote repository
 - **Commits**: d2a7006: "upgrade-net10-complete"
-- **Files Modified**: ArtSpark.Demo/README.md, .github/upgrades/tasks.md, .github/upgrades/execution-log.md
+- **Files Modified**: ArtSpark.Web/README.md, .github/upgrades/tasks.md, .github/upgrades/execution-log.md
 - **Code Changes**: 
   - Updated README.md .NET version badge to 10 (Preview)
   - Updated tech stack section to reflect .NET 10 Preview

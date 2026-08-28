@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using ArtSpark.Demo.Models;
+using ArtSpark.Web.Models;
 
-namespace ArtSpark.Demo.Utilities;
+namespace ArtSpark.Web.Utilities;
 
 /// <summary>
 /// Helper class for generating SEO-friendly URLs for collections and collection items

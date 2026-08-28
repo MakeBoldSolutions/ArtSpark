@@ -27,7 +27,7 @@ This plan outlines the upgrade of the ArtSpark solution from .NET 9.0 to .NET 10
 | ArtSpark.Client | net9.0 | net10.0 | 0 | Low |
 | ArtSpark.Agent | net9.0 | net10.0 | 0 | Low |
 | ArtSpark.Console | net9.0 | net10.0 | 2 | Low |
-| ArtSpark.Demo | net9.0 | net10.0 | 4 | Medium |
+| ArtSpark.Web | net9.0 | net10.0 | 4 | Medium |
 | ArtSpark.Tests | net9.0 | net10.0 | 5 | Low |
 
 ## 2. Upgrade Strategy
@@ -42,14 +42,14 @@ Based on project dependencies, we'll upgrade in this order:
 
 2. **Tier 2 (Depends on Tier 1):**
    - ArtSpark.Console
-   - ArtSpark.Demo
+   - ArtSpark.Web
 
 3. **Tier 3 (Depends on Tier 2):**
    - ArtSpark.Tests
 
 ### 2.2 NuGet Package Updates
 
-#### Demo Project (ArtSpark.Demo)
+#### Web Project (ArtSpark.Web)
 - Microsoft.EntityFrameworkCore.Sqlite: 9.0.6 → 10.0.0
 - Microsoft.EntityFrameworkCore.Tools: 9.0.6 → 10.0.0
 - Microsoft.EntityFrameworkCore.InMemory: 9.0.6 → 10.0.0
@@ -93,7 +93,7 @@ Based on project dependencies, we'll upgrade in this order:
    - Microsoft.Extensions.Logging.Console: 9.0.6 → 10.0.0
 3. Build project and verify no errors
 
-#### Step 2.2: Update ArtSpark.Demo
+#### Step 2.2: Update ArtSpark.Web
 1. Update TargetFramework from `net9.0` to `net10.0`
 2. Update NuGet packages:
    - Microsoft.EntityFrameworkCore.Sqlite: 9.0.6 → 10.0.0
@@ -138,7 +138,7 @@ Based on project dependencies, we'll upgrade in this order:
 4. Document any failing tests for investigation
 
 ### 4.3 Integration Testing
-1. Start ArtSpark.Demo web application
+1. Start ArtSpark.Web web application
 2. Verify application starts without errors
 3. Test basic functionality:
    - Home page loads

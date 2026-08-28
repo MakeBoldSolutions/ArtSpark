@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
-using ArtSpark.Demo.Models;
-using ArtSpark.Demo.Services;
+using ArtSpark.Web.Models;
+using ArtSpark.Web.Services;
 
-namespace ArtSpark.Demo.Controllers;
+namespace ArtSpark.Web.Controllers;
 
 /// <summary>
 /// Controller for displaying public collections with SEO-friendly experiences

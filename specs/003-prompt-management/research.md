@@ -15,7 +15,7 @@
 - **Alternatives considered**: SHA-256 (stronger but slower with no auditing benefit); omit hashing (would hinder production version traceability).
 
 ### Decision: Store production prompts on web server with role-based access
-- **Rationale**: Satisfies Live Demo First agility by enabling content updates without redeployments; mirrors content author workflow and keeps files close to Demo app for low-latency reads.
+- **Rationale**: Satisfies Live Site First agility by enabling content updates without redeployments; mirrors content author workflow and keeps files close to Demo app for low-latency reads.
 - **Alternatives considered**: Bundle prompts in deployment artifact (slows iteration); external blob storage (adds latency, new secrets management, more moving parts).
 
 ### Decision: Extend Agent DI with decorator pattern for persona handlers

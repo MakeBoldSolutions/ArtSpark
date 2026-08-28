@@ -65,7 +65,7 @@ Added CSS for:
 ## Technical Implementation
 
 ### File Modified
-- `ArtSpark.Demo\Views\Home\Index.cshtml`
+- `ArtSpark.Web\Views\Home\Index.cshtml`
 
 ### Bootstrap Components Used
 - `carousel` - Main carousel container

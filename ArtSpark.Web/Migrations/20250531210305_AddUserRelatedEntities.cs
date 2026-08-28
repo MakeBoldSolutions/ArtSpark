@@ -2,7 +2,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 #nullable disable
 
-namespace ArtSpark.Demo.Migrations
+namespace ArtSpark.Web.Migrations
 {
     /// <inheritdoc />
     public partial class AddUserRelatedEntities : Migration

@@ -2,11 +2,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using ArtSpark.Demo.Models;
-using ArtSpark.Demo.Options;
-using ArtSpark.Demo.Services;
+using ArtSpark.Web.Models;
+using ArtSpark.Web.Options;
+using ArtSpark.Web.Services;
 
-namespace ArtSpark.Demo.Controllers;
+namespace ArtSpark.Web.Controllers;
 
 [Authorize]
 public class MediaController : Controller

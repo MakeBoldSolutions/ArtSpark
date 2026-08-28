@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
-using ArtSpark.Demo.Models;
-using ArtSpark.Demo.Services;
+using ArtSpark.Web.Models;
+using ArtSpark.Web.Services;
 
-namespace ArtSpark.Demo.ViewComponents;
+namespace ArtSpark.Web.ViewComponents;
 
 public class ProfilePhotoViewComponent : ViewComponent
 {

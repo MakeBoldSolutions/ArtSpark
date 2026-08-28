@@ -111,56 +111,56 @@ Successfully implemented Phases 1-9 of the Enhanced User Registration and Profil
 
 ### New Files Created (37)
 **Services (11):**
-- `ArtSpark.Demo/Services/IProfilePhotoService.cs`
-- `ArtSpark.Demo/Services/ProfilePhotoService.cs`
-- `ArtSpark.Demo/Services/AuditLogService.cs`
-- `ArtSpark.Demo/Services/AuditLogCleanupService.cs`
-- `ArtSpark.Demo/Services/ProfilePhotoStorageMonitor.cs`
-- `ArtSpark.Demo/Services/IAdminUserService.cs` (part of AdminUserService.cs)
-- `ArtSpark.Demo/Services/AdminUserService.cs`
-- `ArtSpark.Demo/Services/PasswordStrengthService.cs`
-- `ArtSpark.Demo/Services/SmtpEmailSender.cs`
+- `ArtSpark.Web/Services/IProfilePhotoService.cs`
+- `ArtSpark.Web/Services/ProfilePhotoService.cs`
+- `ArtSpark.Web/Services/AuditLogService.cs`
+- `ArtSpark.Web/Services/AuditLogCleanupService.cs`
+- `ArtSpark.Web/Services/ProfilePhotoStorageMonitor.cs`
+- `ArtSpark.Web/Services/IAdminUserService.cs` (part of AdminUserService.cs)
+- `ArtSpark.Web/Services/AdminUserService.cs`
+- `ArtSpark.Web/Services/PasswordStrengthService.cs`
+- `ArtSpark.Web/Services/SmtpEmailSender.cs`
 
 **Options (3):**
-- `ArtSpark.Demo/Options/FileUploadOptions.cs`
-- `ArtSpark.Demo/Options/AuditLogOptions.cs`
-- `ArtSpark.Demo/Options/EmailOptions.cs`
+- `ArtSpark.Web/Options/FileUploadOptions.cs`
+- `ArtSpark.Web/Options/AuditLogOptions.cs`
+- `ArtSpark.Web/Options/EmailOptions.cs`
 
 **Data/Seeding (2):**
-- `ArtSpark.Demo/Data/IdentitySeeder.cs`
-- `ArtSpark.Demo/Data/common-passwords.txt`
+- `ArtSpark.Web/Data/IdentitySeeder.cs`
+- `ArtSpark.Web/Data/common-passwords.txt`
 
 **Controllers (1):**
-- `ArtSpark.Demo/Controllers/AdminUsersController.cs`
+- `ArtSpark.Web/Controllers/AdminUsersController.cs`
 
 **Views (4):**
-- `ArtSpark.Demo/Views/AdminUsers/Index.cshtml`
-- `ArtSpark.Demo/Views/AdminUsers/Details.cshtml`
-- `ArtSpark.Demo/Views/Shared/_UserAvatar.cshtml`
+- `ArtSpark.Web/Views/AdminUsers/Index.cshtml`
+- `ArtSpark.Web/Views/AdminUsers/Details.cshtml`
+- `ArtSpark.Web/Views/Shared/_UserAvatar.cshtml`
 
 **Assets (3):**
-- `ArtSpark.Demo/wwwroot/img/default-avatar.svg`
-- `ArtSpark.Demo/wwwroot/js/password-strength.js`
-- `ArtSpark.Demo/wwwroot/js/profile-edit.js`
-- `ArtSpark.Demo/wwwroot/uploads/profiles/.gitkeep`
+- `ArtSpark.Web/wwwroot/img/default-avatar.svg`
+- `ArtSpark.Web/wwwroot/js/password-strength.js`
+- `ArtSpark.Web/wwwroot/js/profile-edit.js`
+- `ArtSpark.Web/wwwroot/uploads/profiles/.gitkeep`
 
 **Migrations (1):**
-- `ArtSpark.Demo/Migrations/[timestamp]_AddProfilePhotoAndAuditLog.cs`
+- `ArtSpark.Web/Migrations/[timestamp]_AddProfilePhotoAndAuditLog.cs`
 
 **Documentation (1):**
 - `docs/copilot/2025-01-16/implementation-status.md` (this file)
 
 ### Modified Files (8)
-- `ArtSpark.Demo/ArtSpark.Demo.csproj` (ImageSharp packages)
-- `ArtSpark.Demo/appsettings.json` (FileUpload, AuditLog, Identity, Email config)
-- `ArtSpark.Demo/appsettings.Development.json` (Development email settings)
-- `ArtSpark.Demo/Models/UserModels.cs` (ApplicationUser extensions, AuditLog entity, RegisterViewModel, ProfileViewModel)
-- `ArtSpark.Demo/Data/ArtSparkDbContext.cs` (AuditLogs DbSet)
-- `ArtSpark.Demo/Controllers/AccountController.cs` (Register/Profile actions enhanced)
-- `ArtSpark.Demo/Controllers/Api/MediaApiController.cs` (Image type alias)
-- `ArtSpark.Demo/Views/Account/Register.cshtml` (Photo upload, password strength meter)
-- `ArtSpark.Demo/Views/Account/Profile.cshtml` (Photo management, bio counter, email editing)
-- `ArtSpark.Demo/Program.cs` (Service registrations, Identity configuration, IdentitySeeder execution)
+- `ArtSpark.Web/ArtSpark.Web.csproj` (ImageSharp packages)
+- `ArtSpark.Web/appsettings.json` (FileUpload, AuditLog, Identity, Email config)
+- `ArtSpark.Web/appsettings.Development.json` (Development email settings)
+- `ArtSpark.Web/Models/UserModels.cs` (ApplicationUser extensions, AuditLog entity, RegisterViewModel, ProfileViewModel)
+- `ArtSpark.Web/Data/ArtSparkDbContext.cs` (AuditLogs DbSet)
+- `ArtSpark.Web/Controllers/AccountController.cs` (Register/Profile actions enhanced)
+- `ArtSpark.Web/Controllers/Api/MediaApiController.cs` (Image type alias)
+- `ArtSpark.Web/Views/Account/Register.cshtml` (Photo upload, password strength meter)
+- `ArtSpark.Web/Views/Account/Profile.cshtml` (Photo management, bio counter, email editing)
+- `ArtSpark.Web/Program.cs` (Service registrations, Identity configuration, IdentitySeeder execution)
 
 ---
 
@@ -328,7 +328,7 @@ Already configured in `appsettings.json`:
 ## Next Steps for User Testing
 
 1. **Configure Bootstrap Admin**: Add Identity:BootstrapAdmin settings to user-secrets or appsettings
-2. **Run Application**: `dotnet run --project ArtSpark.Demo`
+2. **Run Application**: `dotnet run --project ArtSpark.Web`
 3. **Execute Manual Test Scenarios**: Follow testing recommendations above
 4. **Report Issues**: Document any bugs, UX issues, or missing functionality
 5. **Provide Feedback**: UI/UX improvements, additional features, security concerns
@@ -337,7 +337,7 @@ Already configured in `appsettings.json`:
 
 ## Constitution Compliance ✅
 
-1. **Live Demo First**: ✅ All changes integrated into Demo project
+1. **Live Site First**: ✅ All changes integrated into Demo project
 2. **Contract-Stable Libraries**: ✅ No breaking changes to Client/Agent libraries
 3. **Production Reliability**: ✅ Build succeeds, migration applied, logging integrated
 4. **Responsible AI**: ✅ Not applicable (no AI features in this release)

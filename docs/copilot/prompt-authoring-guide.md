@@ -15,7 +15,7 @@ ArtSpark AI personas use markdown-based prompt files with YAML front matter for 
 ## File Structure
 
 ### Location
-All prompt files live in `ArtSpark.Demo/prompts/agents/`:
+All prompt files live in `ArtSpark.Web/prompts/agents/`:
 
 ```
 prompts/agents/
@@ -177,7 +177,7 @@ Copy an existing prompt file and modify rather than starting from scratch. This 
    ```json
    "EnableHotReload": true
    ```
-2. Run Demo in watch mode: `dotnet watch run --project ArtSpark.Demo`
+2. Run Demo in watch mode: `dotnet watch run --project ArtSpark.Web`
 3. Edit prompt file and save
 4. Wait 500ms for reload detection
 5. Test AI chat to verify changes

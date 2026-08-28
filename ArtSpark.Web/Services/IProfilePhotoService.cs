@@ -1,4 +1,4 @@
-namespace ArtSpark.Demo.Services;
+namespace ArtSpark.Web.Services;
 
 public interface IProfilePhotoService
 {

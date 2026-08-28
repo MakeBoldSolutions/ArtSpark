@@ -103,15 +103,15 @@
 ### New Files (23)
 - `ArtSpark.Tests/Console/PromptVariantTests.cs`
 - `ArtSpark.Tests/Agent/Services/PromptAuditLoggingTests.cs`
-- `ArtSpark.Tests/Demo/PromptFallbackTests.cs`
+- `ArtSpark.Tests/Web/PromptFallbackTests.cs`
 - `specs/003-prompt-management/performance-metrics.md`
 - `specs/003-prompt-management/RELEASE-NOTES.md`
 - *Plus 18 previously created files from earlier phases*
 
 ### Modified Files (11)
-- `ArtSpark.Demo/Services/BuildInfoService.cs`
-- `ArtSpark.Demo/ViewComponents/FooterViewComponent.cs`
-- `ArtSpark.Demo/Views/Shared/Components/Footer/Default.cshtml`
+- `ArtSpark.Web/Services/BuildInfoService.cs`
+- `ArtSpark.Web/ViewComponents/FooterViewComponent.cs`
+- `ArtSpark.Web/Views/Shared/Components/Footer/Default.cshtml`
 - `ArtSpark.Console/Program.cs`
 - `ArtSpark.Console/appsettings.json`
 - `ArtSpark.Console/appsettings.Development.json`

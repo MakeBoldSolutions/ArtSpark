@@ -22,7 +22,7 @@ Modified the view to:
 ## Implementation Details
 
 ### Code Change
-**File**: `ArtSpark.Demo\Views\Home\Index.cshtml`
+**File**: `ArtSpark.Web\Views\Home\Index.cshtml`
 
 **Before**:
 ```razor

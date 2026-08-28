@@ -2,11 +2,11 @@
 
 **Branch**: `002-user-profile` | **Date**: 2025-11-16 | **Spec**: [spec.md](./spec.md)
 **Input**: Feature specification from `/specs/002-user-profile/spec.md`
-**Live Demo Focus**: Elevate the public Demo's registration and profile experience with photo uploads, stronger security, and Admin oversight, directly improving user-facing identity features while preserving contract boundaries.
+**Live Site Focus**: Elevate the public Demo's registration and profile experience with photo uploads, stronger security, and Admin oversight, directly improving user-facing identity features while preserving contract boundaries.
 
 ## Summary
 
-Implement profile photo uploads (with resizing and local storage), enhanced registration and profile editing UX, role-based access control with an Admin dashboard, password strength validation, email verification support, operational background jobs for audit-log retention/storage monitoring, and performance instrumentation to satisfy success criteria—all centered on `ArtSpark.Demo` using ASP.NET Core Identity and EF Core migrations.
+Implement profile photo uploads (with resizing and local storage), enhanced registration and profile editing UX, role-based access control with an Admin dashboard, password strength validation, email verification support, operational background jobs for audit-log retention/storage monitoring, and performance instrumentation to satisfy success criteria—all centered on `ArtSpark.Web` using ASP.NET Core Identity and EF Core migrations.
 
 ## Technical Context
 
@@ -20,7 +20,7 @@ Implement profile photo uploads (with resizing and local storage), enhanced regi
 **Storage**: SQLite via EF Core migrations (production-ready for single-node Demo; local file system for profile photos and thumbnails)  
 **Testing**: `dotnet test` across `ArtSpark.Tests` focusing on new ProfilePhotoService, RoleManagement, and integration tests for registration/admin flows  
 **Target Platform**: ASP.NET Core web app deployed to art.makeboldspark.com  
-**Project Type**: Multi-project .NET solution centered on `ArtSpark.Demo`  
+**Project Type**: Multi-project .NET solution centered on `ArtSpark.Web`  
 **Performance Goals**: Registration completion < 2 minutes; photo processing < 5 seconds/file up to 5MB; Admin user list p95 load time < 1 second (achieved via AsNoTracking projection-based queries per research.md EF optimization strategy); password feedback < 200ms  
 **Constraints**: Profile photos ≤ 5MB, JPEG/PNG/WebP only; bios ≤ 500 characters; thumbnails stored as disk files referenced via relative paths; audit logs retained 1 year via hosted cleanup job; email verification tokens expire in 24 hours; disk usage monitoring alerts when profile storage exceeds configured thresholds  
 **Scale/Scope**: Applies to all Demo users (existing + new); Admin tooling targets thousands of user records with pagination
@@ -29,7 +29,7 @@ Implement profile photo uploads (with resizing and local storage), enhanced regi
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-- [x] **Demo Alignment**: Scope confined to `ArtSpark.Demo`; validation via end-to-end registration, profile editing, and Admin dashboard manual tests plus UI verification for photo display.
+- [x] **Demo Alignment**: Scope confined to `ArtSpark.Web`; validation via end-to-end registration, profile editing, and Admin dashboard manual tests plus UI verification for photo display.
 - [x] **Shared Library Contracts**: No contract changes to Client/Agent/Console; ensure any helper additions stay internal to Demo keeping libraries stable.
 - [x] **Reliability & Observability**: Add unit/integration tests for photo handling, role enforcement, and admin flows; include Serilog events for uploads, role changes, and audit logging; create EF migration for schema updates.
 - [x] **Responsible AI Safeguards**: N/A—feature does not engage AI personas; confirm guardrail documentation unchanged.
@@ -52,7 +52,7 @@ specs/[###-feature]/
 ### Source Code (repository root)
 
 ```text
-ArtSpark.Demo/      # ASP.NET Core MVC web app (primary delivery target)
+ArtSpark.Web/      # ASP.NET Core MVC web app (primary delivery target)
 ├── Controllers/
 ├── Services/
 ├── Views/
@@ -65,7 +65,7 @@ ArtSpark.Console/   # Developer tooling bound to Client contracts
 docs/                        # Operational and implementation guides
 ```
 
-**Structure Decision**: Retain existing multi-project layout; all implementation occurs inside `ArtSpark.Demo` plus new documentation under `docs/`, with planning artifacts in `specs/002-user-profile/`.
+**Structure Decision**: Retain existing multi-project layout; all implementation occurs inside `ArtSpark.Web` plus new documentation under `docs/`, with planning artifacts in `specs/002-user-profile/`.
 
 ## Complexity Tracking
 

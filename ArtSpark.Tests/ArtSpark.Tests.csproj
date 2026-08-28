@@ -31,7 +31,7 @@
     </ItemGroup>
 
     <ItemGroup>
-        <ProjectReference Include="..\ArtSpark.Demo\ArtSpark.Demo.csproj" />
+        <ProjectReference Include="..\ArtSpark.Web\ArtSpark.Web.csproj" />
         <ProjectReference Include="..\ArtSpark.Agent\ArtSpark.Agent.csproj" />
     </ItemGroup>
 

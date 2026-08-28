@@ -185,5 +185,5 @@
 
 ---
 
-*Testing checklist for mobile-first navigation implementation on ArtSpark.Demo*
+*Testing checklist for mobile-first navigation implementation on ArtSpark.Web*
 *Last Updated: Current session*

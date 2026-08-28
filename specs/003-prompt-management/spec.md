@@ -4,7 +4,7 @@
 **Created**: 2025-11-16  
 **Status**: Draft  
 **Input**: User description: "Create Prompt management system for the various prompt personas. Store the prompts in a /data folder with the prompt name and markdown extension .md load the prompts from the /data folder when needed"  
-**Live Demo Impact**: Decouples persona system prompts from code, enabling non-developers to refine AI chat personas, improving user experience quality and cultural sensitivity without deployments.  
+**Live Site Impact**: Decouples persona system prompts from code, enabling non-developers to refine AI chat personas, improving user experience quality and cultural sensitivity without deployments.  
 **Related Projects**: Agent (primary), Demo (consumer via dependency), Console (test harness)
 
 ## Clarifications
@@ -148,7 +148,7 @@ Site operators need to understand which prompt versions are active in production
   - `ArtSpark.Tests/Agent/Services/PromptLoaderTests.cs`: covers markdown load, fallback behavior, token replacement, validation failures
   - `ArtSpark.Tests/Agent/Personas/PersonaFactoryTests.cs`: verifies integration with prompt loader
   - `ArtSpark.Tests/Agent/Services/PromptTemplateTokenTests.cs`: prevents injection attacks via whitelist validation
-  - `ArtSpark.Tests/Demo/PromptFallbackTests.cs`: ensures AI chat works with file-based and fallback prompts
+  - `ArtSpark.Tests/Web/PromptFallbackTests.cs`: ensures AI chat works with file-based and fallback prompts
 
 - **Logging & Metrics**:
   - Serilog structured events: `PromptLoaded`, `PromptLoadFailed`, `PromptFallbackUsed`, `PromptTokenValidationFailed`, `ConfigurationReloaded`

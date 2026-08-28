@@ -7,7 +7,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtSpark.Console", "ArtSpar
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ArtSpark.Client", "ArtSpark.Client\ArtSpark.Client.csproj", "{3B9AA3DB-AF2F-490E-99B3-818112944116}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtSpark.Demo", "ArtSpark.Demo\ArtSpark.Demo.csproj", "{93548B82-72C5-476C-8B3E-D892CF806A51}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtSpark.Web", "ArtSpark.Web\ArtSpark.Web.csproj", "{93548B82-72C5-476C-8B3E-D892CF806A51}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ArtSpark.Agent", "ArtSpark.Agent\ArtSpark.Agent.csproj", "{E599EF7E-785F-49F1-A036-8852AF82D41B}"
 EndProject

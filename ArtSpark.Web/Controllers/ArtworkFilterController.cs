@@ -4,7 +4,7 @@ using ArtSpark.Client.Interfaces;
 using ArtSpark.Client.Models.Collections;
 using ArtSpark.Client.Models.Common;
 
-namespace ArtSpark.Demo.Controllers;
+namespace ArtSpark.Web.Controllers;
 
 /// <summary>
 /// Controller for filtering artwork by style, medium, and classification

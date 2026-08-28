@@ -6,9 +6,9 @@ using ArtSpark.Agent.Models;
 using ArtSpark.Agent.Personas;
 using ArtSpark.Client.Interfaces;
 using ArtSpark.Client.Models.Common;
-using ArtSpark.Demo.Services;
+using ArtSpark.Web.Services;
 
-namespace ArtSpark.Demo.Controllers;
+namespace ArtSpark.Web.Controllers;
 
 /// <summary>
 /// Controller for displaying artwork from the Art Institute of Chicago

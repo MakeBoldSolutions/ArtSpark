@@ -1,9 +1,9 @@
 using Microsoft.EntityFrameworkCore;
-using ArtSpark.Demo.Data;
-using ArtSpark.Demo.Models;
-using ArtSpark.Demo.Utilities;
+using ArtSpark.Web.Data;
+using ArtSpark.Web.Models;
+using ArtSpark.Web.Utilities;
 
-namespace ArtSpark.Demo.Services;
+namespace ArtSpark.Web.Services;
 
 public interface IReviewService
 {

@@ -1,8 +1,8 @@
 using ArtSpark.Agent.Extensions;
 using ArtSpark.Agent.Models;
-using ArtSpark.Demo.Services;
+using ArtSpark.Web.Services;
 
-namespace ArtSpark.Demo.Tests;
+namespace ArtSpark.Web.Tests;
 
 /// <summary>
 /// Simple test to verify SEO optimization service functionality

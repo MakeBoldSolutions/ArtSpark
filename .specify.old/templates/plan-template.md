@@ -2,7 +2,7 @@
 
 **Branch**: `[###-feature-name]` | **Date**: [DATE] | **Spec**: [link]
 **Input**: Feature specification from `/specs/[###-feature-name]/spec.md`
-**Live Demo Focus**: Summarize how this feature improves `ArtSpark.Demo` (per Constitution Principle "Live Demo First").
+**Live Demo Focus**: Summarize how this feature improves `ArtSpark.Web` (per Constitution Principle "Live Demo First").
 
 ## Summary
 
@@ -20,7 +20,7 @@
 **Storage**: SQLite via EF Core migrations (note production overrides if relevant)  
 **Testing**: `dotnet test` targeting affected projects; specify test categories to run  
 **Target Platform**: ASP.NET Core web app deployed to art.makeboldspark.com  
-**Project Type**: Multi-project .NET solution centered on `ArtSpark.Demo`  
+**Project Type**: Multi-project .NET solution centered on `ArtSpark.Web`  
 **Performance Goals**: [Document measurable goals, e.g., p95 latency, throughput]  
 **Constraints**: [Record limits such as rate-limit thresholds, memory caps]  
 **Scale/Scope**: [State user impact or dataset size affected]
@@ -29,7 +29,7 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-- [ ] **Demo Alignment**: Identify the user-facing change inside `ArtSpark.Demo` and how it will be validated.
+- [ ] **Demo Alignment**: Identify the user-facing change inside `ArtSpark.Web` and how it will be validated.
 - [ ] **Shared Library Contracts**: Describe any adjustments to `ArtSpark.Client`, `ArtSpark.Agent`, or `ArtSpark.Console` and confirm contract stability or coordinated Demo release.
 - [ ] **Reliability & Observability**: Outline automated tests to add/update and any Serilog, build info, or migration updates required.
 - [ ] **Responsible AI Safeguards**: If AI personas or OpenAI endpoints are involved, list guardrails, prompt filtering, and data retention decisions.
@@ -52,7 +52,7 @@ specs/[###-feature]/
 ### Source Code (repository root)
 
 ```text
-ArtSpark.Demo/      # ASP.NET Core MVC web app (primary delivery target)
+ArtSpark.Web/      # ASP.NET Core MVC web app (primary delivery target)
 ├── Controllers/
 ├── Services/
 ├── Views/

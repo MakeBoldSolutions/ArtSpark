@@ -115,11 +115,11 @@ This document summarizes all the documentation files that have been updated to r
 
 #### 4. Main `README.md` ✅ **UPDATED**
 
-- Added "🎲 **Random Collection Showcase**: Dynamic home page featuring random public collections" to Demo Application Features
+- Added "🎲 **Random Collection Showcase**: Dynamic home page featuring random public collections" to Web Site Features
 - Added "🔄 **Interactive Discovery**: "New Collection" button for instant content refresh"
 - Enhanced feature list to highlight the new dynamic home page experience
 
-#### 5. `ArtSpark.Demo/README.md` ✅ **UPDATED**
+#### 5. `ArtSpark.Web/README.md` ✅ **UPDATED**
 
 - Added "🎲 **Random Collection Showcase** - Dynamic home page featuring random public collections" as second feature
 - Added "🔄 **Interactive Discovery** - "New Collection" button for instant content refresh" at the end of features list
@@ -133,7 +133,7 @@ This document summarizes all the documentation files that have been updated to r
 2. **Feature Overview**: Updated all major README files with feature descriptions
 3. **Development Timeline**: Updated recent development summary with proper chronology
 4. **Status Reporting**: Updated final implementation report with current achievements
-5. **User-Facing Information**: Enhanced demo application documentation for end users
+5. **User-Facing Information**: Enhanced web application documentation for end users
 
 ### 📋 **Documentation Structure**
 
@@ -145,7 +145,7 @@ docs/
 └── [Other existing documentation files...]
 
 README.md                                           [UPDATED - Enhanced features]
-ArtSpark.Demo/README.md                    [UPDATED - Added showcase feature]
+ArtSpark.Web/README.md                    [UPDATED - Added showcase feature]
 ```
 
 ### 🎯 **Documentation Quality Standards**

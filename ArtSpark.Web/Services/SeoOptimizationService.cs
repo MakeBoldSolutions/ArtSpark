@@ -2,10 +2,10 @@ using Microsoft.SemanticKernel;
 using Microsoft.SemanticKernel.ChatCompletion;
 using System.Text.Json;
 using ArtSpark.Agent.Models;
-using ArtSpark.Demo.Models;
-using ArtSpark.Demo.Utilities;
+using ArtSpark.Web.Models;
+using ArtSpark.Web.Utilities;
 
-namespace ArtSpark.Demo.Services;
+namespace ArtSpark.Web.Services;
 
 /// <summary>
 /// Service for SEO optimization of collections and artwork items using AI

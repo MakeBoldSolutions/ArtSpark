@@ -4,7 +4,7 @@
 **Created**: November 16, 2025  
 **Status**: Draft  
 **Input**: User description: "Improve the User registration and profile experience to be more best in class according the industry best practices. Have the ability to upload a profile photo, Implement roles of User and Admin"  
-**Live Demo Impact**: This specification enhances the Demo's user authentication and profile management system with industry best practices including profile photo uploads, role-based access control (User/Admin), improved registration flows, and enhanced profile management capabilities that increase user engagement and enable administrative oversight.  
+**Live Site Impact**: This specification enhances the Demo's user authentication and profile management system with industry best practices including profile photo uploads, role-based access control (User/Admin), improved registration flows, and enhanced profile management capabilities that increase user engagement and enable administrative oversight.  
 **Related Projects**: 
 - **Demo**: Primary project - adds profile photo upload functionality, role management UI, enhanced registration/profile editing workflows
 - **Client/Agent/Console**: No contract changes required - feature is entirely within Demo boundaries
@@ -257,7 +257,7 @@ This feature does not involve AI personas or content generation. Standard conten
 
 - **Docs to Update**:
   - `README.md` (root) - Add section on user roles and profile features
-  - `ArtSpark.Demo/README.md` - Document profile photo upload configuration, role management, and file storage setup
+  - `ArtSpark.Web/README.md` - Document profile photo upload configuration, role management, and file storage setup
   - Create new `docs/User-Profile-Management.md` - Comprehensive guide for profile features, admin user management, and file upload configuration
   - Create new `docs/Role-Based-Access-Control.md` - Document role structure, permission assignments, and admin capabilities
   - Update `docs/Live-Testing-Checklist.md` - Add profile and role management test scenarios

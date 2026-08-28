@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ArtSpark.Demo.Data;
+using ArtSpark.Web.Data;
 
 #nullable disable
 
-namespace ArtSpark.Demo.Migrations
+namespace ArtSpark.Web.Migrations
 {
     [DbContext(typeof(ArtSparkDbContext))]
     [Migration("20250531203644_UpdateToIdentityDbContext")]
@@ -148,7 +148,7 @@ namespace ArtSpark.Demo.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
-            modelBuilder.Entity("ArtSpark.Demo.Models.ApplicationUser", b =>
+            modelBuilder.Entity("ArtSpark.Web.Models.ApplicationUser", b =>
                 {
                     b.Property<string>("Id")
                         .HasColumnType("TEXT");
@@ -231,7 +231,7 @@ namespace ArtSpark.Demo.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
-            modelBuilder.Entity("ArtSpark.Demo.Models.ArtworkReview", b =>
+            modelBuilder.Entity("ArtSpark.Web.Models.ArtworkReview", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -265,7 +265,7 @@ namespace ArtSpark.Demo.Migrations
                     b.ToTable("Reviews");
                 });
 
-            modelBuilder.Entity("ArtSpark.Demo.Models.CollectionArtwork", b =>
+            modelBuilder.Entity("ArtSpark.Web.Models.CollectionArtwork", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -288,7 +288,7 @@ namespace ArtSpark.Demo.Migrations
                     b.ToTable("CollectionArtworks");
                 });
 
-            modelBuilder.Entity("ArtSpark.Demo.Models.UserCollection", b =>
+            modelBuilder.Entity("ArtSpark.Web.Models.UserCollection", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -318,7 +318,7 @@ namespace ArtSpark.Demo.Migrations
                     b.ToTable("Collections");
                 });
 
-            modelBuilder.Entity("ArtSpark.Demo.Models.UserFavorite", b =>
+            modelBuilder.Entity("ArtSpark.Web.Models.UserFavorite", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -353,7 +353,7 @@ namespace ArtSpark.Demo.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
                 {
-                    b.HasOne("ArtSpark.Demo.Models.ApplicationUser", null)
+                    b.HasOne("ArtSpark.Web.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -362,7 +362,7 @@ namespace ArtSpark.Demo.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
-                    b.HasOne("ArtSpark.Demo.Models.ApplicationUser", null)
+                    b.HasOne("ArtSpark.Web.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -377,7 +377,7 @@ namespace ArtSpark.Demo.Migrations
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.HasOne("ArtSpark.Demo.Models.ApplicationUser", null)
+                    b.HasOne("ArtSpark.Web.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -386,16 +386,16 @@ namespace ArtSpark.Demo.Migrations
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<string>", b =>
                 {
-                    b.HasOne("ArtSpark.Demo.Models.ApplicationUser", null)
+                    b.HasOne("ArtSpark.Web.Models.ApplicationUser", null)
                         .WithMany()
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
                 });
 
-            modelBuilder.Entity("ArtSpark.Demo.Models.ArtworkReview", b =>
+            modelBuilder.Entity("ArtSpark.Web.Models.ArtworkReview", b =>
                 {
-                    b.HasOne("ArtSpark.Demo.Models.ApplicationUser", "User")
+                    b.HasOne("ArtSpark.Web.Models.ApplicationUser", "User")
                         .WithMany("Reviews")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -404,9 +404,9 @@ namespace ArtSpark.Demo.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ArtSpark.Demo.Models.CollectionArtwork", b =>
+            modelBuilder.Entity("ArtSpark.Web.Models.CollectionArtwork", b =>
                 {
-                    b.HasOne("ArtSpark.Demo.Models.UserCollection", "Collection")
+                    b.HasOne("ArtSpark.Web.Models.UserCollection", "Collection")
                         .WithMany("Artworks")
                         .HasForeignKey("CollectionId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -415,9 +415,9 @@ namespace ArtSpark.Demo.Migrations
                     b.Navigation("Collection");
                 });
 
-            modelBuilder.Entity("ArtSpark.Demo.Models.UserCollection", b =>
+            modelBuilder.Entity("ArtSpark.Web.Models.UserCollection", b =>
                 {
-                    b.HasOne("ArtSpark.Demo.Models.ApplicationUser", "User")
+                    b.HasOne("ArtSpark.Web.Models.ApplicationUser", "User")
                         .WithMany("Collections")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -426,9 +426,9 @@ namespace ArtSpark.Demo.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ArtSpark.Demo.Models.UserFavorite", b =>
+            modelBuilder.Entity("ArtSpark.Web.Models.UserFavorite", b =>
                 {
-                    b.HasOne("ArtSpark.Demo.Models.ApplicationUser", "User")
+                    b.HasOne("ArtSpark.Web.Models.ApplicationUser", "User")
                         .WithMany("Favorites")
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
@@ -437,7 +437,7 @@ namespace ArtSpark.Demo.Migrations
                     b.Navigation("User");
                 });
 
-            modelBuilder.Entity("ArtSpark.Demo.Models.ApplicationUser", b =>
+            modelBuilder.Entity("ArtSpark.Web.Models.ApplicationUser", b =>
                 {
                     b.Navigation("Collections");
 
@@ -446,7 +446,7 @@ namespace ArtSpark.Demo.Migrations
                     b.Navigation("Reviews");
                 });
 
-            modelBuilder.Entity("ArtSpark.Demo.Models.UserCollection", b =>
+            modelBuilder.Entity("ArtSpark.Web.Models.UserCollection", b =>
                 {
                     b.Navigation("Artworks");
                 });

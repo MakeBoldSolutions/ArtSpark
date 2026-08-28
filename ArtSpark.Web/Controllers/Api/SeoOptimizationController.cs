@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Security.Claims;
-using ArtSpark.Demo.Models.Api;
-using ArtSpark.Demo.Services;
+using ArtSpark.Web.Models.Api;
+using ArtSpark.Web.Services;
 
-namespace ArtSpark.Demo.Controllers.Api;
+namespace ArtSpark.Web.Controllers.Api;
 
 /// <summary>
 /// API controller for SEO optimization services

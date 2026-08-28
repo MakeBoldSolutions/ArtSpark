@@ -1,7 +1,7 @@
 using Markdig;
 using Microsoft.AspNetCore.Mvc;
 
-namespace ArtSpark.Demo.Controllers
+namespace ArtSpark.Web.Controllers
 {
     public class DocsController : Controller
     {

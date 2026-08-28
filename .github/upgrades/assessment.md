@@ -10,7 +10,7 @@ This document provides a comprehensive overview of the projects and their depend
   - [ArtSpark.Agent\ArtSpark.Agent.csproj](#websparkartsparkagentwebsparkartsparkagentcsproj)
   - [ArtSpark.Client\ArtSpark.Client.csproj](#websparkartsparkclientwebsparkartsparkclientcsproj)
   - [ArtSpark.Console\ArtSpark.Console.csproj](#websparkartsparkconsolewebsparkartsparkconsolecsproj)
-  - [ArtSpark.Demo\ArtSpark.Demo.csproj](#websparkartsparkdemowebsparkartsparkdemocsproj)
+  - [ArtSpark.Web\ArtSpark.Web.csproj](#websparkartsparkdemowebsparkartsparkdemocsproj)
   - [ArtSpark.Tests\ArtSpark.Tests.csproj](#websparkartsparktestswebsparkartsparktestscsproj)
 - [Aggregate NuGet packages details](#aggregate-nuget-packages-details)
 
@@ -25,7 +25,7 @@ Legend:
 flowchart LR
     P1["<b>📦&nbsp;ArtSpark.Console.csproj</b><br/><small>net9.0</small>"]
     P2["<b>📦&nbsp;ArtSpark.Client.csproj</b><br/><small>net9.0</small>"]
-    P3["<b>📦&nbsp;ArtSpark.Demo.csproj</b><br/><small>net9.0</small>"]
+    P3["<b>📦&nbsp;ArtSpark.Web.csproj</b><br/><small>net9.0</small>"]
     P4["<b>📦&nbsp;ArtSpark.Agent.csproj</b><br/><small>net9.0</small>"]
     P5["<b>📦&nbsp;ArtSpark.Tests.csproj</b><br/><small>net9.0</small>"]
     P1 --> P2
@@ -66,7 +66,7 @@ Legend:
 ```mermaid
 flowchart TB
     subgraph upstream["Dependants (2)"]
-        P3["<b>📦&nbsp;ArtSpark.Demo.csproj</b><br/><small>net9.0</small>"]
+        P3["<b>📦&nbsp;ArtSpark.Web.csproj</b><br/><small>net9.0</small>"]
         P5["<b>📦&nbsp;ArtSpark.Tests.csproj</b><br/><small>net9.0</small>"]
         click P3 "#websparkartsparkdemowebsparkartsparkdemocsproj"
         click P5 "#websparkartsparktestswebsparkartsparktestscsproj"
@@ -116,7 +116,7 @@ Legend:
 flowchart TB
     subgraph upstream["Dependants (2)"]
         P1["<b>📦&nbsp;ArtSpark.Console.csproj</b><br/><small>net9.0</small>"]
-        P3["<b>📦&nbsp;ArtSpark.Demo.csproj</b><br/><small>net9.0</small>"]
+        P3["<b>📦&nbsp;ArtSpark.Web.csproj</b><br/><small>net9.0</small>"]
         click P1 "#websparkartsparkconsolewebsparkartsparkconsolecsproj"
         click P3 "#websparkartsparkdemowebsparkartsparkdemocsproj"
     end
@@ -180,7 +180,7 @@ flowchart TB
 | WebSpark.HttpClientUtility | Explicit | 1.1.0 |  | ✅Compatible |
 
 <a id="websparkartsparkdemowebsparkartsparkdemocsproj"></a>
-### ArtSpark.Demo\ArtSpark.Demo.csproj
+### ArtSpark.Web\ArtSpark.Web.csproj
 
 #### Project Info
 
@@ -205,8 +205,8 @@ flowchart TB
         P5["<b>📦&nbsp;ArtSpark.Tests.csproj</b><br/><small>net9.0</small>"]
         click P5 "#websparkartsparktestswebsparkartsparktestscsproj"
     end
-    subgraph current["ArtSpark.Demo.csproj"]
-        MAIN["<b>📦&nbsp;ArtSpark.Demo.csproj</b><br/><small>net9.0</small>"]
+    subgraph current["ArtSpark.Web.csproj"]
+        MAIN["<b>📦&nbsp;ArtSpark.Web.csproj</b><br/><small>net9.0</small>"]
         click MAIN "#websparkartsparkdemowebsparkartsparkdemocsproj"
     end
     subgraph downstream["Dependencies (2"]
@@ -265,7 +265,7 @@ flowchart TB
         click MAIN "#websparkartsparktestswebsparkartsparktestscsproj"
     end
     subgraph downstream["Dependencies (2"]
-        P3["<b>📦&nbsp;ArtSpark.Demo.csproj</b><br/><small>net9.0</small>"]
+        P3["<b>📦&nbsp;ArtSpark.Web.csproj</b><br/><small>net9.0</small>"]
         P4["<b>📦&nbsp;ArtSpark.Agent.csproj</b><br/><small>net9.0</small>"]
         click P3 "#websparkartsparkdemowebsparkartsparkdemocsproj"
         click P4 "#websparkartsparkagentwebsparkartsparkagentcsproj"
@@ -295,13 +295,13 @@ flowchart TB
 | Package | Current Version | Suggested Version | Projects | Description |
 | :--- | :---: | :---: | :--- | :--- |
 | coverlet.collector | 6.0.4 |  | [ArtSpark.Tests.csproj](#websparkartsparktestscsproj) | ✅Compatible |
-| Markdig | 0.41.3 |  | [ArtSpark.Demo.csproj](#websparkartsparkdemocsproj) | ✅Compatible |
+| Markdig | 0.41.3 |  | [ArtSpark.Web.csproj](#websparkartsparkdemocsproj) | ✅Compatible |
 | Microsoft.AspNet.WebApi.Client | 6.0.0 |  | [ArtSpark.Client.csproj](#websparkartsparkclientcsproj)<br/>[ArtSpark.Console.csproj](#websparkartsparkconsolecsproj) | ✅Compatible |
-| Microsoft.AspNetCore.Identity.EntityFrameworkCore | 9.0.6 | 10.0.0 | [ArtSpark.Demo.csproj](#websparkartsparkdemocsproj) | NuGet package upgrade is recommended |
+| Microsoft.AspNetCore.Identity.EntityFrameworkCore | 9.0.6 | 10.0.0 | [ArtSpark.Web.csproj](#websparkartsparkdemocsproj) | NuGet package upgrade is recommended |
 | Microsoft.AspNetCore.Mvc.Testing | 9.0.6 | 10.0.0 | [ArtSpark.Tests.csproj](#websparkartsparktestscsproj) | NuGet package upgrade is recommended |
-| Microsoft.EntityFrameworkCore.InMemory | 9.0.6 | 10.0.0 | [ArtSpark.Demo.csproj](#websparkartsparkdemocsproj) | NuGet package upgrade is recommended |
-| Microsoft.EntityFrameworkCore.Sqlite | 9.0.6 | 10.0.0 | [ArtSpark.Demo.csproj](#websparkartsparkdemocsproj) | NuGet package upgrade is recommended |
-| Microsoft.EntityFrameworkCore.Tools | 9.0.6 | 10.0.0 | [ArtSpark.Demo.csproj](#websparkartsparkdemocsproj) | NuGet package upgrade is recommended |
+| Microsoft.EntityFrameworkCore.InMemory | 9.0.6 | 10.0.0 | [ArtSpark.Web.csproj](#websparkartsparkdemocsproj) | NuGet package upgrade is recommended |
+| Microsoft.EntityFrameworkCore.Sqlite | 9.0.6 | 10.0.0 | [ArtSpark.Web.csproj](#websparkartsparkdemocsproj) | NuGet package upgrade is recommended |
+| Microsoft.EntityFrameworkCore.Tools | 9.0.6 | 10.0.0 | [ArtSpark.Web.csproj](#websparkartsparkdemocsproj) | NuGet package upgrade is recommended |
 | Microsoft.Extensions.Configuration | 9.0.6 | 10.0.0 | [ArtSpark.Tests.csproj](#websparkartsparktestscsproj) | NuGet package upgrade is recommended |
 | Microsoft.Extensions.Configuration.Abstractions | 10.0.0 |  | [ArtSpark.Agent.csproj](#websparkartsparkagentcsproj) | ✅Compatible |
 | Microsoft.Extensions.Configuration.Json | 9.0.6 | 10.0.0 | [ArtSpark.Console.csproj](#websparkartsparkconsolecsproj) | NuGet package upgrade is recommended |
@@ -316,13 +316,13 @@ flowchart TB
 | Microsoft.SemanticKernel | 1.67.1 |  | [ArtSpark.Agent.csproj](#websparkartsparkagentcsproj) | ✅Compatible |
 | Microsoft.SemanticKernel.Connectors.OpenAI | 1.67.1 |  | [ArtSpark.Agent.csproj](#websparkartsparkagentcsproj) | ✅Compatible |
 | Moq | 4.20.72 |  | [ArtSpark.Tests.csproj](#websparkartsparktestscsproj) | ✅Compatible |
-| Serilog | 4.3.0 |  | [ArtSpark.Demo.csproj](#websparkartsparkdemocsproj) | ✅Compatible |
-| Serilog.Extensions.Hosting | 9.0.0 |  | [ArtSpark.Demo.csproj](#websparkartsparkdemocsproj) | ✅Compatible |
-| Serilog.Settings.Configuration | 9.0.0 |  | [ArtSpark.Demo.csproj](#websparkartsparkdemocsproj) | ✅Compatible |
-| Serilog.Sinks.Console | 6.0.0 |  | [ArtSpark.Demo.csproj](#websparkartsparkdemocsproj) | ✅Compatible |
-| Serilog.Sinks.File | 7.0.0 |  | [ArtSpark.Demo.csproj](#websparkartsparkdemocsproj) | ✅Compatible |
-| WebSpark.Bootswatch | 1.20.1 |  | [ArtSpark.Demo.csproj](#websparkartsparkdemocsproj) | ✅Compatible |
-| WebSpark.HttpClientUtility | 1.1.0 |  | [ArtSpark.Console.csproj](#websparkartsparkconsolecsproj)<br/>[ArtSpark.Demo.csproj](#websparkartsparkdemocsproj) | ✅Compatible |
+| Serilog | 4.3.0 |  | [ArtSpark.Web.csproj](#websparkartsparkdemocsproj) | ✅Compatible |
+| Serilog.Extensions.Hosting | 9.0.0 |  | [ArtSpark.Web.csproj](#websparkartsparkdemocsproj) | ✅Compatible |
+| Serilog.Settings.Configuration | 9.0.0 |  | [ArtSpark.Web.csproj](#websparkartsparkdemocsproj) | ✅Compatible |
+| Serilog.Sinks.Console | 6.0.0 |  | [ArtSpark.Web.csproj](#websparkartsparkdemocsproj) | ✅Compatible |
+| Serilog.Sinks.File | 7.0.0 |  | [ArtSpark.Web.csproj](#websparkartsparkdemocsproj) | ✅Compatible |
+| WebSpark.Bootswatch | 1.20.1 |  | [ArtSpark.Web.csproj](#websparkartsparkdemocsproj) | ✅Compatible |
+| WebSpark.HttpClientUtility | 1.1.0 |  | [ArtSpark.Console.csproj](#websparkartsparkconsolecsproj)<br/>[ArtSpark.Web.csproj](#websparkartsparkdemocsproj) | ✅Compatible |
 | WebSpark.HttpClientUtility | 2.1.1 |  | [ArtSpark.Agent.csproj](#websparkartsparkagentcsproj)<br/>[ArtSpark.Client.csproj](#websparkartsparkclientcsproj) | ✅Compatible |
 | xunit | 2.9.3 |  | [ArtSpark.Tests.csproj](#websparkartsparktestscsproj) | ✅Compatible |
 | xunit.runner.visualstudio | 3.1.1 |  | [ArtSpark.Tests.csproj](#websparkartsparktestscsproj) | ✅Compatible |

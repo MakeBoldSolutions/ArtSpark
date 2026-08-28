@@ -52,7 +52,7 @@ git push --force-with-lease origin main
 1. **ArtSpark.Client** ? net10.0
 2. **ArtSpark.Agent** ? net10.0
 3. **ArtSpark.Console** ? net10.0
-4. **ArtSpark.Demo** ? net10.0
+4. **ArtSpark.Web** ? net10.0
 5. **ArtSpark.Tests** ? net10.0
 
 ## Packages Updated (11 Total)
@@ -127,7 +127,7 @@ git push --force-with-lease origin main
 ## Documentation Updates
 
 ### Updated Files
-- ArtSpark.Demo/README.md
+- ArtSpark.Web/README.md
   - Updated .NET version badge to 10 (Preview)
   - Updated tech stack section
   - Updated prerequisites with .NET 10 SDK link

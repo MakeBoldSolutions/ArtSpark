@@ -1,9 +1,9 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using ArtSpark.Demo.Data;
-using ArtSpark.Demo.Models;
+using ArtSpark.Web.Data;
+using ArtSpark.Web.Models;
 
-namespace ArtSpark.Demo.Services;
+namespace ArtSpark.Web.Services;
 
 public interface IAdminUserService
 {

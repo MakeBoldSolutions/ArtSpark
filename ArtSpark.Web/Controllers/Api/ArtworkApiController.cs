@@ -3,7 +3,7 @@ using ArtSpark.Client.Interfaces;
 using ArtSpark.Client.Models.Collections;
 using ArtSpark.Client.Models.Common;
 
-namespace ArtSpark.Demo.Controllers.Api;
+namespace ArtSpark.Web.Controllers.Api;
 
 /// <summary>
 /// API controller for artwork-related operations

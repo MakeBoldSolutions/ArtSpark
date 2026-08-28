@@ -1,7 +1,7 @@
 using Serilog;
 using Serilog.Events;
 
-namespace ArtSpark.Demo.Utilities;
+namespace ArtSpark.Web.Utilities;
 
 /// <summary>
 /// Utility class for configuring Serilog logging with file system output

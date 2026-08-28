@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Identity;
 using System.ComponentModel.DataAnnotations;
 
-namespace ArtSpark.Demo.Models;
+namespace ArtSpark.Web.Models;
 
 public class ApplicationUser : IdentityUser
 {

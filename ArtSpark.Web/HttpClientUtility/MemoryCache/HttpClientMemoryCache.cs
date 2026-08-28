@@ -1,6 +1,6 @@
 using Microsoft.Extensions.Caching.Memory;
 
-namespace ArtSpark.Demo.HttpClientUtility.MemoryCache;
+namespace ArtSpark.Web.HttpClientUtility.MemoryCache;
 
 /// <summary>
 /// Implementation of HTTP client memory cache that uses IMemoryCache

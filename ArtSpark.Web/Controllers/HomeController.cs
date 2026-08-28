@@ -1,10 +1,10 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Diagnostics;
 using ArtSpark.Client.Interfaces;
-using ArtSpark.Demo.Models;
-using ArtSpark.Demo.Services;
+using ArtSpark.Web.Models;
+using ArtSpark.Web.Services;
 
-namespace ArtSpark.Demo.Controllers;
+namespace ArtSpark.Web.Controllers;
 
 public class HomeController : Controller
 {

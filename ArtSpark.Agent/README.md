@@ -538,7 +538,7 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 ## 🔗 Related Projects
 
 - **ArtSpark.Client**: Client library for Art Institute of Chicago API
-- **ArtSpark.Demo**: Complete demo application showcasing the library
+- **ArtSpark.Web**: Complete web application showcasing the library
 
 ## 📞 Support
 

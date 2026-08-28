@@ -2,12 +2,12 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "build-demo",
+      "label": "build-web",
       "command": "dotnet",
       "type": "process",
       "args": [
         "build",
-        "${workspaceFolder}/ArtSpark.Demo/ArtSpark.Demo.csproj",
+        "${workspaceFolder}/ArtSpark.Web/ArtSpark.Web.csproj",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary"
       ],
@@ -44,12 +44,12 @@
       "group": "build"
     },
     {
-      "label": "clean-demo",
+      "label": "clean-web",
       "command": "dotnet",
       "type": "process",
       "args": [
         "clean",
-        "${workspaceFolder}/ArtSpark.Demo/ArtSpark.Demo.csproj",
+        "${workspaceFolder}/ArtSpark.Web/ArtSpark.Web.csproj",
         "/property:GenerateFullPaths=true",
         "/consoleloggerparameters:NoSummary"
       ],
@@ -57,12 +57,12 @@
       "group": "build"
     },
     {
-      "label": "restore-demo",
+      "label": "restore-web",
       "command": "dotnet",
       "type": "process",
       "args": [
         "restore",
-        "${workspaceFolder}/ArtSpark.Demo/ArtSpark.Demo.csproj"
+        "${workspaceFolder}/ArtSpark.Web/ArtSpark.Web.csproj"
       ],
       "problemMatcher": "$msCompile",
       "group": "build"
@@ -76,14 +76,14 @@
       "group": "build"
     },
     {
-      "label": "watch-demo",
+      "label": "watch-web",
       "command": "dotnet",
       "type": "process",
       "args": [
         "watch",
         "run",
         "--project",
-        "${workspaceFolder}/ArtSpark.Demo/ArtSpark.Demo.csproj"
+        "${workspaceFolder}/ArtSpark.Web/ArtSpark.Web.csproj"
       ],
       "isBackground": true,
       "problemMatcher": [

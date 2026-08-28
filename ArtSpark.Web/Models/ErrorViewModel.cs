@@ -1,4 +1,4 @@
-namespace ArtSpark.Demo.Models;
+namespace ArtSpark.Web.Models;
 
 public class ErrorViewModel
 {

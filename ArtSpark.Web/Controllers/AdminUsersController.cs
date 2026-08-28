@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using ArtSpark.Demo.Services;
+using ArtSpark.Web.Services;
 
-namespace ArtSpark.Demo.Controllers;
+namespace ArtSpark.Web.Controllers;
 
 [Authorize(Roles = "Admin")]
 public class AdminUsersController : Controller

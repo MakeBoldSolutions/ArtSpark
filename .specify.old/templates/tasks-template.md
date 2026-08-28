@@ -10,7 +10,7 @@ description: "Task list template for feature implementation"
 
 **Tests**: The examples below include test tasks. Tests are OPTIONAL - only include them if explicitly requested in the feature specification.
 
-**Organization**: Tasks are grouped by user story to enable independent implementation and testing of each story. Always describe how the work surfaces in `ArtSpark.Demo` to honor the Live Demo First principle.
+**Organization**: Tasks are grouped by user story to enable independent implementation and testing of each story. Always describe how the work surfaces in `ArtSpark.Web` to honor the Live Demo First principle.
 
 ## Format: `[ID] [P?] [Story] Description`
 
@@ -20,10 +20,10 @@ description: "Task list template for feature implementation"
 
 ## Path Conventions
 
-- **Demo Web App**: `ArtSpark.Demo/Controllers/`, `.../Services/`, `.../Views/`, `.../wwwroot/`
+- **Demo Web App**: `ArtSpark.Web/Controllers/`, `.../Services/`, `.../Views/`, `.../wwwroot/`
 - **Agent Library**: `ArtSpark.Agent/Services/`, `.../Personas/`
 - **Client Library**: `ArtSpark.Client/Clients/`, `.../Models/`
-- **Shared Tests**: `ArtSpark.Tests/` (or `ArtSpark.Demo/Tests/` when scoped)
+- **Shared Tests**: `ArtSpark.Tests/` (or `ArtSpark.Web/Tests/` when scoped)
 - Always reference the exact `.cs` file or migration path affected
 
 <!-- 
@@ -63,8 +63,8 @@ description: "Task list template for feature implementation"
 
 Examples of foundational tasks (adjust based on your project):
 
-- [ ] T004 Create/Update EF Core migration in `ArtSpark.Demo/Migrations/`
-- [ ] T005 [P] Extend shared services in `ArtSpark.Demo/Services/` needed by multiple stories
+- [ ] T004 Create/Update EF Core migration in `ArtSpark.Web/Migrations/`
+- [ ] T005 [P] Extend shared services in `ArtSpark.Web/Services/` needed by multiple stories
 - [ ] T006 [P] Update `ArtSpark.Agent` persona contracts consumed by multiple stories
 - [ ] T007 Align `ArtSpark.Client` models with new API fields required by the Demo
 - [ ] T008 Expand Serilog configuration or health checks to cover the new surface area
@@ -85,13 +85,13 @@ Examples of foundational tasks (adjust based on your project):
 > **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
 
 - [ ] T010 [P] [US1] Add integration test in `ArtSpark.Tests/Integration/[Feature]Tests.cs`
-- [ ] T011 [P] [US1] Add UI test in `ArtSpark.Demo/Tests/Pages/[Page]Tests.cs`
+- [ ] T011 [P] [US1] Add UI test in `ArtSpark.Web/Tests/Pages/[Page]Tests.cs`
 
 ### Implementation for User Story 1
 
-- [ ] T012 [P] [US1] Update Demo controller in `ArtSpark.Demo/Controllers/[Controller]Controller.cs`
-- [ ] T013 [P] [US1] Adjust view or component in `ArtSpark.Demo/Views/[Area]/[View].cshtml`
-- [ ] T014 [US1] Add supporting service in `ArtSpark.Demo/Services/[Service].cs`
+- [ ] T012 [P] [US1] Update Demo controller in `ArtSpark.Web/Controllers/[Controller]Controller.cs`
+- [ ] T013 [P] [US1] Adjust view or component in `ArtSpark.Web/Views/[Area]/[View].cshtml`
+- [ ] T014 [US1] Add supporting service in `ArtSpark.Web/Services/[Service].cs`
 - [ ] T015 [US1] Update client/agent contract if required in `ArtSpark.Client/...` or `ArtSpark.Agent/...`
 - [ ] T016 [US1] Ensure validation, authorization, and guardrails are enforced
 - [ ] T017 [US1] Add Serilog logging and telemetry for new flow
@@ -113,7 +113,7 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Implementation for User Story 2
 
-- [ ] T020 [P] [US2] Extend Demo view models in `ArtSpark.Demo/Models/[Model].cs`
+- [ ] T020 [P] [US2] Extend Demo view models in `ArtSpark.Web/Models/[Model].cs`
 - [ ] T021 [US2] Update agent pipeline in `ArtSpark.Agent/Services/[Service].cs`
 - [ ] T022 [US2] Modify client request builder in `ArtSpark.Client/Clients/[Client].cs`
 - [ ] T023 [US2] Wire Demo UI to the new service while keeping US1 behavior intact
@@ -135,7 +135,7 @@ Examples of foundational tasks (adjust based on your project):
 
 ### Implementation for User Story 3
 
-- [ ] T026 [P] [US3] Extend supporting model in `ArtSpark.Demo/Models/[Model].cs`
+- [ ] T026 [P] [US3] Extend supporting model in `ArtSpark.Web/Models/[Model].cs`
 - [ ] T027 [US3] Update Demo Razor component or partial view
 - [ ] T028 [US3] Add configuration or migration updates if data model shifts
 
@@ -204,8 +204,8 @@ Task: "Contract test for [endpoint] in ArtSpark.Tests/Contracts/[Client]Contract
 Task: "Integration test for [user journey] in ArtSpark.Tests/Integration/[Feature]Tests.cs"
 
 # Launch all models for User Story 1 together:
-Task: "Update controller in ArtSpark.Demo/Controllers/[Controller]Controller.cs"
-Task: "Adjust view in ArtSpark.Demo/Views/[Area]/[View].cshtml"
+Task: "Update controller in ArtSpark.Web/Controllers/[Controller]Controller.cs"
+Task: "Adjust view in ArtSpark.Web/Views/[Area]/[View].cshtml"
 ```
 
 ---

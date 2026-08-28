@@ -13,9 +13,9 @@ description: "Implementation tasks for AI Persona Prompt Management System"
 **Purpose**: Prepare repository structure and baseline configuration for persona prompt files.
 
 - [X] T001 Restore NuGet packages for `ArtSpark.sln`
-- [X] T002 Create prompt directory scaffold `ArtSpark.Demo/prompts/agents/`
-- [X] T003 Add `ArtSparkAgent:Prompts` defaults (DataPath, FallbackToDefault, DefaultMetadata) to `ArtSpark.Demo/appsettings.Development.json`
-- [X] T004 Mirror production-safe prompt settings in `ArtSpark.Demo/appsettings.json`
+- [X] T002 Create prompt directory scaffold `ArtSpark.Web/prompts/agents/`
+- [X] T003 Add `ArtSparkAgent:Prompts` defaults (DataPath, FallbackToDefault, DefaultMetadata) to `ArtSpark.Web/appsettings.Development.json`
+- [X] T004 Mirror production-safe prompt settings in `ArtSpark.Web/appsettings.json`
 
 ---
 
@@ -26,7 +26,7 @@ description: "Implementation tasks for AI Persona Prompt Management System"
 - [X] T005 Implement prompt options model with metadata defaults in `ArtSpark.Agent/Configuration/PromptOptions.cs`
 - [X] T006 [P] Define persona prompt configuration map with token whitelist and default metadata in `ArtSpark.Agent/Configuration/PersonaPromptConfiguration.cs`
 - [X] T007 Update `ArtSpark.Agent/Extensions/ServiceCollectionExtensions.cs` to register prompt options, loader, and decorator services
-- [X] T008 Configure prompt options binding and fallback toggles in `ArtSpark.Demo/Program.cs`
+- [X] T008 Configure prompt options binding and fallback toggles in `ArtSpark.Web/Program.cs`
 - [X] T009 [P] Add `PromptOptionsValidationTests` covering defaults, key merging, file name rules, token whitelist enforcement, and invalid path handling in `ArtSpark.Tests/Agent/Configuration/PromptOptionsValidationTests.cs`
 - [X] T010a [P] Implement prompt data path validation at startup with warning logs when directory is missing or unreadable
 - [X] T010b [P] Add prompt path validation coverage in `PromptOptionsValidationTests.cs`
@@ -57,8 +57,8 @@ description: "Implementation tasks for AI Persona Prompt Management System"
 - [X] T018 [P] [US1] Create `FileBackedPersonaHandler` decorator in `ArtSpark.Agent/Personas/FileBackedPersonaHandler.cs`
 - [X] T019 [P] [US1] Expose fallback prompt accessors in persona classes within `ArtSpark.Agent/Personas/`
 - [X] T020 [US1] Update `ArtSpark.Agent/Personas/PersonaFactory.cs` to resolve decorators via `IPromptLoader`
-- [X] T021 [US1] Seed markdown prompt files with YAML front matter in `ArtSpark.Demo/prompts/agents/`
-- [X] T022 [US1] Register prompt loader pipeline inside `ArtSpark.Demo/Program.cs`
+- [X] T021 [US1] Seed markdown prompt files with YAML front matter in `ArtSpark.Web/prompts/agents/`
+- [X] T022 [US1] Register prompt loader pipeline inside `ArtSpark.Web/Program.cs`
 
 **Checkpoint**: Persona prompts load from files with safe fallback, enabling non-developer updates.
 
@@ -81,7 +81,7 @@ description: "Implementation tasks for AI Persona Prompt Management System"
 - [X] T026 [P] [US2] Emit `ConfigurationReloaded` log events when metadata overrides change in `ArtSpark.Agent/Services/PromptLoader.cs`
 - [X] T027 [P] [US2] Extend prompt options to support variants path in `ArtSpark.Agent/Configuration/PromptOptions.cs`
 - [X] T028 [US2] Update Console harness configuration in `ArtSpark.Console/Program.cs` to consume prompt options and variant selection
-- [X] T029 [P] [US2] Set development defaults (`EnableHotReload`, `VariantsPath`) in `ArtSpark.Demo/appsettings.Development.json`
+- [X] T029 [P] [US2] Set development defaults (`EnableHotReload`, `VariantsPath`) in `ArtSpark.Web/appsettings.Development.json`
 
 **Checkpoint**: Local developers can iterate on prompts live without rebuilding libraries.
 
@@ -96,14 +96,14 @@ description: "Implementation tasks for AI Persona Prompt Management System"
 ### Tests for User Story 3
 
 - [X] T030 [P] [US3] Add audit logging tests in `ArtSpark.Tests/Agent/Services/PromptAuditLoggingTests.cs`
-- [X] T031 [US3] Add Demo integration test verifying file-based, metadata overrides, and fallback prompts in `ArtSpark.Tests/Demo/PromptFallbackTests.cs`
+- [X] T031 [US3] Add Demo integration test verifying file-based, metadata overrides, and fallback prompts in `ArtSpark.Tests/Web/PromptFallbackTests.cs`
 
 ### Implementation for User Story 3
 
 - [X] T032 [US3] Emit structured Serilog events (`PromptLoaded`, `PromptLoadFailed`, `PromptFallbackUsed`, `PromptTokenValidationFailed`, `ConfigurationReloaded`) with metadata in `ArtSpark.Agent/Services/PromptLoader.cs`
 - [X] T033 [P] [US3] Add fallback warning handling that increments audit counters in `ArtSpark.Agent/Services/PromptLoader.cs`
-- [X] T034 [P] [US3] Extend `ArtSpark.Demo/Services/BuildInfoService.cs` to surface prompt file hashes, metadata overrides, and fallback status
-- [X] T035 [US3] Render prompt metadata in `ArtSpark.Demo/Views/Shared/Components/Footer/Default.cshtml`
+- [X] T034 [P] [US3] Extend `ArtSpark.Web/Services/BuildInfoService.cs` to surface prompt file hashes, metadata overrides, and fallback status
+- [X] T035 [US3] Render prompt metadata in `ArtSpark.Web/Views/Shared/Components/Footer/Default.cshtml`
 - [X] T036 [P] [US3] Add operator-facing log enrichment in `ArtSpark.Agent/Services/PromptLoader.cs` to include persona type and configuration source
 
 **Checkpoint**: Operators can audit prompt versions and detect fallback conditions in production.

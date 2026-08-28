@@ -4,10 +4,10 @@ using Moq;
 using System.ComponentModel.DataAnnotations;
 using System.Security.Claims;
 using ArtSpark.Agent.Models;
-using ArtSpark.Demo.Controllers.Api;
-using ArtSpark.Demo.Models;
-using ArtSpark.Demo.Models.Api;
-using ArtSpark.Demo.Services;
+using ArtSpark.Web.Controllers.Api;
+using ArtSpark.Web.Models;
+using ArtSpark.Web.Models.Api;
+using ArtSpark.Web.Services;
 
 namespace ArtSpark.Tests.Controllers;
 

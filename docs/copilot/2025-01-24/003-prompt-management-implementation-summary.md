@@ -41,7 +41,7 @@ Successfully implemented a production-ready prompt management system that extern
 - `PromptLoader`: File loading, validation, caching, hot reload infrastructure
 - `FileBackedPersonaHandler`: Decorator pattern wrapping base persona handlers
 - `PersonaFactory`: Updated to inject prompt loader and wrap handlers
-- 4 markdown prompt files in `ArtSpark.Demo/prompts/agents/`:
+- 4 markdown prompt files in `ArtSpark.Web/prompts/agents/`:
   - `artspark.artwork.prompt.md`
   - `artspark.artist.prompt.md`
   - `artspark.curator.prompt.md`
@@ -70,7 +70,7 @@ Successfully implemented a production-ready prompt management system that extern
 
 **Skipped**:
 - T024: Console harness tests (Console doesn't use Agent yet)
-- T028: Console integration (would require major refactoring, not aligned with "Live Demo First" principle)
+- T028: Console integration (would require major refactoring, not aligned with "Live Site First" principle)
 
 **Acceptance Test**: ✅ Verified via tests
 > Modify `artspark.curator.prompt.md` while tests run, confirm hot reload detects changes and reloads prompts.
@@ -128,7 +128,7 @@ ArtSpark.Agent/
 └── Models/
     └── PromptTemplate.cs              # Loaded prompt with metadata
 
-ArtSpark.Demo/
+ArtSpark.Web/
 ├── prompts/agents/
 │   ├── artspark.artwork.prompt.md
 │   ├── artspark.artist.prompt.md

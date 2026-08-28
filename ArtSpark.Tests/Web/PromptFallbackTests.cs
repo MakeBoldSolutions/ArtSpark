@@ -6,10 +6,10 @@ using ArtSpark.Agent.Configuration;
 using ArtSpark.Agent.Personas;
 using ArtSpark.Agent.Services;
 
-namespace ArtSpark.Tests.Demo;
+namespace ArtSpark.Tests.Web;
 
 /// <summary>
-/// Integration tests verifying prompt loading behavior in Demo scenarios.
+/// Integration tests verifying prompt loading behavior in web scenarios.
 /// Tests file-based prompts, metadata overrides, and fallback mechanisms.
 /// </summary>
 public class PromptFallbackTests : IDisposable
@@ -19,10 +19,10 @@ public class PromptFallbackTests : IDisposable
 
     public PromptFallbackTests()
     {
-        _testDataPath = Path.Combine(Path.GetTempPath(), "artspark-demo-test", Guid.NewGuid().ToString());
+        _testDataPath = Path.Combine(Path.GetTempPath(), "artspark-web-test", Guid.NewGuid().ToString());
         Directory.CreateDirectory(_testDataPath);
 
-        // Setup DI container similar to Demo
+        // Setup DI container similar to the web app
         var services = new ServiceCollection();
 
         var configData = new Dictionary<string, string?>
@@ -47,7 +47,7 @@ public class PromptFallbackTests : IDisposable
     }
 
     [Fact]
-    public async Task Demo_FileBasedPrompt_LoadsSuccessfully()
+    public async Task Web_FileBasedPrompt_LoadsSuccessfully()
     {
         // Arrange
         var promptContent = @"---
@@ -55,7 +55,7 @@ model: gpt-4o
 temperature: 0.8
 ---
 
-# Artwork Persona for Demo
+# Artwork Persona for Web
 
 ## CULTURAL SENSITIVITY
 Respectful approach to artwork interpretation
@@ -74,13 +74,13 @@ Engage visitors with artwork details";
 
         // Assert
         Assert.NotNull(template);
-        Assert.Contains("Artwork Persona for Demo", template.Content);
+        Assert.Contains("Artwork Persona for Web", template.Content);
         Assert.Equal(0.8, template.MetadataOverrides?.Temperature);
         Assert.Equal("gpt-4o", template.MetadataOverrides?.ModelId);
     }
 
     [Fact]
-    public async Task Demo_MetadataOverride_AppliesCorrectly()
+    public async Task Web_MetadataOverride_AppliesCorrectly()
     {
         // Arrange
         var promptContent = @"---
@@ -116,7 +116,7 @@ Conversation guidelines";
     }
 
     [Fact]
-    public async Task Demo_MissingPromptFile_FallsBackToDefault()
+    public async Task Web_MissingPromptFile_FallsBackToDefault()
     {
         // Arrange - no file created for Curator
         var loader = _serviceProvider.GetRequiredService<IPromptLoader>();
@@ -131,7 +131,7 @@ Conversation guidelines";
     }
 
     [Fact]
-    public async Task Demo_InvalidPromptFile_FallsBackGracefully()
+    public async Task Web_InvalidPromptFile_FallsBackGracefully()
     {
         // Arrange - create invalid prompt (missing required section)
         var invalidPrompt = @"---
@@ -158,7 +158,7 @@ Only one section present (missing CULTURAL SENSITIVITY)";
     }
 
     [Fact]
-    public async Task Demo_AllPersonas_CanLoadWithMixedFileAvailability()
+    public async Task Web_AllPersonas_CanLoadWithMixedFileAvailability()
     {
         // Arrange - create files for some personas, not others
         File.WriteAllText(
@@ -194,7 +194,7 @@ Only one section present (missing CULTURAL SENSITIVITY)";
     }
 
     [Fact]
-    public async Task Demo_DefaultMetadata_AppliesWhenNoOverride()
+    public async Task Web_DefaultMetadata_AppliesWhenNoOverride()
     {
         // Arrange - prompt without metadata front matter
         var promptContent = @"# Simple Artwork Prompt
@@ -220,7 +220,7 @@ Guidelines content";
     }
 
     [Fact]
-    public async Task Demo_PartialMetadataOverride_MergesWithDefaults()
+    public async Task Web_PartialMetadataOverride_MergesWithDefaults()
     {
         // Arrange - override only temperature, other fields use defaults
         var promptContent = @"---
@@ -251,7 +251,7 @@ Guidelines";
     }
 
     [Fact]
-    public async Task Demo_PromptLoading_DoesNotBlockChatFunctionality()
+    public async Task Web_PromptLoading_DoesNotBlockChatFunctionality()
     {
         // Arrange - simulate various prompt states
         File.WriteAllText(
@@ -281,7 +281,7 @@ Guidelines";
     }
 
     [Fact]
-    public async Task Demo_Configuration_ValidatesAtStartup()
+    public async Task Web_Configuration_ValidatesAtStartup()
     {
         // Arrange - create service provider with invalid path
         var services = new ServiceCollection();

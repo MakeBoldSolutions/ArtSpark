@@ -1,6 +1,6 @@
 # ArtSpark
 
-**A comprehensive .NET solution for the Art Institute of Chicago's public API, featuring a complete client library, revolutionary AI chat system with multiple personas, and demo applications showcasing modern .NET development practices.**
+**A comprehensive .NET solution for the Art Institute of Chicago's public API, featuring a complete client library, revolutionary AI chat system with multiple personas, and web applications showcasing modern .NET development practices.**
 
 [![.NET](https://img.shields.io/badge/.NET-10.0-purple.svg)](https://dotnet.microsoft.com/download)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
@@ -9,7 +9,7 @@
 
 ## About
 
-ArtSpark demonstrates a complete .NET ecosystem for the Art Institute of Chicago's public API, featuring a full client library, AI chat with multiple personas (Artwork, Artist, Curator, Historian), and a live demo application showcasing modern .NET development practices including Semantic Kernel, OpenAI Vision, and ASP.NET Core Identity.
+ArtSpark demonstrates a complete .NET ecosystem for the Art Institute of Chicago's public API, featuring a full client library, AI chat with multiple personas (Artwork, Artist, Curator, Historian), and a live web application showcasing modern .NET development practices including Semantic Kernel, OpenAI Vision, and ASP.NET Core Identity.
 
 > Built by [Make Bold Solutions](https://makeboldspark.com)
 > Part of the [MakeBoldSpark](https://makeboldspark.com) portfolio of technical demonstrations.
@@ -36,7 +36,7 @@ This solution provides a complete .NET ecosystem for interacting with the Art In
 
 - **ArtSpark.Client** - Complete API client library with all 33 endpoints
 - **ArtSpark.Agent** - Revolutionary AI chat system with multiple personas  
-- **ArtSpark.Demo** - Interactive web application showcasing all features
+- **ArtSpark.Web** - Interactive web application showcasing all features
 - **ArtSpark.Console** - Command-line application for developers
 
 ## Features
@@ -63,7 +63,7 @@ This solution provides a complete .NET ecosystem for interacting with the Art In
 - 📝 **Externalized Prompts**: Edit AI persona prompts without code changes (new in v1.1)
 - 🔥 **Hot Reload**: Live prompt updates in development without restarts (new in v1.1)
 
-### 🚀 Demo Application Features
+### 🚀 Web Site Features
 
 - 👤 **User Authentication**: ASP.NET Core Identity with SQLite database
 - 📚 **User Collections**: Personal artwork organization and favorites
@@ -78,7 +78,7 @@ This solution provides a complete .NET ecosystem for interacting with the Art In
 
 ## Quick Start
 
-### Try the Live Demo
+### Try the Live Site
 
 🌐 **[Experience ArtSpark live at Art.makeboldspark.com](https://Art.makeboldspark.com)**
 
@@ -100,7 +100,7 @@ dotnet build
 1. Run the demo web application:
 
 ```bash
-dotnet run --project ArtSpark.Demo
+dotnet run --project ArtSpark.Web
 ```
 
 Or run the console application:
@@ -111,12 +111,12 @@ dotnet run --project ArtSpark.Console
 
 ### 🎭 AI Chat Setup (Optional)
 
-To enable AI chat features, add your OpenAI API key to the demo application:
+To enable AI chat features, add your OpenAI API key to the web application:
 
 1. Set up user secrets:
 
 ```bash
-cd ArtSpark.Demo
+cd ArtSpark.Web
 dotnet user-secrets set "ArtSparkAgent:OpenAI:ApiKey" "your-openai-api-key-here"
 ```
 
@@ -447,9 +447,9 @@ public class ArtworkController : ControllerBase
 - **⚡ Real-time Chat**: Fast, responsive AI-powered conversations
 - **🔧 Configurable**: Flexible settings for different educational needs
 
-### Demo Experience
+### Web Experience
 
-Experience the interactive chat feature in our [live demo application](https://Art.makeboldspark.com) where you can:
+Experience the interactive chat feature in our [live web application](https://Art.makeboldspark.com) where you can:
 
 - Switch between different personas seamlessly
 - View suggested conversation starters for each persona
@@ -537,7 +537,7 @@ ArtSpark/
 │   ├── Personas/                        # AI persona implementations
 │   ├── Services/                        # Core chat services
 │   └── README.md                        # Agent library documentation
-├── ArtSpark.Demo/              # 🚀 Interactive web application
+├── ArtSpark.Web/              # 🚀 Interactive web application
 │   ├── Controllers/                     # MVC controllers
 │   ├── Data/                           # Entity Framework context
 │   ├── Migrations/                     # Database migrations
@@ -546,7 +546,7 @@ ArtSpark/
 │   ├── ViewComponents/                 # Reusable UI components
 │   ├── Views/                          # Razor views
 │   ├── wwwroot/                        # Static web assets
-│   └── README.md                        # Demo application guide
+│   └── README.md                        # Web application guide
 ├── ArtSpark.Console/           # 💻 Command-line application
 │   ├── Program.cs                       # Console app entry point
 │   └── appsettings.json                # Configuration
@@ -560,7 +560,7 @@ ArtSpark/
 ### Project Dependencies
 
 ```text
-ArtSpark.Demo
+ArtSpark.Web
 ├── ArtSpark.Agent (AI chat features)
 └── ArtSpark.Client (API access)
 
@@ -666,12 +666,12 @@ The ArtSpark application is currently running live at:
 
 ### Environment Setup
 
-The demo application supports multiple deployment scenarios:
+The web application supports multiple deployment scenarios:
 
 #### Local Development
 
 ```bash
-dotnet run --project ArtSpark.Demo
+dotnet run --project ArtSpark.Web
 ```
 
 #### Docker Deployment
@@ -681,7 +681,7 @@ FROM mcr.microsoft.com/dotnet/aspnet:10.0
 COPY . /app
 WORKDIR /app
 EXPOSE 80
-ENTRYPOINT ["dotnet", "ArtSpark.Demo.dll"]
+ENTRYPOINT ["dotnet", "ArtSpark.Web.dll"]
 ```
 
 #### Azure Deployment

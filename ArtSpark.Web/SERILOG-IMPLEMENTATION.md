@@ -2,13 +2,13 @@
 
 ## Overview
 
-Successfully updated the ArtSpark.Demo project to use Serilog for file system logging with a custom LoggingUtility middleware.
+Successfully updated the ArtSpark.Web project to use Serilog for file system logging with a custom LoggingUtility middleware.
 
 ## Changes Made
 
 ### 1. NuGet Package References Added
 
-Updated `ArtSpark.Demo.csproj` with the following Serilog packages:
+Updated `ArtSpark.Web.csproj` with the following Serilog packages:
 
 - **Serilog** (Version 4.2.0) - Core Serilog library
 - **Serilog.Extensions.Hosting** (Version 8.0.0) - ASP.NET Core integration
@@ -42,7 +42,7 @@ Created `Utilities/LoggingUtility.cs` with the following features:
 
 Updated `Program.cs` to:
 
-- Import the new `ArtSpark.Demo.Utilities` namespace
+- Import the new `ArtSpark.Web.Utilities` namespace
 - Call `builder.ConfigureLogging()` extension method early in the pipeline
 
 ### 4. Configuration Updates
@@ -78,11 +78,11 @@ Added logging demonstration to `HomeController.cs`:
 ## File Structure Changes
 
 ```
-ArtSpark.Demo/
+ArtSpark.Web/
 ├── Utilities/
 │   └── LoggingUtility.cs (NEW)
 ├── Program.cs (MODIFIED)
-├── ArtSpark.Demo.csproj (MODIFIED)
+├── ArtSpark.Web.csproj (MODIFIED)
 ├── appsettings.json (MODIFIED)
 ├── appsettings.Development.json (MODIFIED)
 └── Controllers/

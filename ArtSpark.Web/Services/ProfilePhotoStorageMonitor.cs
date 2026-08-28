@@ -1,8 +1,8 @@
 using Microsoft.Extensions.Diagnostics.HealthChecks;
 using Microsoft.Extensions.Options;
-using ArtSpark.Demo.Options;
+using ArtSpark.Web.Options;
 
-namespace ArtSpark.Demo.Services;
+namespace ArtSpark.Web.Services;
 
 public class ProfilePhotoStorageMonitor : BackgroundService
 {

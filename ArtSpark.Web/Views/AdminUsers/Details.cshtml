@@ -1,4 +1,4 @@
-@model ArtSpark.Demo.Services.UserDetailDto
+@model ArtSpark.Web.Services.UserDetailDto
 @{
     ViewData["Title"] = $"User Details - {Model.DisplayName}";
     var isLocked = Model.LockoutEnd.HasValue && Model.LockoutEnd.Value > DateTimeOffset.UtcNow;

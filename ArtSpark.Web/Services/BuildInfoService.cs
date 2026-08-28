@@ -4,7 +4,7 @@ using System.Text;
 using ArtSpark.Agent.Personas;
 using ArtSpark.Agent.Services;
 
-namespace ArtSpark.Demo.Services;
+namespace ArtSpark.Web.Services;
 
 public interface IBuildInfoService
 {

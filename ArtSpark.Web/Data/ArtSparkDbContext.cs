@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using ArtSpark.Demo.Models;
+using ArtSpark.Web.Models;
 
-namespace ArtSpark.Demo.Data;
+namespace ArtSpark.Web.Data;
 
 public class ArtSparkDbContext : IdentityDbContext<ApplicationUser>
 {

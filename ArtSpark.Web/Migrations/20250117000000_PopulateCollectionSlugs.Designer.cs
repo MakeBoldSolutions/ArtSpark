@@ -4,11 +4,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
-using ArtSpark.Demo.Data;
+using ArtSpark.Web.Data;
 
 #nullable disable
 
-namespace ArtSpark.Demo.Migrations
+namespace ArtSpark.Web.Migrations
 {
     [DbContext(typeof(ArtSparkDbContext))]
     [Migration("20250117000000_PopulateCollectionSlugs")]

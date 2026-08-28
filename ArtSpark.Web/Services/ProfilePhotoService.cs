@@ -3,10 +3,10 @@ using SixLabors.ImageSharp;
 using SixLabors.ImageSharp.Processing;
 using SixLabors.ImageSharp.Formats.Jpeg;
 using SixLabors.ImageSharp.Formats.Webp;
-using ArtSpark.Demo.Options;
+using ArtSpark.Web.Options;
 using ImageSharpImage = SixLabors.ImageSharp.Image;
 
-namespace ArtSpark.Demo.Services;
+namespace ArtSpark.Web.Services;
 
 public class ProfilePhotoService : IProfilePhotoService
 {

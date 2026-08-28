@@ -2,9 +2,9 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.Options;
 using System.Net;
 using System.Net.Mail;
-using ArtSpark.Demo.Options;
+using ArtSpark.Web.Options;
 
-namespace ArtSpark.Demo.Services;
+namespace ArtSpark.Web.Services;
 
 public class SmtpEmailSender : IEmailSender
 {

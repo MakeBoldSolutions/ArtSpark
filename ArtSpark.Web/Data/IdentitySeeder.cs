@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Identity;
-using ArtSpark.Demo.Models;
+using ArtSpark.Web.Models;
 
-namespace ArtSpark.Demo.Data;
+namespace ArtSpark.Web.Data;
 
 public static class IdentitySeeder
 {

@@ -6,7 +6,7 @@ using ArtSpark.Client.Models.Common;
 using ArtSpark.Client.Models.Mobile;
 using CollectionImage = ArtSpark.Client.Models.Collections.Image;
 
-namespace ArtSpark.Demo.Controllers.Api;
+namespace ArtSpark.Web.Controllers.Api;
 
 /// <summary>
 /// API controller for media-related operations (images, videos, sounds, mobile sounds)

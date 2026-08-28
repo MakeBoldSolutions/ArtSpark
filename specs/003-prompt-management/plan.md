@@ -2,7 +2,7 @@
 
 **Branch**: `003-prompt-management` | **Date**: 2025-11-17 | **Spec**: [`spec.md`](./spec.md)
 **Input**: Feature specification from `/specs/003-prompt-management/spec.md`
-**Live Demo Focus**: Externalize persona system prompts so Demo operators and content authors can adjust AI behavior without redeploying, preserving rapid iteration and cultural safeguards on the public site.
+**Live Site Focus**: Externalize persona system prompts so Demo operators and content authors can adjust AI behavior without redeploying, preserving rapid iteration and cultural safeguards on the public site.
 
 ## Summary
 
@@ -15,7 +15,7 @@ Load each persona’s system prompt from markdown files located under `prompts/a
 **Storage**: SQLite via EF Core migrations (no schema changes; prompt files stored on web server file system)  
 **Testing**: `dotnet test ArtSpark.Tests`; targeted Agent unit tests (`PromptLoaderTests`, `PersonaFactoryTests`, `PromptTemplateTokenTests`, `PromptOptionsValidationTests`, `PromptLoaderHotReloadTests`, `PromptAuditLoggingTests`) and Demo integration tests for prompt fallback  
 **Target Platform**: ASP.NET Core web app deployed to https://art.makeboldspark.com  
-**Project Type**: Multi-project .NET solution centered on `ArtSpark.Demo`  
+**Project Type**: Multi-project .NET solution centered on `ArtSpark.Web`  
 **Performance Goals**: Prompt load duration < 50 ms per persona during initialization; no increase to chat request latency beyond existing budgets  
 **Constraints**: Production prompt files editable on Demo web server (`prompts/agents/`); strict token validation triggers fallback; hot reload disabled in production by default; metadata overrides must map to OpenAI configuration surface  
 **Scale/Scope**: Impacts all four AI personas (Artwork, Artist, Curator, Historian) across Demo and Console; prompt files expected to remain < 50 KB each
@@ -47,7 +47,7 @@ specs/003-prompt-management/
 ### Source Code (repository root)
 
 ```text
-ArtSpark.Demo/      # ASP.NET Core MVC web app (primary delivery target)
+ArtSpark.Web/      # ASP.NET Core MVC web app (primary delivery target)
 ├── Controllers/
 ├── Services/
 ├── Views/
@@ -61,7 +61,7 @@ ArtSpark.Console/   # Developer tooling bound to Client contracts
 docs/                        # Operational and implementation guides
 ```
 
-**Structure Decision**: Reuse the existing multi-project layout; store editable persona prompts under `ArtSpark.Demo/prompts/agents/`, while `ArtSpark.Agent` exposes the file-backed loader consumed through `AddArtSparkAgent()` so Demo remains the integration hub.
+**Structure Decision**: Reuse the existing multi-project layout; store editable persona prompts under `ArtSpark.Web/prompts/agents/`, while `ArtSpark.Agent` exposes the file-backed loader consumed through `AddArtSparkAgent()` so Demo remains the integration hub.
 
 ## Complexity Tracking
 

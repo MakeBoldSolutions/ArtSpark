@@ -27,9 +27,9 @@ This scenario upgrades the ArtSpark solution from .NET 9.0 to .NET 10.0 (Preview
 ### [✓] TASK-003: Upgrade Tier 2 projects and update packages *(Completed: 2025-11-16 17:26)*
 **References**: Plan §3.2, Plan §2.2.1, Plan §2.2.2
 
-- [✓] (1) Update TargetFramework to net10.0 in ArtSpark.Console and ArtSpark.Demo per Plan §3.2
+- [✓] (1) Update TargetFramework to net10.0 in ArtSpark.Console and ArtSpark.Web per Plan §3.2
 - [✓] (2) Update NuGet packages in ArtSpark.Console per Plan §2.2.1
-- [✓] (3) Update NuGet packages in ArtSpark.Demo per Plan §2.2.2
+- [✓] (3) Update NuGet packages in ArtSpark.Web per Plan §2.2.2
 - [✓] (4) Restore dependencies
 - [✓] (5) Build both projects and verify no errors (**Verify**)
 - [✓] (6) Commit changes with message: "TASK-003: Upgrade Tier 2 projects and update packages"

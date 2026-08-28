@@ -1,7 +1,7 @@
 using Microsoft.SemanticKernel;
 using Moq;
 using ArtSpark.Agent.Models;
-using ArtSpark.Demo.Services;
+using ArtSpark.Web.Services;
 
 namespace ArtSpark.Tests.Services;
 
@@ -22,11 +22,11 @@ public class SeoOptimizationServiceTests
 
         var optimizeCollectionMethod = interfaceType.GetMethod("OptimizeCollectionAsync");
         Assert.NotNull(optimizeCollectionMethod);
-        Assert.Equal(typeof(Task<>).MakeGenericType(typeof(ArtSpark.Demo.Models.UserCollection)), optimizeCollectionMethod.ReturnType);
+        Assert.Equal(typeof(Task<>).MakeGenericType(typeof(ArtSpark.Web.Models.UserCollection)), optimizeCollectionMethod.ReturnType);
 
         var optimizeArtworkMethod = interfaceType.GetMethod("OptimizeCollectionArtworkAsync");
         Assert.NotNull(optimizeArtworkMethod);
-        Assert.Equal(typeof(Task<>).MakeGenericType(typeof(ArtSpark.Demo.Models.CollectionArtwork)), optimizeArtworkMethod.ReturnType);
+        Assert.Equal(typeof(Task<>).MakeGenericType(typeof(ArtSpark.Web.Models.CollectionArtwork)), optimizeArtworkMethod.ReturnType);
     }
     [Fact]
     public void SeoOptimizationService_Constructor_ThrowsWhenLoggerIsNull()

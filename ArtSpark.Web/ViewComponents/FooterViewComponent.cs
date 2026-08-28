@@ -1,7 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
-using ArtSpark.Demo.Services;
+using ArtSpark.Web.Services;
 
-namespace ArtSpark.Demo.ViewComponents;
+namespace ArtSpark.Web.ViewComponents;
 
 public class FooterViewComponent : ViewComponent
 {

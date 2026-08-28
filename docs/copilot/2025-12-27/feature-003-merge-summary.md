@@ -54,10 +54,10 @@ All tasks completed. Feature branch 003-prompt-management merged into main.
 - `ArtSpark.Agent/Models/PromptTemplate.cs` - Prompt data model
 
 #### 2. Prompt Files
-- `ArtSpark.Demo/prompts/agents/artspark.artist.prompt.md`
-- `ArtSpark.Demo/prompts/agents/artspark.artwork.prompt.md`
-- `ArtSpark.Demo/prompts/agents/artspark.curator.prompt.md`
-- `ArtSpark.Demo/prompts/agents/artspark.historian.prompt.md`
+- `ArtSpark.Web/prompts/agents/artspark.artist.prompt.md`
+- `ArtSpark.Web/prompts/agents/artspark.artwork.prompt.md`
+- `ArtSpark.Web/prompts/agents/artspark.curator.prompt.md`
+- `ArtSpark.Web/prompts/agents/artspark.historian.prompt.md`
 
 #### 3. Test Coverage
 - 9 new test suites with 63 prompt-specific tests

@@ -1,24 +1,24 @@
 # Quickstart – AI Persona Prompt Management System
 
 ## Prerequisites
-- ✅ Configure `ArtSparkAgent:Prompts` section in `ArtSpark.Demo/appsettings.Development.json` with `DataPath: "./prompts/agents"`.
+- ✅ Configure `ArtSparkAgent:Prompts` section in `ArtSpark.Web/appsettings.Development.json` with `DataPath: "./prompts/agents"`.
 - ✅ Ensure prompt markdown files exist: `prompts/agents/artspark.{persona}.prompt.md` with required sections and allowed tokens.
 - ✅ Set OpenAI API key via `dotnet user-secrets` if not already configured.
 
 ## Local Setup
 1. ✅ Create the prompt directory:
    ```powershell
-   mkdir -p ArtSpark.Demo/prompts/agents
+   mkdir -p ArtSpark.Web/prompts/agents
    ```
-2. ✅ Initial prompt templates are seeded in `ArtSpark.Demo/prompts/agents/` directory.
+2. ✅ Initial prompt templates are seeded in `ArtSpark.Web/prompts/agents/` directory.
 3. ✅ Confirm `ArtSparkAgent:Prompts:DefaultMetadata` in `appsettings.Development.json` includes values such as `ModelId`, `Temperature`, and optional knobs (`TopP`, `MaxOutputTokens`).
 4. ✅ Run migrations if necessary:
    ```powershell
-   dotnet ef database update --project ArtSpark.Demo
+   dotnet ef database update --project ArtSpark.Web
    ```
 5. ✅ Launch the Demo with hot reload enabled for prompts:
    ```powershell
-   dotnet watch run --project ArtSpark.Demo
+   dotnet watch run --project ArtSpark.Web
    ```
 
 ## Editing Prompts

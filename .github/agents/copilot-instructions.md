@@ -4,7 +4,7 @@ Auto-generated from all feature plans. Last updated: 2025-11-16
 
 ## Active Technologies
 - C# 13 / .NET 10 (Preview) + ASP.NET Core Identity, Entity Framework Core, Serilog, ImageSharp (or equivalent for resizing), ArtSpark shared libraries (002-user-profile)
-- SQLite via EF Core migrations (production-ready for single-node Demo; local file system for profile photos and thumbnails) (002-user-profile)
+- SQLite via EF Core migrations (production-ready for single-node web app; local file system for profile photos and thumbnails) (002-user-profile)
 - C# / .NET 10.0 (Preview) + ASP.NET Core, Microsoft Semantic Kernel, Serilog, Polly, ArtSpark.Agent, ArtSpark.Client (003-prompt-management)
 - SQLite via EF Core migrations (no schema changes; prompt files stored on web server file system) (003-prompt-management)
 

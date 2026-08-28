@@ -1,9 +1,9 @@
 using Microsoft.Extensions.Options;
-using ArtSpark.Demo.Data;
-using ArtSpark.Demo.Options;
+using ArtSpark.Web.Data;
+using ArtSpark.Web.Options;
 using Microsoft.EntityFrameworkCore;
 
-namespace ArtSpark.Demo.Services;
+namespace ArtSpark.Web.Services;
 
 public class AuditLogCleanupService : BackgroundService
 {

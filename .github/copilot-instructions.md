@@ -1,14 +1,14 @@
 # Copilot Instructions for ArtSpark
 
 ## Project Mission
-ArtSpark is a **.NET 10 (Preview)** multi-project solution centered on the public web experience at https://art.makeboldspark.com (`ArtSpark.Demo`). The solution provides a complete .NET ecosystem for the Art Institute of Chicago API with revolutionary AI chat capabilities featuring four distinct personas.
+ArtSpark is a **.NET 10 (Preview)** multi-project solution centered on the public web experience at https://art.makeboldspark.com (`ArtSpark.Web`). The solution provides a complete .NET ecosystem for the Art Institute of Chicago API with revolutionary AI chat capabilities featuring four distinct personas.
 
-**Project Hierarchy**: Demo → Agent/Client; Agent → Client; Console → Client. All supporting libraries exist to serve the Demo—articulate Demo impact before touching library contracts.
+**Project Hierarchy**: Web → Agent/Client; Agent → Client; Console → Client. All supporting libraries exist to serve the web app; articulate web impact before touching library contracts.
 
 ## Core Delivery Principles
-1. **Live Demo First**: Prioritize features that improve the live public experience. Changes to Client/Agent/Console require corresponding Demo integration in the same changeset.
-2. **Contract-Stable Libraries**: Preserve public contracts in shared libraries. Breaking changes require coordinated updates + explicit Demo coverage + release notes.
-3. **Production Reliability**: Update automated tests for every change. Maintain Serilog logging, build metadata display, and EF Core migrations under `ArtSpark.Demo/Migrations/`.
+1. **Live Web First**: Prioritize features that improve the live public experience. Changes to Client/Agent/Console require corresponding web integration in the same changeset.
+2. **Contract-Stable Libraries**: Preserve public contracts in shared libraries. Breaking changes require coordinated updates + explicit web coverage + release notes.
+3. **Production Reliability**: Update automated tests for every change. Maintain Serilog logging, build metadata display, and EF Core migrations under `ArtSpark.Web/Migrations/`.
 4. **Responsible AI**: Enforce persona guardrails (`ArtSpark.Agent/Personas/`), input validation, and cultural respect. Reference `docs/AI-Chat-Personas-Implementation.md`.
 5. **Documentation Discipline**: Update `README.md` files and `docs/` guides when behavior/configuration changes. Reflect version bumps in footer build metadata.
 
@@ -16,7 +16,7 @@ ArtSpark is a **.NET 10 (Preview)** multi-project solution centered on the publi
 
 ### Solution Structure
 ```
-Demo (ASP.NET Core MVC + Identity)
+Web (ASP.NET Core MVC + Identity)
 ├── Agent (AI chat with Microsoft Semantic Kernel + OpenAI)
 │   └── Client (Art Institute of Chicago API wrapper)
 └── Console (CLI test harness)
@@ -24,11 +24,11 @@ Demo (ASP.NET Core MVC + Identity)
 ```
 
 ### Key Integration Patterns
-- **DI Registration in Program.cs**: Use extension methods (`AddArtSparkAgent()`, `AddBootswatchThemeSwitcher()`) for clean service registration. See `ArtSpark.Demo/Program.cs` lines 75-105.
+- **DI Registration in Program.cs**: Use extension methods (`AddArtSparkAgent()`, `AddBootswatchThemeSwitcher()`) for clean service registration. See `ArtSpark.Web/Program.cs` lines 75-105.
 - **Decorator Pattern**: HttpClient utilities use layered decorators (base → Polly resilience → telemetry → cache). See `RegisterHttpClientUtilities()` in `Program.cs`.
 - **ViewComponents**: UI modules like `FooterViewComponent` inject services (`IBuildInfoService`) and render via `Views/Shared/Components/{Name}/Default.cshtml`.
 - **AI Personas**: Factory pattern creates persona handlers (`IPersonaHandler`) from enum values. Each persona (`ArtworkPersona`, `ArtistPersona`, `CuratorPersona`, `HistorianPersona`) generates unique system prompts for OpenAI.
-- **EF Core Identity**: `ArtSparkDbContext : IdentityDbContext<ApplicationUser>` with SQLite. Migrations in `ArtSpark.Demo/Migrations/`.
+- **EF Core Identity**: `ArtSparkDbContext : IdentityDbContext<ApplicationUser>` with SQLite. Migrations in `ArtSpark.Web/Migrations/`.
 
 ## Coding Standards
 - **Target .NET 10 (Preview)** / C# 13. Use async/await, minimal allocations, top-level statements, and primary constructors where appropriate.
@@ -43,14 +43,14 @@ Demo (ASP.NET Core MVC + Identity)
 # Restore dependencies
 dotnet restore ArtSpark.sln
 
-# Build solution (or use VS Code tasks: build-solution, build-demo)
+# Build solution (or use VS Code tasks: build-solution, build-web)
 dotnet build ArtSpark.sln
 
-# Run Demo locally
-dotnet run --project ArtSpark.Demo
+# Run Web locally
+dotnet run --project ArtSpark.Web
 
 # Watch mode for hot reload
-dotnet watch run --project ArtSpark.Demo
+dotnet watch run --project ArtSpark.Web
 ```
 
 ### Testing
@@ -75,25 +75,25 @@ Output: `docs/copilot/YYYY-MM-DD/quality-audit.md` with prioritized backlog. See
 ### Database Migrations
 ```powershell
 # Add new migration
-dotnet ef migrations add MigrationName --project ArtSpark.Demo
+dotnet ef migrations add MigrationName --project ArtSpark.Web
 
 # Update database
-dotnet ef database update --project ArtSpark.Demo
+dotnet ef database update --project ArtSpark.Web
 
 # Generate SQL script
-dotnet ef migrations script --project ArtSpark.Demo
+dotnet ef migrations script --project ArtSpark.Web
 ```
-Migrations live in `ArtSpark.Demo/Migrations/`. Use descriptive names and test both up/down paths.
+Migrations live in `ArtSpark.Web/Migrations/`. Use descriptive names and test both up/down paths.
 
 ### Serilog Logs
 - Log path configured via `WebSpark:LogFilePath` in `appsettings.json` (default: `c:\temp\WebSpark\Logs\artspark-.txt`).
 - Daily rolling with 30-day retention. EF Core queries filtered to Warning+.
-- See `ArtSpark.Demo/Utilities/LoggingUtility.cs` and `SERILOG-IMPLEMENTATION.md`.
+- See `ArtSpark.Web/Utilities/LoggingUtility.cs` and `SERILOG-IMPLEMENTATION.md`.
 
 ### AI Configuration
 ```bash
 # Set OpenAI API key (development)
-cd ArtSpark.Demo
+cd ArtSpark.Web
 dotnet user-secrets set "ArtSparkAgent:OpenAI:ApiKey" "sk-..."
 ```
 Config structure in `appsettings.json`:
@@ -121,8 +121,8 @@ Config structure in `appsettings.json`:
 - Update:
   - `README.md` (root and project-specific) for new capabilities or setup steps.
   - `docs/` implementation guides when workflows change.
-  - Deployment logs/build metadata displayed in the Demo footer or related view components.
-- Surface SemVer bumps for shared libraries and record Demo release info in operational docs.
+  - Deployment logs/build metadata displayed in the web footer or related view components.
+- Surface SemVer bumps for shared libraries and record web release info in operational docs.
 
 ## Documentation Standards
 
@@ -142,7 +142,7 @@ Config structure in `appsettings.json`:
 - Use descriptive filenames (e.g., `care-type-implementation-summary.md`, `template-validation-analysis.md`).
 
 ## Pull Request Expectations
-- Summarize Demo impact first, then supporting library changes.
+- Summarize web impact first, then supporting library changes.
 - List updated tests (`dotnet test` output) and manual verification (e.g., pages exercised, accessibility checks).
 - Highlight any AI persona updates, new guardrails, or documentation links.
 - Reference applicable specification/plan/tasks artifacts generated via SpecKit commands.

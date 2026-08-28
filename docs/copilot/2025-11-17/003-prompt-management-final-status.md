@@ -87,7 +87,7 @@ Successfully implemented a production-ready prompt management system that enable
 - Adding Agent dependency to Console project
 - Creating chat harness infrastructure
 - Significant testing effort
-- Not aligned with "Live Demo First" principle
+- Not aligned with "Live Site First" principle
 
 **Alternative**: Console can be enhanced in a future iteration when AI features are needed there.
 
@@ -174,10 +174,10 @@ Successfully implemented a production-ready prompt management system that enable
 - `ArtSpark.Agent/Personas/FileBackedPersonaHandler.cs`
 
 **Prompt Files**:
-- `ArtSpark.Demo/prompts/agents/artspark.artwork.prompt.md`
-- `ArtSpark.Demo/prompts/agents/artspark.artist.prompt.md`
-- `ArtSpark.Demo/prompts/agents/artspark.curator.prompt.md`
-- `ArtSpark.Demo/prompts/agents/artspark.historian.prompt.md`
+- `ArtSpark.Web/prompts/agents/artspark.artwork.prompt.md`
+- `ArtSpark.Web/prompts/agents/artspark.artist.prompt.md`
+- `ArtSpark.Web/prompts/agents/artspark.curator.prompt.md`
+- `ArtSpark.Web/prompts/agents/artspark.historian.prompt.md`
 
 **Tests**:
 - `ArtSpark.Tests/Agent/Configuration/PromptOptionsValidationTests.cs`
@@ -194,9 +194,9 @@ Successfully implemented a production-ready prompt management system that enable
 - `ArtSpark.Agent/Personas/HistorianPersona.cs` (added DefaultSystemPrompt)
 - `ArtSpark.Agent/Personas/PersonaFactory.cs` (decorator integration)
 - `ArtSpark.Agent/Extensions/ServiceCollectionExtensions.cs` (DI registration)
-- `ArtSpark.Demo/appsettings.json` (Prompts configuration)
-- `ArtSpark.Demo/appsettings.Development.json` (EnableHotReload: true)
-- `ArtSpark.Demo/Program.cs` (service registration)
+- `ArtSpark.Web/appsettings.json` (Prompts configuration)
+- `ArtSpark.Web/appsettings.Development.json` (EnableHotReload: true)
+- `ArtSpark.Web/Program.cs` (service registration)
 
 ### Documentation Created (4)
 - `docs/copilot/2025-01-24/003-prompt-management-implementation-summary.md`
@@ -395,10 +395,10 @@ dotnet test ArtSpark.Tests --filter "FullyQualifiedName~Prompt"
 dotnet build ArtSpark.sln
 
 # Run Demo locally
-dotnet run --project ArtSpark.Demo
+dotnet run --project ArtSpark.Web
 
 # Run Demo with hot reload (development)
-dotnet watch run --project ArtSpark.Demo
+dotnet watch run --project ArtSpark.Web
 ```
 
 ---

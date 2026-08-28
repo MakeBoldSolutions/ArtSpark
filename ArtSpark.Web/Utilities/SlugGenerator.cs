@@ -2,7 +2,7 @@ using System.Globalization;
 using System.Text;
 using System.Text.RegularExpressions;
 
-namespace ArtSpark.Demo.Utilities;
+namespace ArtSpark.Web.Utilities;
 
 public static class SlugGenerator
 {

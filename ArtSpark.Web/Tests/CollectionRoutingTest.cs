@@ -1,8 +1,8 @@
 using Microsoft.EntityFrameworkCore;
-using ArtSpark.Demo.Data;
-using ArtSpark.Demo.Utilities;
+using ArtSpark.Web.Data;
+using ArtSpark.Web.Utilities;
 
-namespace ArtSpark.Demo.Tests;
+namespace ArtSpark.Web.Tests;
 
 /// <summary>
 /// Test class to verify collection routing and slug functionality

@@ -156,7 +156,7 @@ All automated tests deferred to Phase 10:
 - ArtSpark.Client: succeeded
 - ArtSpark.Agent: succeeded
 - ArtSpark.Console: succeeded
-- ArtSpark.Demo: succeeded
+- ArtSpark.Web: succeeded
 - ArtSpark.Tests: succeeded
 ```
 
@@ -188,7 +188,7 @@ All automated tests deferred to Phase 10:
 
 ## Constitutional Compliance ✅
 
-1. **Live Demo First**: ✅ All features integrated into Demo project
+1. **Live Site First**: ✅ All features integrated into Demo project
 2. **Contract-Stable Libraries**: ✅ No breaking changes to shared libraries
 3. **Production Reliability**: ✅ Build succeeds, migration applied, comprehensive logging
 4. **Responsible AI**: ✅ N/A for this feature

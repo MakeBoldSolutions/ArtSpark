@@ -2,11 +2,11 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using ArtSpark.Client.Interfaces;
-using ArtSpark.Demo.Models;
-using ArtSpark.Demo.Services;
-using ArtSpark.Demo.Utilities;
+using ArtSpark.Web.Models;
+using ArtSpark.Web.Services;
+using ArtSpark.Web.Utilities;
 
-namespace ArtSpark.Demo.Controllers;
+namespace ArtSpark.Web.Controllers;
 
 public class AccountController : Controller
 {

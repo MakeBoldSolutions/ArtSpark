@@ -1,7 +1,7 @@
 using System.ComponentModel.DataAnnotations;
 using ArtSpark.Agent.Models;
 
-namespace ArtSpark.Demo.Models.Api;
+namespace ArtSpark.Web.Models.Api;
 
 /// <summary>
 /// Request model for collection optimization

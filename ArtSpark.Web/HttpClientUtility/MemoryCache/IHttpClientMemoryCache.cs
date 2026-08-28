@@ -1,4 +1,4 @@
-namespace ArtSpark.Demo.HttpClientUtility.MemoryCache;
+namespace ArtSpark.Web.HttpClientUtility.MemoryCache;
 
 /// <summary>
 /// Interface for an HTTP client memory cache
