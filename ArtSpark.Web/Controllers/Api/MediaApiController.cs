@@ -1,9 +1,11 @@
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System.Text.RegularExpressions;
 using ArtSpark.Client.Interfaces;
 using ArtSpark.Client.Models.Collections;
 using ArtSpark.Client.Models.Common;
 using ArtSpark.Client.Models.Mobile;
+using ArtSpark.Web.Services;
 using CollectionImage = ArtSpark.Client.Models.Collections.Image;
 
 namespace ArtSpark.Web.Controllers.Api;
@@ -17,6 +19,7 @@ namespace ArtSpark.Web.Controllers.Api;
 public class MediaApiController : ControllerBase
 {
     private readonly IArtInstituteClient _artInstituteClient;
+    private readonly IArtworkImageCacheService _artworkImageCacheService;
     private readonly ILogger<MediaApiController> _logger;
     private static readonly Regex ImageIdPattern = new("^[a-zA-Z0-9-]+$", RegexOptions.Compiled);
     private static readonly Regex IiifSizePattern = new(@"^\d+,?(\d+)?$", RegexOptions.Compiled);
@@ -30,9 +33,11 @@ public class MediaApiController : ControllerBase
 
     public MediaApiController(
         IArtInstituteClient artInstituteClient,
+        IArtworkImageCacheService artworkImageCacheService,
         ILogger<MediaApiController> logger)
     {
         _artInstituteClient = artInstituteClient ?? throw new ArgumentNullException(nameof(artInstituteClient));
+        _artworkImageCacheService = artworkImageCacheService ?? throw new ArgumentNullException(nameof(artworkImageCacheService));
         _logger = logger ?? throw new ArgumentNullException(nameof(logger));
     }
 
@@ -87,6 +92,56 @@ public class MediaApiController : ControllerBase
 
         var imageUrl = _artInstituteClient.BuildIiifUrl(imageId, size, format);
         return Redirect(imageUrl);
+    }
+
+    /// <summary>
+    /// Get the app-hosted cached image URL when available, otherwise the official IIIF URL.
+    /// </summary>
+    [HttpGet("images/cache-url/{imageId}")]
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public ActionResult<object> GetCachedImageUrl(
+        string imageId,
+        [FromQuery] string size = "400,",
+        [FromQuery] string format = "jpg")
+    {
+        if (!IsValidIiifRequest(imageId, size, format))
+        {
+            return BadRequest("Invalid image request");
+        }
+
+        return Ok(new
+        {
+            url = _artworkImageCacheService.GetImageUrl(imageId, size, format)
+        });
+    }
+
+    /// <summary>
+    /// Cache an IIIF image into app-hosted static files.
+    /// </summary>
+    [Authorize]
+    [HttpPost("images/cache/{imageId}")]
+    [ProducesResponseType(typeof(ArtworkImageCacheResult), StatusCodes.Status200OK)]
+    [ProducesResponseType(typeof(ArtworkImageCacheResult), StatusCodes.Status502BadGateway)]
+    [ProducesResponseType(StatusCodes.Status400BadRequest)]
+    public async Task<ActionResult<ArtworkImageCacheResult>> CacheIiifImage(
+        string imageId,
+        [FromQuery] string size = "400,",
+        [FromQuery] string format = "jpg",
+        CancellationToken cancellationToken = default)
+    {
+        if (!IsValidIiifRequest(imageId, size, format))
+        {
+            return BadRequest("Invalid image request");
+        }
+
+        var result = await _artworkImageCacheService.CacheImageAsync(imageId, size, format, cancellationToken);
+        if (!result.Success)
+        {
+            return StatusCode(StatusCodes.Status502BadGateway, result);
+        }
+
+        return Ok(result);
     }
 
     /// <summary>

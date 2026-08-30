@@ -1,0 +1,30 @@
+id: artspark-tests
+name: ArtSpark Tests
+kind: contributor-practice
+summary: ArtSpark.Tests and related test files validate web controllers, web services, client utilities, agent prompt behavior, persona behavior, and repository quality scenarios.
+owner: Make Bold Solutions
+lifecycle: current
+root: ArtSpark.Tests
+managed_by: human
+required_layers:
+  - architecture.md
+relations:
+  - type: validates
+    object: artspark-web
+  - type: validates
+    object: artspark-client
+  - type: validates
+    object: artspark-agent
+  - type: validates
+    object: artspark-console
+evidence:
+  - type: code
+    ref: ArtSpark.Tests/ArtSpark.Tests.csproj
+    verified_by: inspection
+    test_attempted: false
+    fallback_reason: Bootstrap discovery inventories test coverage without running repository tests.
+  - type: code
+    ref: ArtSpark.Tests
+    verified_by: inspection
+    test_attempted: false
+    fallback_reason: Bootstrap discovery inventories test coverage without running repository tests.

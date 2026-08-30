@@ -70,15 +70,18 @@ public class PublicCollectionService : IPublicCollectionService
 {
     private readonly ArtSparkDbContext _context;
     private readonly IArtInstituteClient _artInstituteClient;
+    private readonly IArtworkImageCacheService _artworkImageCacheService;
     private readonly ILogger<PublicCollectionService> _logger;
 
     public PublicCollectionService(
         ArtSparkDbContext context,
         IArtInstituteClient artInstituteClient,
+        IArtworkImageCacheService artworkImageCacheService,
         ILogger<PublicCollectionService> logger)
     {
         _context = context;
         _artInstituteClient = artInstituteClient;
+        _artworkImageCacheService = artworkImageCacheService;
         _logger = logger;
     }
 
@@ -312,7 +315,7 @@ public class PublicCollectionService : IPublicCollectionService
                 Dimensions = artwork?.Dimensions,
                 Description = artwork?.Description,
                 ImageUrl = !string.IsNullOrEmpty(artwork?.ImageId)
-                    ? ArtInstituteImageUrl.Build(artwork.ImageId, "400,")
+                    ? _artworkImageCacheService.GetImageUrl(artwork.ImageId, "400,")
                     : null,
                 ExternalUrl = artwork != null ? $"https://www.artic.edu/artworks/{artwork.Id}" : null,
 
@@ -500,10 +503,10 @@ public class PublicCollectionService : IPublicCollectionService
                 Description = artwork.Description,
                 ImageId = artwork.ImageId,
                 ImageUrl = !string.IsNullOrEmpty(artwork.ImageId)
-                  ? ArtInstituteImageUrl.Build(artwork.ImageId, "400,")
+                  ? _artworkImageCacheService.GetImageUrl(artwork.ImageId, "400,")
                   : null,
                 ThumbnailUrl = !string.IsNullOrEmpty(artwork.ImageId)
-                  ? ArtInstituteImageUrl.Build(artwork.ImageId, "400,")
+                  ? _artworkImageCacheService.GetImageUrl(artwork.ImageId, "400,")
                   : null,
                 StyleTitle = artwork.StyleTitle,
                 ClassificationTitle = artwork.ClassificationTitle,

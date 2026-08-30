@@ -1,0 +1,28 @@
+id: artspark-quality-audit
+name: ArtSpark Quality Audit
+kind: contributor-practice
+summary: The scripts/audit workflow orchestrates build diagnostics, dependency currency checks, safeguard audits, and Markdown report generation for contributor quality review.
+owner: Make Bold Solutions
+lifecycle: current
+root: scripts/audit
+managed_by: human
+required_layers:
+  - architecture.md
+relations:
+  - type: validates
+    object: artspark-solution
+evidence:
+  - type: code
+    ref: scripts/audit/run-quality-audit.ps1
+    verified_by: inspection
+    test_attempted: false
+    fallback_reason: Bootstrap discovery records script behavior; executing the quality audit is outside the quickstart verification scope.
+  - type: code
+    ref: scripts/audit/QualityAudit.psm1
+    verified_by: inspection
+    test_attempted: false
+    fallback_reason: Bootstrap discovery records module presence; executing the quality audit is outside the quickstart verification scope.
+  - type: doc
+    ref: README.md#quality-audit
+    verified_by: inspection
+

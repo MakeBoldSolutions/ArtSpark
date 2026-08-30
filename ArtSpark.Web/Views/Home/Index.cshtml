@@ -121,7 +121,7 @@
                                     <a href="/collection/@Model.Collection.Slug/item/@artwork.Slug"
                                         class="text-decoration-none text-dark"
                                         title="@(artwork.CollectionCustomTitle ?? artwork.Title)">
-                                        <img src="@ArtInstituteImageUrl.Build(artwork.ImageId, "400,")"
+                                        <img src="@ArtworkImageCache.GetImageUrl(artwork.ImageId, "400,")"
                                             class="card-img-top object-fit-cover" style="height: 250px;"
                                             alt="@(artwork.CollectionCustomTitle ?? artwork.Title) - @(string.IsNullOrEmpty(artwork.Artist) ? "Artist unknown" : $"by {artwork.Artist}")">
                                     </a>

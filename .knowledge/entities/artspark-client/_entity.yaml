@@ -1,0 +1,32 @@
+id: artspark-client
+name: ArtSpark Client
+kind: integration-catalog
+summary: ArtSpark.Client is a strongly typed .NET library for Art Institute of Chicago API access, covering collection, shop, mobile, scholarly catalog, static archive, and website endpoints.
+owner: Make Bold Solutions
+lifecycle: current
+root: ArtSpark.Client
+managed_by: human
+required_layers:
+  - architecture.md
+relations:
+  - type: supports
+    object: artspark-web
+  - type: supports
+    object: artspark-agent
+  - type: validated_by
+    object: artspark-tests
+evidence:
+  - type: code
+    ref: ArtSpark.Client/Clients/ArtInstituteClient.cs
+    verified_by: inspection
+    test_attempted: false
+    fallback_reason: Bootstrap discovery inspects public client methods; executable validation is deferred to normal repository test workflows.
+  - type: code
+    ref: ArtSpark.Client/Interfaces/IArtInstituteClient.cs
+    verified_by: inspection
+    test_attempted: false
+    fallback_reason: Bootstrap discovery inspects public client contracts; executable validation is deferred to normal repository test workflows.
+  - type: doc
+    ref: ArtSpark.Client/README.md
+    verified_by: inspection
+

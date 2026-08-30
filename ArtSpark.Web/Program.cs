@@ -105,6 +105,7 @@ builder.Services.AddScoped<IReviewService, ReviewService>();
 builder.Services.AddScoped<IFavoriteService, FavoriteService>();
 builder.Services.AddScoped<ICollectionService, CollectionService>();
 builder.Services.AddScoped<IPublicCollectionService, PublicCollectionService>();
+builder.Services.AddScoped<IArtworkImageCacheService, ArtworkImageCacheService>();
 builder.Services.AddSingleton<IBuildInfoService, BuildInfoService>();
 
 // Add SEO Optimization Service
@@ -112,6 +113,13 @@ builder.Services.AddScoped<ISeoOptimizationService, SeoOptimizationService>();
 
 // Add HttpClient factory (required for WebSpark.HttpClientUtility)
 builder.Services.AddHttpClient();
+builder.Services.AddHttpClient("ArtInstituteImages", client =>
+{
+    client.Timeout = TimeSpan.FromSeconds(30);
+    client.DefaultRequestHeaders.Add("Accept", "image/jpeg, image/png, image/webp, image/*;q=0.8");
+    client.DefaultRequestHeaders.Add("User-Agent", "ArtSpark/1.0 (+https://art.makeboldspark.com)");
+    client.DefaultRequestHeaders.Add("AIC-User-Agent", "ArtSpark/1.0 (https://art.makeboldspark.com)");
+});
 
 // Add ArtSpark Agent services
 builder.Services.AddArtSparkAgent(builder.Configuration, config =>
@@ -173,6 +181,25 @@ if (!app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseRouting();
+
+// Serve artwork images cached at runtime. MapStaticAssets only covers build-known files.
+var webRootPath = app.Environment.WebRootPath ?? Path.Combine(app.Environment.ContentRootPath, "wwwroot");
+var artworkImageCachePath = Path.Combine(webRootPath, "img", "artworks");
+if (!Directory.Exists(artworkImageCachePath))
+{
+    Directory.CreateDirectory(artworkImageCachePath);
+    app.Logger.LogInformation("Created artwork image cache directory at {Path}", artworkImageCachePath);
+}
+
+app.UseStaticFiles(new StaticFileOptions
+{
+    FileProvider = new PhysicalFileProvider(artworkImageCachePath),
+    RequestPath = ArtworkImageCacheService.RequestPath,
+    OnPrepareResponse = ctx =>
+    {
+        ctx.Context.Response.Headers.Append("Cache-Control", "public,max-age=2592000,immutable");
+    }
+});
 
 // Configure static file serving for uploads
 var fileUploadOptions = app.Services.GetRequiredService<Microsoft.Extensions.Options.IOptions<FileUploadOptions>>().Value;

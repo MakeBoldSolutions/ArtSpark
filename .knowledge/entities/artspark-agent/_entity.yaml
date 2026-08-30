@@ -1,0 +1,32 @@
+id: artspark-agent
+name: ArtSpark Agent
+kind: integration-catalog
+summary: ArtSpark.Agent is a .NET library that orchestrates AI artwork chat through Semantic Kernel, persona handlers, artwork data enrichment, input validation, memory, prompts, and optional vision analysis.
+owner: Make Bold Solutions
+lifecycle: current
+root: ArtSpark.Agent
+managed_by: human
+required_layers:
+  - architecture.md
+relations:
+  - type: uses
+    object: artspark-client
+  - type: supports
+    object: artspark-web
+  - type: validated_by
+    object: artspark-tests
+evidence:
+  - type: code
+    ref: ArtSpark.Agent/Services/ArtworkChatAgent.cs
+    verified_by: inspection
+    test_attempted: false
+    fallback_reason: Bootstrap discovery inspects agent orchestration; executable validation is deferred to normal repository test workflows.
+  - type: code
+    ref: ArtSpark.Agent/Extensions/ServiceCollectionExtensions.cs
+    verified_by: inspection
+    test_attempted: false
+    fallback_reason: Bootstrap discovery inspects service registration; executable validation is deferred to normal repository test workflows.
+  - type: doc
+    ref: ArtSpark.Agent/README.md
+    verified_by: inspection
+

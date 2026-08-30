@@ -1,0 +1,34 @@
+id: artspark-console
+name: ArtSpark Console
+kind: contributor-practice
+summary: ArtSpark.Console is a .NET 10 developer console application that configures ArtSpark client dependencies, prints prompt configuration, calls the Art Institute API, and exercises artist-search scenarios.
+owner: Make Bold Solutions
+lifecycle: current
+root: ArtSpark.Console
+managed_by: human
+required_layers:
+  - architecture.md
+relations:
+  - type: uses
+    object: artspark-client
+  - type: uses
+    object: artspark-agent
+  - type: validated_by
+    object: artspark-tests
+evidence:
+  - type: code
+    ref: ArtSpark.Console/Program.cs
+    verified_by: inspection
+    test_attempted: false
+    fallback_reason: Discovery inspected the console command surface; executable validation is deferred to normal repository test workflows.
+  - type: code
+    ref: ArtSpark.Console/ArtSpark.Console.csproj
+    verified_by: inspection
+    test_attempted: false
+    fallback_reason: Discovery inspected project dependencies; executable validation is deferred to normal repository test workflows.
+  - type: code
+    ref: ArtSpark.Console/ArtistSearchTest.cs
+    verified_by: inspection
+    test_attempted: false
+    fallback_reason: Discovery inspected developer test harness behavior; executable validation is deferred to normal repository test workflows.
+

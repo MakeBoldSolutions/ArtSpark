@@ -24,6 +24,7 @@ public class ArtworkController : Controller
     private readonly ICollectionService _collectionService;
     private readonly IFavoriteService _favoriteService;
     private readonly IProfilePhotoService _profilePhotoService;
+    private readonly IArtworkImageCacheService _artworkImageCacheService;
 
     public ArtworkController(
         IArtInstituteClient artInstituteClient,
@@ -32,7 +33,8 @@ public class ArtworkController : Controller
         IReviewService reviewService,
         IFavoriteService favoriteService,
         ICollectionService collectionService,
-        IProfilePhotoService profilePhotoService)
+        IProfilePhotoService profilePhotoService,
+        IArtworkImageCacheService artworkImageCacheService)
     {
         _artInstituteClient = artInstituteClient ?? throw new ArgumentNullException(nameof(artInstituteClient));
         _chatAgent = chatAgent ?? throw new ArgumentNullException(nameof(chatAgent));
@@ -41,6 +43,7 @@ public class ArtworkController : Controller
         _favoriteService = favoriteService ?? throw new ArgumentNullException(nameof(favoriteService));
         _collectionService = collectionService ?? throw new ArgumentNullException(nameof(collectionService));
         _profilePhotoService = profilePhotoService ?? throw new ArgumentNullException(nameof(profilePhotoService));
+        _artworkImageCacheService = artworkImageCacheService ?? throw new ArgumentNullException(nameof(artworkImageCacheService));
     }
 
     /// <summary>
@@ -390,8 +393,8 @@ public class ArtworkController : Controller
                 Description = artwork.PublicationHistory ?? "No description available",
                 CulturalContext = artwork.StyleTitle ?? "Unknown style",
                 Classification = artwork.ClassificationTitle ?? "Unknown classification",
-                ImageUrl = ArtInstituteImageUrl.BuildOfficial(artwork.ImageId, "843,"),
-                ThumbnailUrl = ArtInstituteImageUrl.BuildOfficial(artwork.ImageId, "200,")
+                ImageUrl = _artworkImageCacheService.GetImageUrl(artwork.ImageId, "843,"),
+                ThumbnailUrl = _artworkImageCacheService.GetImageUrl(artwork.ImageId, "200,")
             };
 
             // Get the persona

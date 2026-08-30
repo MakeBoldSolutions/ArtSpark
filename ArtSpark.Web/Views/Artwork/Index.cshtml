@@ -34,7 +34,7 @@
                     @if (!string.IsNullOrEmpty(artwork.ImageId))
                     {
                         <div class="position-relative overflow-hidden"> <img
-                                src="@ArtInstituteImageUrl.Build(artwork.ImageId, "400,")"
+                                src="@ArtworkImageCache.GetImageUrl(artwork.ImageId, "400,")"
                                 class="card-img-top object-fit-cover aspect-ratio-4-3" alt="@artwork.Title">
                         </div>
                     }

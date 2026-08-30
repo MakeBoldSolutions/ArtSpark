@@ -1,8 +1,10 @@
 @using ArtSpark.Web
 @using ArtSpark.Web.Models
+@using ArtSpark.Web.Services
 @using ArtSpark.Web.Utilities
 @using ArtSpark.Client.Models
 @using ArtSpark.Client.Models.Collections
 @using ArtSpark.Client.Models.Common
 @addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
 @addTagHelper *, WebSpark.Bootswatch
+@inject IArtworkImageCacheService ArtworkImageCache

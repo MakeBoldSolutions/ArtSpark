@@ -19,6 +19,7 @@ public class AccountController : Controller
     private readonly ISeoOptimizationService _seoOptimizationService;
     private readonly IProfilePhotoService _profilePhotoService;
     private readonly IAuditLogService _auditLogService;
+    private readonly IArtworkImageCacheService _artworkImageCacheService;
 
     public AccountController(
         UserManager<ApplicationUser> userManager,
@@ -29,7 +30,8 @@ public class AccountController : Controller
         IArtInstituteClient artInstituteClient,
         ISeoOptimizationService seoOptimizationService,
         IProfilePhotoService profilePhotoService,
-        IAuditLogService auditLogService)
+        IAuditLogService auditLogService,
+        IArtworkImageCacheService artworkImageCacheService)
     {
         _userManager = userManager;
         _signInManager = signInManager;
@@ -40,6 +42,7 @@ public class AccountController : Controller
         _seoOptimizationService = seoOptimizationService;
         _profilePhotoService = profilePhotoService;
         _auditLogService = auditLogService;
+        _artworkImageCacheService = artworkImageCacheService;
     }
 
     [HttpGet]
@@ -571,7 +574,7 @@ public class AccountController : Controller
             Dimensions = artwork?.Dimensions,
             Description = artwork?.Description,
             ImageUrl = !string.IsNullOrEmpty(artwork?.ImageId)
-                ? ArtInstituteImageUrl.Build(artwork.ImageId, "400,")
+                ? _artworkImageCacheService.GetImageUrl(artwork.ImageId, "400,")
                 : null,
             ExternalUrl = artwork != null ? $"https://www.artic.edu/artworks/{artwork.Id}" : null,
 
@@ -650,7 +653,7 @@ public class AccountController : Controller
             ArtworkTitle = artwork?.Title ?? "Unknown Title",
             ArtworkArtist = artwork?.ArtistDisplay ?? "Unknown Artist",
             ArtworkImageUrl = !string.IsNullOrEmpty(artwork?.ImageId)
-                ? ArtInstituteImageUrl.Build(artwork.ImageId, "400,")
+                ? _artworkImageCacheService.GetImageUrl(artwork.ImageId, "400,")
                 : null
         };
 
@@ -694,7 +697,7 @@ public class AccountController : Controller
             model.ArtworkTitle = artwork?.Title ?? "Unknown Title";
             model.ArtworkArtist = artwork?.ArtistDisplay ?? "Unknown Artist";
             model.ArtworkImageUrl = !string.IsNullOrEmpty(artwork?.ImageId)
-                ? ArtInstituteImageUrl.Build(artwork.ImageId, "400,")
+                ? _artworkImageCacheService.GetImageUrl(artwork.ImageId, "400,")
                 : null;
 
             return View(model);
@@ -739,7 +742,7 @@ public class AccountController : Controller
             model.ArtworkTitle = artwork?.Title ?? "Unknown Title";
             model.ArtworkArtist = artwork?.ArtistDisplay ?? "Unknown Artist";
             model.ArtworkImageUrl = !string.IsNullOrEmpty(artwork?.ImageId)
-                ? ArtInstituteImageUrl.Build(artwork.ImageId, "400,")
+                ? _artworkImageCacheService.GetImageUrl(artwork.ImageId, "400,")
                 : null;
 
             return View(model);

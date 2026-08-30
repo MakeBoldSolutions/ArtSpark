@@ -1,0 +1,32 @@
+id: artspark-web
+name: ArtSpark Web
+kind: knowledge-site
+summary: ArtSpark.Web is the ASP.NET Core web application that exposes the live ArtSpark experience, including artwork browsing, user accounts, public collections, AI chat integration, SEO routes, static assets, and health checks.
+owner: Make Bold Solutions
+lifecycle: current
+root: ArtSpark.Web
+managed_by: human
+required_layers:
+  - architecture.md
+relations:
+  - type: uses
+    object: artspark-client
+  - type: uses
+    object: artspark-agent
+  - type: validated_by
+    object: artspark-tests
+evidence:
+  - type: code
+    ref: ArtSpark.Web/Program.cs
+    verified_by: inspection
+    test_attempted: false
+    fallback_reason: Bootstrap discovery inspects composition and routing; executable validation is deferred to normal repository test workflows.
+  - type: code
+    ref: ArtSpark.Web/ArtSpark.Web.csproj
+    verified_by: inspection
+    test_attempted: false
+    fallback_reason: Bootstrap discovery inspects project dependencies; executable validation is deferred to normal repository test workflows.
+  - type: doc
+    ref: ArtSpark.Web/README.md
+    verified_by: inspection
+

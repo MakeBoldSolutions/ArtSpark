@@ -82,7 +82,7 @@
                                         <div class="col-6 col-md-4">
                                             <div class="position-relative artwork-thumbnail">
                                                 @if (!string.IsNullOrEmpty(artwork.ImageId))
-                                                {                                                    <img src="@ArtInstituteImageUrl.Build(artwork.ImageId, "300,")"
+                                                {                                                    <img src="@ArtworkImageCache.GetImageUrl(artwork.ImageId, "300,")"
                                                          class="w-100 object-fit-cover style-comparison-image" 
                                                          alt="@artwork.Title"
                                                          loading="lazy">

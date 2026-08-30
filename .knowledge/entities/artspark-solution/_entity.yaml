@@ -1,0 +1,32 @@
+id: artspark-solution
+name: ArtSpark Solution
+kind: repository-configuration
+summary: ArtSpark is a .NET 10 solution organized around a web application, Art Institute API client library, AI chat agent library, console utility, tests, documentation, and quality audit scripts.
+owner: Make Bold Solutions
+lifecycle: current
+root: .
+managed_by: human
+required_layers:
+  - architecture.md
+relations:
+  - type: scopes
+    object: artspark-web
+  - type: scopes
+    object: artspark-client
+  - type: scopes
+    object: artspark-agent
+  - type: scopes
+    object: artspark-console
+  - type: scopes
+    object: artspark-tests
+  - type: scopes
+    object: artspark-quality-audit
+evidence:
+  - type: doc
+    ref: README.md
+    verified_by: inspection
+  - type: code
+    ref: ArtSpark.sln
+    verified_by: inspection
+    test_attempted: false
+    fallback_reason: Bootstrap discovery records repository structure; full solution execution is outside the quickstart verification scope.

@@ -363,3 +363,4 @@ MigrationBackup/
 FodyWeavers.xsd
 # DevSpark — personal overrides (never commit)
 .documentation/*/commands/
+.knowledge/overrides/*/commands/
