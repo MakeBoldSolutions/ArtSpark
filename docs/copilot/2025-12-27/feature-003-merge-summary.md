@@ -24,7 +24,7 @@ Merge feature: AI Persona Prompt Management System
 - Implement comprehensive logging and operational visibility
 - Support metadata overrides and token validation
 - Add 83 passing tests covering all functionality
-- Complete documentation in specs/003-prompt-management/
+- Complete documentation in legacy 003-prompt-management work package/
 
 All tasks completed. Feature branch 003-prompt-management merged into main.
 ```
@@ -196,23 +196,23 @@ Build succeeded in 6.0s
 ## 📚 Documentation Artifacts
 
 ### Specification Folder
-- `specs/003-prompt-management/spec.md` - Feature specification
-- `specs/003-prompt-management/plan.md` - Technical plan
-- `specs/003-prompt-management/tasks.md` - Implementation tasks
-- `specs/003-prompt-management/research.md` - Research notes
-- `specs/003-prompt-management/data-model.md` - Data structures
-- `specs/003-prompt-management/quickstart.md` - Developer guide
-- `specs/003-prompt-management/performance-metrics.md` - Performance baseline
-- `specs/003-prompt-management/RELEASE-NOTES.md` - Release documentation
-- `specs/003-prompt-management/IMPLEMENTATION-COMPLETE.md` - Final status
+- `legacy 003-prompt-management work package/spec.md` - Feature specification
+- `legacy 003-prompt-management work package/plan.md` - Technical plan
+- `legacy 003-prompt-management work package/tasks.md` - Implementation tasks
+- `legacy 003-prompt-management work package/research.md` - Research notes
+- `legacy 003-prompt-management work package/data-model.md` - Data structures
+- `legacy 003-prompt-management work package/quickstart.md` - Developer guide
+- `legacy 003-prompt-management work package/performance-metrics.md` - Performance baseline
+- `legacy 003-prompt-management work package/RELEASE-NOTES.md` - Release documentation
+- `legacy 003-prompt-management work package/IMPLEMENTATION-COMPLETE.md` - Final status
 
 ### Contracts
-- `specs/003-prompt-management/contracts/appsettings.ArtSparkAgent.Prompts.schema.json`
-- `specs/003-prompt-management/contracts/prompt-frontmatter.schema.json`
-- `specs/003-prompt-management/contracts/prompt-loader-contract.md`
+- `legacy 003-prompt-management work package/contracts/appsettings.ArtSparkAgent.Prompts.schema.json`
+- `legacy 003-prompt-management work package/contracts/prompt-frontmatter.schema.json`
+- `legacy 003-prompt-management work package/contracts/prompt-loader-contract.md`
 
 ### Checklists
-- `specs/003-prompt-management/checklists/requirements.md` - 100% complete
+- `legacy 003-prompt-management work package/checklists/requirements.md` - 100% complete
 
 ### Documentation Updates
 - `docs/copilot/prompt-authoring-guide.md` - New content author guide
@@ -304,14 +304,14 @@ Build succeeded in 6.0s
 ## 🔗 Related Artifacts
 
 ### Specification Files
-- Full spec: [specs/003-prompt-management/spec.md](../../../specs/003-prompt-management/spec.md)
-- Tasks: [specs/003-prompt-management/tasks.md](../../../specs/003-prompt-management/tasks.md)
-- Plan: [specs/003-prompt-management/plan.md](../../../specs/003-prompt-management/plan.md)
+- Full spec: `legacy 003-prompt-management/spec.md`
+- Tasks: `legacy 003-prompt-management/tasks.md`
+- Plan: `legacy 003-prompt-management/plan.md`
 
 ### Implementation Summaries
 - [docs/copilot/2025-01-24/003-prompt-management-implementation-summary.md](../2025-01-24/003-prompt-management-implementation-summary.md)
 - [docs/copilot/2025-11-17/003-prompt-management-final-status.md](../2025-11-17/003-prompt-management-final-status.md)
-- [specs/003-prompt-management/IMPLEMENTATION-COMPLETE.md](../../../specs/003-prompt-management/IMPLEMENTATION-COMPLETE.md)
+- `legacy 003-prompt-management/IMPLEMENTATION-COMPLETE.md`
 
 ### Architecture Documentation
 - [docs/AI-Chat-Personas-Implementation.md](../../AI-Chat-Personas-Implementation.md)
@@ -341,3 +341,4 @@ git push origin main
 ```
 
 The AI Persona Prompt Management System is successfully merged into main and ready for deployment! 🚀
+

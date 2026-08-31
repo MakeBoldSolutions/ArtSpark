@@ -21,6 +21,8 @@ relations:
     object: artspark-tests
   - type: scopes
     object: artspark-quality-audit
+  - type: scopes
+    object: artspark-documentation
 evidence:
   - type: doc
     ref: README.md

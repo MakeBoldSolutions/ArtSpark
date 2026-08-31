@@ -10,9 +10,9 @@ Modified principles:
 Added sections: Architecture & Dependency Constraints; Delivery Workflow & Quality Gates
 Removed sections: None
 Templates requiring updates:
-- ✅ .specify/templates/plan-template.md
-- ✅ .specify/templates/spec-template.md
-- ✅ .specify/templates/tasks-template.md
+- ✅ .devspark/templates/plan-template.md
+- ✅ .devspark/templates/spec-template.md
+- ✅ .devspark/templates/tasks-template.md
 Follow-up TODOs: None
 -->
 
@@ -72,12 +72,12 @@ operators aligned across the multi-project solution.
 
 ## Delivery Workflow & Quality Gates
 
-- Every feature starts with `/speckit.spec` and `/speckit.plan` artifacts that explicitly describe
+- Every feature starts with `/devspark.specify` and `/devspark.plan` artifacts that explicitly describe
   web impact, shared library changes, testing strategy, and rollback steps.
 - Plans MUST pass the Constitution Check gate: web alignment, library contract review, AI safety
   confirmation (when applicable), and observability coverage. Violations require entries in the
   plan's Complexity Tracking table.
-- `/speckit.tasks` outputs MUST trace tasks to user stories and identify web-facing files, Agent
+- `/devspark.tasks` outputs MUST trace tasks to user stories and identify web-facing files, Agent
   service updates, and Client contract edits so reviewers can validate scope.
 - Before merge, contributors MUST run solution-wide tests (`dotnet test` across relevant projects)
   and document results or the rationale for deferring runs.
@@ -96,3 +96,4 @@ operators aligned across the multi-project solution.
   remediation plans before new feature work proceeds.
 
 **Version**: 1.0.0 | **Ratified**: 2025-11-16 | **Last Amended**: 2025-11-16
+

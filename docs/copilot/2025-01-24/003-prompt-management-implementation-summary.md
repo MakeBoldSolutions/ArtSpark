@@ -1,7 +1,7 @@
 # Prompt Management System - Implementation Summary
 
 **Feature**: AI Persona Prompt Management System  
-**Spec**: `specs/003-prompt-management/`  
+**Spec**: `legacy 003-prompt-management work package/`  
 **Implementation Date**: 2025-01-24  
 **Status**: ✅ **Core Implementation Complete**
 
@@ -371,10 +371,10 @@ Track configuration changes in development:
 
 ## References
 
-- **Specification**: `specs/003-prompt-management/spec.md`
-- **Task Breakdown**: `specs/003-prompt-management/tasks.md`
-- **Technical Plan**: `specs/003-prompt-management/plan.md`
-- **Contracts**: `specs/003-prompt-management/contracts/`
+- **Specification**: `legacy 003-prompt-management work package/spec.md`
+- **Task Breakdown**: `legacy 003-prompt-management work package/tasks.md`
+- **Technical Plan**: `legacy 003-prompt-management work package/plan.md`
+- **Contracts**: `legacy 003-prompt-management work package/contracts/`
   - `appsettings.ArtSparkAgent.Prompts.schema.json`
   - `prompt-frontmatter.schema.json`
   - `prompt-loader-contract.md`
@@ -384,3 +384,4 @@ Track configuration changes in development:
 **Implementation Team**: GitHub Copilot (Claude Sonnet 4.5)  
 **Review Status**: Pending stakeholder approval  
 **Production Ready**: ✅ Core implementation complete, documentation in progress
+

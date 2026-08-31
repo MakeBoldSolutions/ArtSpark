@@ -1,7 +1,7 @@
 # Quality Audit & Package Currency - Implementation Complete
 
 **Date**: 2025-11-16  
-**Feature**: specs/001-quality-audit  
+**Feature**: legacy 001-quality-audit work package  
 **Status**: ✅ Complete
 
 ## Summary
@@ -61,8 +61,8 @@ Successfully implemented a comprehensive quality audit system for the ArtSpark s
 ### Documentation
 - Updated `docs/Documentation-Update-Summary.md`
 - Updated `README.md` with Quality Audit section
-- Updated `specs/001-quality-audit/quickstart.md`
-- Updated `specs/001-quality-audit/tasks.md` (all 25 tasks marked complete)
+- Updated `legacy 001-quality-audit work package/quickstart.md`
+- Updated `legacy 001-quality-audit work package/tasks.md` (all 25 tasks marked complete)
 
 ### Reports Generated
 - `docs/copilot/2025-11-16/quality-audit.md` - Full audit report
@@ -184,3 +184,4 @@ The implementation follows the ArtSpark constitution:
 **Lines of Code Added**: ~986 (scripts + tests)  
 **Documentation Updated**: 4 files  
 **Quality Gates**: All passing
+

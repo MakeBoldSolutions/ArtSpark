@@ -1,6 +1,6 @@
 # Tasks: Enhanced User Registration and Profile Management
 
-**Input**: Design documents from `/specs/002-user-profile/`
+**Input**: Design documents from `/.devspark.work/specs/002-user-profile/`
 **Prerequisites**: plan.md, spec.md, research.md, data-model.md, quickstart.md, contracts/
 
 **Tests**: User stories explicitly request automated coverage; include the test tasks listed below.
@@ -254,3 +254,4 @@
 3. Iterate through P1 user stories (US2, US3) to solidify profile management and admin access.
 4. Layer P2 enhancements (US4–US6) for richer profile tools, admin dashboards, and stronger security.
 5. Conclude with P3 email verification (US7) and the polish phase to finalize documentation and operational readiness.
+

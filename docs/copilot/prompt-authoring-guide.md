@@ -381,7 +381,7 @@ Runtime:             temperature: 0.9
 - `PromptFallbackUsed`: When defaults activate
 - `ConfigurationReloaded`: Hot reload detection
 
-**Technical Questions**: Review `specs/003-prompt-management/` documentation
+**Technical Questions**: Review `legacy 003-prompt-management work package/` documentation
 
 **Content Questions**: Contact AI content team
 
@@ -458,5 +458,6 @@ artwork. Provide insights based on:
 ---
 
 **Version**: 1.0  
-**Specification**: `specs/003-prompt-management/spec.md`  
+**Specification**: `legacy 003-prompt-management work package/spec.md`  
 **Last Reviewed**: November 17, 2025
+

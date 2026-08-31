@@ -46,8 +46,8 @@ The ArtSpark solution now includes a comprehensive quality audit system that pro
 
 #### Updated Documentation
 
-1. **`specs/001-quality-audit/quickstart.md`** - Added usage examples for backlog filtering
-2. **`specs/001-quality-audit/tasks.md`** - Marked all tasks as completed
+1. **`legacy 001-quality-audit work package/quickstart.md`** - Added usage examples for backlog filtering
+2. **`legacy 001-quality-audit work package/tasks.md`** - Marked all tasks as completed
 
 ### Audit Workflow
 
@@ -180,3 +180,4 @@ The documentation suite now provides comprehensive coverage of this significant 
 
 *Documentation updated: June 6, 2025*
 *Implementation status: ✅ COMPLETE*
+

@@ -61,6 +61,6 @@ No `.documentation/` files were deleted. The intake constitution was preserved b
 
 ## Gaps And Follow-Up Recommendations
 
-- Review whether legacy `specs/` should move under `.devspark.work/specs/` in a separate migration step.
+- Legacy root `specs/` cleanup was completed on 2026-08-31: active `002-user-profile` moved under `.devspark.work/specs/`, completed legacy packages moved to the archive buffer.
 - Run a later focused `/devspark.discover-knowledge --scope docs` pass to decide which `docs/` files are current truth and which should be archived.
 - Execute repository tests separately before relying on test evidence in entity metadata.

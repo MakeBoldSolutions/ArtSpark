@@ -201,7 +201,7 @@ Successfully implemented a production-ready prompt management system that enable
 ### Documentation Created (4)
 - `docs/copilot/2025-01-24/003-prompt-management-implementation-summary.md`
 - `docs/copilot/prompt-authoring-guide.md`
-- `specs/003-prompt-management/contracts/appsettings.ArtSparkAgent.Prompts.schema.json` (updated)
+- `legacy 003-prompt-management work package/contracts/appsettings.ArtSparkAgent.Prompts.schema.json` (updated)
 - Updates to `ArtSpark.Agent/README.md` and root `README.md`
 
 ---
@@ -374,14 +374,14 @@ Build succeeded in 8.7s
 
 ### Key Contacts
 - **Implementation**: GitHub Copilot (Claude Sonnet 4.5)
-- **Specification**: `specs/003-prompt-management/spec.md`
+- **Specification**: `legacy 003-prompt-management work package/spec.md`
 - **Questions**: Review implementation summary in `docs/copilot/2025-01-24/`
 
 ### Important Files to Review
 1. **Prompt Authoring Guide**: `docs/copilot/prompt-authoring-guide.md` (content editor reference)
 2. **Implementation Summary**: `docs/copilot/2025-01-24/003-prompt-management-implementation-summary.md` (technical deep dive)
 3. **Agent README**: `ArtSpark.Agent/README.md` (developer integration)
-4. **Task Breakdown**: `specs/003-prompt-management/tasks.md` (completion tracking)
+4. **Task Breakdown**: `legacy 003-prompt-management work package/tasks.md` (completion tracking)
 
 ### Testing Commands
 ```bash
@@ -421,3 +421,4 @@ The core prompt management system is fully functional, comprehensively tested, a
 **Commits**: Multiple (see git log)  
 **Files Changed**: 24 (15 new, 9 modified)  
 **Lines Added**: ~3,500+ (implementation + tests + documentation)
+

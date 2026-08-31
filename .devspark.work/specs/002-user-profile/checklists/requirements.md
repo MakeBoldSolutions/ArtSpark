@@ -50,4 +50,4 @@
 - Success criteria provide clear measurement approach for feature validation
 - Specification maintains technology-agnostic language while providing sufficient detail for planning
 
-**Status**: ✅ **READY FOR PLANNING** - All quality checks passed. Specification is complete and ready for `/speckit.plan` phase.
+**Status**: ✅ **READY FOR PLANNING** - All quality checks passed. Specification is complete and ready for `/devspark.plan` phase.

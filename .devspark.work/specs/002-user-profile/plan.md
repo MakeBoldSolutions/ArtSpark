@@ -1,7 +1,7 @@
 # Implementation Plan: Enhanced User Registration and Profile Management
 
 **Branch**: `002-user-profile` | **Date**: 2025-11-16 | **Spec**: [spec.md](./spec.md)
-**Input**: Feature specification from `/specs/002-user-profile/spec.md`
+**Input**: Feature specification from `/.devspark.work/specs/002-user-profile/spec.md`
 **Live Site Focus**: Elevate the public Demo's registration and profile experience with photo uploads, stronger security, and Admin oversight, directly improving user-facing identity features while preserving contract boundaries.
 
 ## Summary
@@ -40,13 +40,13 @@ Implement profile photo uploads (with resizing and local storage), enhanced regi
 ### Documentation (this feature)
 
 ```text
-specs/[###-feature]/
-├── plan.md              # This file (/speckit.plan output)
-├── research.md          # Phase 0 output (/speckit.plan)
-├── data-model.md        # Phase 1 output (/speckit.plan)
-├── quickstart.md        # Phase 1 output (/speckit.plan)
-├── contracts/           # Phase 1 output (/speckit.plan)
-└── tasks.md             # Phase 2 output (/speckit.tasks)
+.devspark.work/specs/[###-feature]/
+├── plan.md              # This file (/devspark.plan output)
+├── research.md          # Phase 0 output (/devspark.plan)
+├── data-model.md        # Phase 1 output (/devspark.plan)
+├── quickstart.md        # Phase 1 output (/devspark.plan)
+├── contracts/           # Phase 1 output (/devspark.plan)
+└── tasks.md             # Phase 2 output (/devspark.tasks)
 ```
 
 ### Source Code (repository root)
@@ -65,7 +65,7 @@ ArtSpark.Console/   # Developer tooling bound to Client contracts
 docs/                        # Operational and implementation guides
 ```
 
-**Structure Decision**: Retain existing multi-project layout; all implementation occurs inside `ArtSpark.Web` plus new documentation under `docs/`, with planning artifacts in `specs/002-user-profile/`.
+**Structure Decision**: Retain existing multi-project layout; all implementation occurs inside `ArtSpark.Web` plus new documentation under `docs/`, with planning artifacts in `.devspark.work/specs/002-user-profile/`.
 
 ## Complexity Tracking
 
@@ -74,3 +74,4 @@ docs/                        # Operational and implementation guides
 | Violation | Why Needed | Simpler Alternative Rejected Because |
 |-----------|------------|-------------------------------------|
 | None | - | - |
+

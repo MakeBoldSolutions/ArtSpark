@@ -11,6 +11,10 @@
 | `artspark-console` | uses | `artspark-client` |
 | `artspark-console` | uses | `artspark-agent` |
 | `artspark-console` | validated_by | `artspark-tests` |
+| `artspark-documentation` | describes | `artspark-web` |
+| `artspark-documentation` | describes | `artspark-agent` |
+| `artspark-documentation` | describes | `artspark-quality-audit` |
+| `artspark-documentation` | supports | `artspark-solution` |
 | `artspark-quality-audit` | validates | `artspark-solution` |
 | `artspark-solution` | scopes | `artspark-web` |
 | `artspark-solution` | scopes | `artspark-client` |
@@ -18,6 +22,7 @@
 | `artspark-solution` | scopes | `artspark-console` |
 | `artspark-solution` | scopes | `artspark-tests` |
 | `artspark-solution` | scopes | `artspark-quality-audit` |
+| `artspark-solution` | scopes | `artspark-documentation` |
 | `artspark-tests` | validates | `artspark-web` |
 | `artspark-tests` | validates | `artspark-client` |
 | `artspark-tests` | validates | `artspark-agent` |

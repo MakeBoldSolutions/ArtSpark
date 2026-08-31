@@ -1,0 +1,33 @@
+id: artspark-documentation
+name: ArtSpark Documentation
+kind: contributor-practice
+summary: The docs tree is the repository documentation set for ArtSpark implementation guides, AI persona prompt authoring, operational notes, testing checklists, quality audit records, and feature completion reports.
+owner: Make Bold Solutions
+lifecycle: current
+root: docs
+managed_by: human
+required_layers:
+  - architecture.md
+relations:
+  - type: describes
+    object: artspark-web
+  - type: describes
+    object: artspark-agent
+  - type: describes
+    object: artspark-quality-audit
+  - type: supports
+    object: artspark-solution
+evidence:
+  - type: doc
+    ref: README.md
+    verified_by: inspection
+  - type: doc
+    ref: docs/ArtworkChatAgent-Documentation.md
+    verified_by: inspection
+  - type: doc
+    ref: docs/SEO-Optimization-Service-Documentation.md
+    verified_by: inspection
+  - type: doc
+    ref: docs/copilot/prompt-authoring-guide.md
+    verified_by: inspection
+

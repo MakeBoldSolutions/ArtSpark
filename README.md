@@ -739,7 +739,7 @@ The audit checks:
 - ✅ npm package currency (if package.json exists)
 - ✅ AI safeguard compliance (persona definitions, moderation hooks)
 
-See [`specs/001-quality-audit/quickstart.md`](specs/001-quality-audit/quickstart.md) for detailed usage.
+Run the script with `-?` for the full parameter reference.
 
 ### Development Setup
 
